@@ -1,5 +1,7 @@
 body {
-  font-family: 'Noto Sans', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    margin: 0;
+    color: #333;
 }
 
 
@@ -132,6 +134,100 @@ body {
 .eql-cntrb { 
   font-size: smaller;
 }
+
+
+
+/* Section styling */
+.gallery-section {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+}
+
+.gallery-title {
+  text-align: center;
+  font-size: 2.5em;
+  margin-top: 0;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+/* Grid container for the cards */
+.grid-container {
+  display: grid;
+  /* Create responsive columns that are at least 600px wide */
+  grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+  gap: 30px;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+/* Card styling */
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Title for each card */
+.card-title {
+  font-size: 1.5em;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/* Header for each card (View 1, View 2, etc.) */
+.card-header {
+  display: grid;
+  /* 1st for vertical title space, then 4 for images */
+  grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  text-align: center;
+  font-weight: bold;
+  color: #555;
+}
+
+/* Row containing title and images */
+.image-row {
+  display: grid;
+  /* 1st for vertical title, then 4 for images */
+  grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  align-items: center;
+}
+
+.image-row img {
+  width: 100%;
+  border-radius: 4px;
+  background-color: #fff; /* Placeholder color for unloaded images */
+}
+
+/* Vertical row titles (Original, Edited) */
+.row-title {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  text-align: center;
+  font-weight: 600;
+  color: #555;
+  justify-self: center;
+  margin: 0;
+  white-space: nowrap; /* Prevents title from wrapping */
+}
+
+
+
 
 
 
