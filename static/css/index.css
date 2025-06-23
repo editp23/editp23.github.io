@@ -301,34 +301,15 @@ section.has-background-light {
 }
 
 
-/* ── Method card look & feel ───────────────────── */
-.method-box{
-  border-radius: 8px;
-  box-shadow: 0 4px 16px rgba(0,0,0,.05);
-  padding: 2rem 2.25rem;
-  background:#fff;
+/* 1 : 1 square viewport that adapts to column width */
+.model-card model-viewer {
+  width: 100%;
+  aspect-ratio: 1 / 1;      /* becomes the height automatically */
+  height: auto;             /* don’t lock it to 220 px */
+  object-fit: contain;      /* keeps three-js canvas inside (in Safari) */
 }
 
-.method-caption{
-  font-size: 1rem;          /* smaller than main body text */
-  line-height: 1.45;
-  text-align: justify;
-  color:#4a4a4a;
-}
-
-
-/* ── 3-D section tweaks ────────────────────────── */
-.model-card{ padding:1rem 1rem 0; border:none; box-shadow:none; }
-
-.model-grid{
-  display:grid;
-  row-gap:1rem;
-}
-
-/* keep all model-viewer panes at the same height */
-.model-grid model-viewer{
-  width:100%;
-  height:220px;          /* tweak to taste */
-  background:#fafafa;    /* soft backdrop while loading */
-  border-radius:6px;
+/* optional – give the figure some breathing room */
+.model-card figure.image {
+  margin: 0 0 1rem;
 }

@@ -9,7 +9,7 @@
   <meta property="og:title" content="SOCIAL MEDIA TITLE TAG" />
   <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG" />
   <meta property="og:url" content="URL OF THE WEBSITE" />
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <!-- Path to banner image, should be in the path listed below. Optimal deimensions are 1200X630-->
   <meta property="og:image" content="static/image/your_banner_image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -17,7 +17,7 @@
 
   <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
   <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <!-- Path to banner image, should be in the path listed below. Optimal deimensions are 1200X600-->
   <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
   <meta name="twitter:card" content="summary_large_image">
   <!-- Keywords for your paper to be indexed by-->
@@ -85,8 +85,7 @@
   </section>
   
 <!-- ────────── Hero / results-carousel ────────── -->
-<section class="hero is-small">
-  <div class="hero-body">
+<section class="section">
     <div class="container">
 
       <div id="results-carousel" class="carousel results-carousel"
@@ -238,7 +237,6 @@
         </div>
       </div><!-- /results-carousel -->
 
-    </div>
   </div>
 </section>
 
@@ -250,14 +248,14 @@
   <div class="container is-max-desktop">
 
     <div class="box abstract-box">
-      <h2 class="title is-3 has-text-centered mb-4">Abstract</h2>
-
+      <h2 class="title is-4 mb-3">
+        Abstract</h2>
       <div class="content is-size-5 has-text-justified">
         <p>
           We present <strong>EditP23</strong>, a method for mask-free 3D editing that propagates 2D image edits
           to multi-view representations in a 3D-consistent manner. In contrast to traditional approaches that rely on
           text-based prompting or explicit spatial masks, EditP23 enables intuitive edits by conditioning on a pair of
-          images&mdash;an original view and its user-edited counterpart. These prompts guide an edit-aware flow in the
+          images: an original view and its user-edited counterpart. These prompts guide an edit-aware flow in the
           latent space of a pre-trained multi-view diffusion model, coherently propagating the edit across views.
           Operating in a feed-forward manner (no optimisation), our method preserves the object’s identity in both
           structure and appearance. We demonstrate effectiveness across diverse categories and edits, achieving
@@ -270,9 +268,10 @@
 </section>
 <!-- ────────── /Abstract ────────── -->
 
-  <section class="gallery-section">
-    <h2 class="gallery-title">Multi-View Edit Gallery</h2>
-    <p class="subtitle is-6 has-text-centered" style="max-width: 60rem; margin: 0 auto 1.5rem;">
+<section class="section" id="recon-gallery">
+    <h2 class="title is-3 has-text-centered mb-5">
+    Multi-View Edit Gallery</h2>
+  <p class="subtitle has-text-centered" style="max-width: 60rem; margin: 0 auto 1.5rem;">
       Results of our method across diverse object categories. Each block compares a source object (top)
       with its edited versions (below). The leftmost column shows the conditioning views (source and target)
       used to prompt the edit, while the remaining columns present novel viewpoints of the result. Our
@@ -416,26 +415,27 @@
       </div>
 
       <div class="card">
-        <h4 class="card-title">Object Edit Example</h4>
+        <h4 class="card-title">Object – Donut Style</h4>
         <div class="card-header">
-          <span></span> <span>View 1</span>
+          <span></span> <span>Cond. View</span>
+          <span>View 1</span>
           <span>View 2</span>
           <span>View 3</span>
         </div>
-        <div class="image-row" style="grid-template-columns: 0.5fr 1fr 1fr 1fr;">
+        <div class="image-row">
           <p class="row-title">Original</p>
-          <img src="static/images/img13.jpg" alt="Original Example View 1">
-          <img src="static/images/img14.jpg" alt="Original Example View 2">
-          <img src="static/images/img15.jpg" alt="Original Example View 3">
+          <img src="static/media/mv-gallery/6/src/prompt.png" alt="Original Item Conditional View">
+          <img src="static/media/mv-gallery/6/src/0.png" alt="Original Item View 1">
+          <img src="static/media/mv-gallery/6/src/1.png" alt="Original Item View 2">
+          <img src="static/media/mv-gallery/6/src/2.png" alt="Original Item View 3">
         </div>
-        <div class="image-row" style="grid-template-columns: 0.5fr 1fr 1fr 1fr;">
-            <p class="row-title">Edited</p>
-            <img src="static/images/img16.jpg" alt="Edited Example View 1">
-            <img src="static/images/img17.jpg" alt="Edited Example View 2">
-            <img src="static/images/img18.jpg" alt="Edited Example View 3">
+        <div class="image-row">
+            <p class="row-title">Donut</p>
+            <img src="static/media/mv-gallery/6/edit/prompt.png" alt="Donut Item Conditional View">
+            <img src="static/media/mv-gallery/6/edit/0.png" alt="Donut Item View 1">
+            <img src="static/media/mv-gallery/6/edit/1.png" alt="Donut Item View 2">
+            <img src="static/media/mv-gallery/6/edit/2.png" alt="Donut Item View 3">
         </div>
-      </div>
-
       </div>
   </section>
 
@@ -447,8 +447,8 @@
   <div class="container is-max-desktop">
 
     <div class="box method-box">
-      <h2 class="title is-3 has-text-centered mb-5" id="method">Method Overview</h2>
-
+      <h2 class="title is-3 has-text-centered mb-5">
+        Method Overview</h2>	
       <figure class="image">
         <img src="static/media/method/method_fig2.png"
              alt="Edit-guided denoising at one timestep">
@@ -466,8 +466,11 @@
 
   </div>
 </section>
-<section class="section">
+<section class="section" id="recon-gallery">
   <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered mb-5">
+      Interactive 3D Reconstruction Gallery
+    </h2>
 
     <div class="columns is-multiline is-variable is-4">
 
@@ -506,7 +509,7 @@
       </figure>
 
     </div>
-    <p class="has-text-centered is-size-6 mt-3">Subfolder&nbsp;1</p>
+    <p class="has-text-centered is-size-6 mt-3">Cartoonish car</p>
   </div>
 </div>
 
@@ -545,7 +548,7 @@
       </figure>
 
     </div>
-    <p class="has-text-centered is-size-6 mt-3">Subfolder&nbsp;2</p>
+    <p class="has-text-centered is-size-6 mt-3">Car with wings</p>
   </div>
 </div>
 
@@ -584,7 +587,7 @@
       </figure>
 
     </div>
-    <p class="has-text-centered is-size-6 mt-3">Subfolder&nbsp;3</p>
+    <p class="has-text-centered is-size-6 mt-3">Fox with open eyes</p>
   </div>
 </div>
 
@@ -623,7 +626,7 @@
       </figure>
 
     </div>
-    <p class="has-text-centered is-size-6 mt-3">Subfolder&nbsp;4</p>
+    <p class="has-text-centered is-size-6 mt-3">Golden R2D2&nbsp;4</p>
   </div>
 </div>
 
@@ -662,7 +665,7 @@
       </figure>
 
     </div>
-    <p class="has-text-centered is-size-6 mt-3">Subfolder&nbsp;5</p>
+    <p class="has-text-centered is-size-6 mt-3">Robot with sunglasses</p>
   </div>
 </div>
 
@@ -701,7 +704,7 @@
       </figure>
 
     </div>
-    <p class="has-text-centered is-size-6 mt-3">Subfolder&nbsp;6</p>
+    <p class="has-text-centered is-size-6 mt-3">Terrier with beanie</p>
   </div>
 </div>
 
@@ -740,7 +743,7 @@
       </figure>
 
     </div>
-    <p class="has-text-centered is-size-6 mt-3">Subfolder&nbsp;7</p>
+    <p class="has-text-centered is-size-6 mt-3">Batman with backpack</p>
   </div>
 </div>
 
@@ -779,7 +782,7 @@
       </figure>
 
     </div>
-    <p class="has-text-centered is-size-6 mt-3">Subfolder&nbsp;8</p>
+    <p class="has-text-centered is-size-6 mt-3">Grogu with red robe</p>
   </div>
 </div>
 
@@ -818,7 +821,7 @@
       </figure>
 
     </div>
-    <p class="has-text-centered is-size-6 mt-3">Subfolder&nbsp;9</p>
+    <p class="has-text-centered is-size-6 mt-3">Fox with tuxedo</p>
   </div>
 </div>
 
@@ -857,7 +860,7 @@
       </figure>
 
     </div>
-    <p class="has-text-centered is-size-6 mt-3">Subfolder&nbsp;10</p>
+    <p class="has-text-centered is-size-6 mt-3">Gothic cathedral</p>
   </div>
 </div>
 
@@ -896,7 +899,7 @@
       </figure>
 
     </div>
-    <p class="has-text-centered is-size-6 mt-3">Subfolder&nbsp;11</p>
+    <p class="has-text-centered is-size-6 mt-3">Terrier with Paddington's hat</p>
   </div>
 </div>
 <div class="column is-one-quarter-desktop is-half-tablet">
@@ -934,7 +937,7 @@
       </figure>
 
     </div>
-    <p class="has-text-centered is-size-6 mt-3">Subfolder&nbsp;11</p>
+    <p class="has-text-centered is-size-6 mt-3">Vespa</p>
   </div>
 </div>
 <div class="column is-one-quarter-desktop is-half-tablet">
@@ -972,7 +975,7 @@
       </figure>
 
     </div>
-    <p class="has-text-centered is-size-6 mt-3">Subfolder&nbsp;11</p>
+    <p class="has-text-centered is-size-6 mt-3">Grogu is the-force pose</p>
   </div>
 </div>
 <div class="column is-one-quarter-desktop is-half-tablet">
@@ -1010,7 +1013,7 @@
       </figure>
 
     </div>
-    <p class="has-text-centered is-size-6 mt-3">Subfolder&nbsp;11</p>
+    <p class="has-text-centered is-size-6 mt-3">Superman in Superman pose</p>
   </div>
 </div>
 
@@ -1049,7 +1052,7 @@
       </figure>
 
     </div>
-    <p class="has-text-centered is-size-6 mt-3">Subfolder&nbsp;11</p>
+    <p class="has-text-centered is-size-6 mt-3">Batmobile</p>
     
   </div>
 </div>
@@ -1088,7 +1091,7 @@
       </figure>
 
     </div>
-    <p class="has-text-centered is-size-6 mt-3">Subfolder&nbsp;11</p>
+    <p class="has-text-centered is-size-6 mt-3">Lego figure of Grogu</p>
     
   </div>
 </div>
@@ -1097,39 +1100,60 @@
 </section>
 
 
+<!-- ────────── BibTeX citation ────────── -->
+<section class="section has-background-light" id="BibTeX">
+  <div class="container is-max-desktop">
+    <div class="box bib-box">
 
+      <h2 class="title is-4 mb-3">BibTeX</h2>
 
-
-  <!--BibTex citation -->
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <pre><code>BibTex Code Here</code></pre>
-    </div>
-  </section>
-  <!--End BibTex citation -->
-
-
-  <footer class="footer">
-    <div class="container">
-      <div class="columns is-centered">
-        <div class="column is-8">
-          <div class="content">
-            <p>
-              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template"
-                target="_blank">Academic Project Page Template</a> which was adopted from the <a
-                href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-              You are free to borrow the source code of this website, we just ask that you link back to this page in the
-              footer. <br> This website is licensed under a <a rel="license"
-                href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-                Commons Attribution-ShareAlike 4.0 International License</a>.
-            </p>
-
-          </div>
-        </div>
+      <div class="field has-addons is-align-items-stretch">
+        <p class="control is-expanded">
+          <textarea id="bibtex-snippet"
+                    class="textarea is-family-monospace bib-text"
+                    readonly rows="6">{% raw %}BibTeX code here{% endraw %}</textarea>
+        </p>
+        <p class="control">
+          <button class="button is-dark copy-btn" onclick="copyBibtex()">
+            <span class="icon"><i class="fas fa-copy"></i></span>
+          </button>
+        </p>
       </div>
+
+      <p class="is-size-7 has-text-grey">
+        Click the clipboard icon or press <kbd>Ctrl+C</kbd> / <kbd>⌘+C</kbd> while
+        focusing the box to copy.
+      </p>
     </div>
-  </footer>
+  </div>
+</section>
+
+<!-- ────────── Footer ────────── -->
+<footer class="footer has-background-grey-darker has-text-grey-light">
+  <div class="container is-max-desktop">
+    <div class="content has-text-centered is-size-7">
+
+      <p>
+        Built with the
+        <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic&nbsp;Project&nbsp;Page&nbsp;Template</a>,
+        adapted from <a href="https://nerfies.github.io" target="_blank">Nerfies</a>.  
+        Source code is free to reuse—please link back. <br>
+        Licensed under
+        <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC&nbsp;BY-SA&nbsp;4.0</a>.
+      </p>
+
+    </div>
+  </div>
+</footer>
+
+<!-- copy-to-clipboard helper -->
+<script>
+function copyBibtex() {
+  const ta = document.getElementById('bibtex-snippet');
+  ta.select();
+  document.execCommand('copy');
+}
+</script>
 
 </body>
 
