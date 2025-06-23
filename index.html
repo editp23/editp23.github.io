@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
   <!-- Replace the content tag with appropriate information -->
   <meta name="description" content="DESCRIPTION META TAG">
-  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
-  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
-  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG" />
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG" />
+  <meta property="og:url" content="URL OF THE WEBSITE" />
   <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
   <meta property="og:image" content="static/image/your_banner_image.png" />
-  <meta property="og:image:width" content="1200"/>
-  <meta property="og:image:height" content="630"/>
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
 
 
   <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
@@ -22,19 +23,20 @@
   <!-- Keywords for your paper to be indexed by-->
   <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Include model-viewer script -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
 
-  <title>Academic Project Page</title>
+  <title>EditP23: Mask-Free 3D Editing via Propagation of Image Prompts to
+    Multi-View</title>
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-  rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="static/css/index.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -44,6 +46,7 @@
   <script src="static/js/bulma-slider.min.js"></script>
   <script src="static/js/index.js"></script>
 </head>
+
 <body>
 
 
@@ -52,10 +55,14 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Academic Project Page</h1>
-            <div class="is-size-5 publication-authors">
-              <!-- Paper authors -->
-              <span class="author-block">
+            <h1 class="title is-1 publication-title">EditP23</h1>
+            <h2 class="title is-2 publication-title">Mask-Free 3D Editing via Propagation of Image Prompts to
+              Multi-View</h2>
+
+
+            <!-- <div class="is-size-5 publication-authors"> -->
+            <!-- Paper authors -->
+            <!-- <span class="author-block">
                 <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
                 <span class="author-block">
                   <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
@@ -66,13 +73,12 @@
 
                   <div class="is-size-5 publication-authors">
                     <span class="author-block">Institution Name<br>Conferance name and year</span>
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
-                  </div>
+                  </div> -->
 
-                  <div class="column has-text-centered">
-                    <div class="publication-links">
-                         <!-- Arxiv PDF link -->
-                      <span class="link-block">
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- Paper PDF link -->
+                <!-- <span class="link-block">
                         <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
                         class="external-link button is-normal is-rounded is-dark">
                         <span class="icon">
@@ -80,10 +86,10 @@
                         </span>
                         <span>Paper</span>
                       </a>
-                    </span>
+                    </span> -->
 
-                    <!-- Supplementary PDF link -->
-                    <span class="link-block">
+                <!-- Supplementary PDF link -->
+                <!-- <span class="link-block">
                       <a href="static/pdfs/supplementary_material.pdf" target="_blank"
                       class="external-link button is-normal is-rounded is-dark">
                       <span class="icon">
@@ -91,11 +97,11 @@
                       </span>
                       <span>Supplementary</span>
                     </a>
-                  </span>
+                  </span> -->
 
-                  <!-- Github link -->
-                  <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
+                <!-- Github link -->
+                <span class="link-block">
+                  <a href="https://github.com/YOUR REPO HERE" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
@@ -107,206 +113,574 @@
                 <!-- ArXiv abstract Link -->
                 <span class="link-block">
                   <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-
-<!-- Teaser video-->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
+  </section>
+  <section class="hero is-small">
     <div class="hero-body">
-      <video poster="" id="tree" autoplay controls muted loop height="100%">
-        <!-- Your video here -->
-        <source src="static/videos/banner_video.mp4"
-        type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
-    </div>
-  </div>
-</section>
-<!-- End teaser video -->
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel">
 
-<!-- Paper abstract -->
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
-          </p>
+          <div class="item item-video1">
+            <div style="display: flex; gap: 10px; align-items: flex-start;">
+
+              <div style="display: flex; flex-direction: column; gap: 5px; flex: 1; max-width: 150px;">
+                <img src="static/media/hero/slide1/src.png" alt="Image 1A" style="width: 100%;">
+                <img src="static/media/hero/slide1/edited.png" alt="Image 1B" style="width: 100%;">
+              </div>
+
+              <video poster="" id="video1" autoplay controls muted loop
+                style="flex: 2; max-height: 400px; width: 100%;">
+                <source src="static/media/hero/slide1/ours.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+
+          <div class="item item-video2">
+            <div style="display: flex; gap: 10px; align-items: flex-start;">
+
+              <div style="display: flex; flex-direction: column; gap: 5px; flex: 1; max-width: 150px;">
+                <img src="static/media/hero/slide2/src.png" alt="Image 1A" style="width: 100%;">
+                <img src="static/media/hero/slide2/edited.png" alt="Image 1B" style="width: 100%;">
+              </div>
+
+              <video poster="" id="video2" autoplay controls muted loop
+                style="flex: 2; max-height: 400px; width: 100%;">
+                <source src="static/media/hero/slide2/ours.mp4" type="video/mp4">
+              </video>
+            </div>
+
+          </div>
+
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End paper abstract -->
-
-
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
         <h2 class="subtitle has-text-centered">
-          First image description.
+          Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat
+          pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus.
         </h2>
+
       </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
+
     </div>
-  </div>
-</div>
-</div>
-</section>
-<!-- End image carousel -->
+
+  </section>
 
 
 
 
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
+  <!-- Paper abstract -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- Youtube embed code here -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              We present EditP23, a method for mask-free 3D editing that propagates 2D image edits to multi-view
+              representations in a 3D-consistent manner. In contrast to traditional approaches that rely on text-based
+              prompting or explicit spatial masks, EditP23 enables intuitive edits by conditioning on a pair of images:
+              an original view and its user-edited counterpart. These image prompts are used to guide an edit-aware flow
+              in the latent space of a pre-trained multi-view diffusion model, allowing the edit to be coherently
+              propagated across views. Our method operates in a feed-forward manner, without optimization, and preserves
+              the identity of the original object, in both structure and appearance. We demonstrate its effectiveness
+              across a range of object categories and editing scenarios, achieving high fidelity to the source while
+              requiring no manual masks.
+            </p>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-<!-- End youtube video -->
+  </section>
+  <!-- End paper abstract -->
+  <section class="hero is-small">
+    <div class="grid-container" style="display: flex; flex-wrap: wrap; gap: 20px;">
+
+      <!-- Card 1 -->
+      <div class="card" style="flex: 1 1 calc(50% - 20px); border: 1px solid #ccc; padding: 10px;">
+        <div style="display: flex; gap: 5px; margin-bottom: 5px;">
+          <img src="static/media/mv-gallery/1/src/prompt.png" style="flex: 1; width: 25%;">
+          <img src="static/media/mv-gallery/1/src/0.png" style="flex: 1; width: 25%;">
+          <img src="static/media/mv-gallery/1/src/1.png" style="flex: 1; width: 25%;">
+          <img src="static/media/mv-gallery/1/src/2.png" style="flex: 1; width: 25%;">
+        </div>
+        <div style="display: flex; gap: 5px;">
+          <img src="static/media/mv-gallery/1/edit/prompt.png" style="flex: 1; width: 25%;">
+          <img src="static/media/mv-gallery/1/edit/0.png" style="flex: 1; width: 25%;">
+          <img src="static/media/mv-gallery/1/edit/1.png" style="flex: 1; width: 25%;">
+          <img src="static/media/mv-gallery/1/edit/2.png" style="flex: 1; width: 25%;">
+        </div>
+        <p> deer pixar style</p>
+        <div style="display: flex; gap: 5px;">
+          <img src="static/media/mv-gallery/1/edit2/prompt.png" style="flex: 1; width: 25%;">
+          <img src="static/media/mv-gallery/1/edit2/0.png" style="flex: 1; width: 25%;">
+          <img src="static/media/mv-gallery/1/edit2/1.png" style="flex: 1; width: 25%;">
+          <img src="static/media/mv-gallery/1/edit2/2.png" style="flex: 1; width: 25%;">
+        </div>
+        <p> deer with wings</p>
+
+      </div>
 
 
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4"
-            type="video/mp4">
-          </video>
+      <div class="card" style="flex: 1 1 calc(50% - 20px); border: 1px solid #ccc; padding: 10px;">
+        <div style="display: flex; gap: 5px; margin-bottom: 5px;">
+          <img src="static/media/mv-gallery/2/src/prompt.png" style="flex: 1; width: 25%;">
+          <img src="static/media/mv-gallery/2/src/0.png" style="flex: 1; width: 25%;">
+          <img src="static/media/mv-gallery/2/src/1.png" style="flex: 1; width: 25%;">
+          <img src="static/media/mv-gallery/2/src/2.png" style="flex: 1; width: 25%;">
         </div>
-        <div class="item item-video2">
-          <video poster="" id="video2" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4"
-            type="video/mp4">
-          </video>
+        <div style="display: flex; gap: 5px;">
+          <img src="static/media/mv-gallery/2/edit/prompt.png" style="flex: 1; width: 25%;">
+          <img src="static/media/mv-gallery/2/edit/0.png" style="flex: 1; width: 25%;">
+          <img src="static/media/mv-gallery/2/edit/1.png" style="flex: 1; width: 25%;">
+          <img src="static/media/mv-gallery/2/edit/2.png" style="flex: 1; width: 25%;">
         </div>
-        <div class="item item-video3">
-          <video poster="" id="video3" autoplay controls muted loop height="100%">\
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4"
-            type="video/mp4">
-          </video>
+        <p> old</p>
+        <div style="display: flex; gap: 5px;">
+          <img src="static/media/mv-gallery/2/edit2/prompt.png" style="flex: 1; width: 25%;">
+          <img src="static/media/mv-gallery/2/edit2/0.png" style="flex: 1; width: 25%;">
+          <img src="static/media/mv-gallery/2/edit2/1.png" style="flex: 1; width: 25%;">
+          <img src="static/media/mv-gallery/2/edit2/2.png" style="flex: 1; width: 25%;">
+        </div>
+        <p> zombie</p>
+
+      </div>
+
+      <div class="card" style="flex: 1 1 calc(50% - 20px); border: 1px solid #ccc; padding: 10px;">
+        <div style="display: flex; gap: 5px; margin-bottom: 5px;">
+          <img src="static/media/mv-gallery/3/src/prompt.png" style="flex: 1; width: 25%;">
+          <img src="static/media/mv-gallery/3/src/0.png" style="flex: 1; width: 25%;">
+          <img src="static/media/mv-gallery/3/src/1.png" style="flex: 1; width: 25%;">
+          <img src="static/media/mv-gallery/3/src/2.png" style="flex: 1; width: 25%;">
+        </div>
+        <div style="display: flex; gap: 5px;">
+          <img src="static/media/mv-gallery/3/edit/prompt.png" style="flex: 1; width: 25%;">
+          <img src="static/media/mv-gallery/3/edit/0.png" style="flex: 1; width: 25%;">
+          <img src="static/media/mv-gallery/3/edit/1.png" style="flex: 1; width: 25%;">
+          <img src="static/media/mv-gallery/3/edit/2.png" style="flex: 1; width: 25%;">
+        </div>
+        <p>fantasy</p>
+      </div>
+
+      <div class="card" style="flex: 1 1 calc(50% - 20px); border: 1px solid #ccc; padding: 10px;">
+        <div style="display: flex; gap: 5px; margin-bottom: 5px;">
+          <img src="static/media/mv-gallery/4/src/prompt.png" style="flex: 1; width: 25%;">
+          <img src="static/media/mv-gallery/4/src/0.png" style="flex: 1; width: 25%;">
+          <img src="static/media/mv-gallery/4/src/1.png" style="flex: 1; width: 25%;">
+          <img src="static/media/mv-gallery/4/src/2.png" style="flex: 1; width: 25%;">
+        </div>
+        <div style="display: flex; gap: 5px;">
+          <img src="static/media/mv-gallery/4/edit/prompt.png" style="flex: 1; width: 25%;">
+          <img src="static/media/mv-gallery/4/edit/0.png" style="flex: 1; width: 25%;">
+          <img src="static/media/mv-gallery/4/edit/1.png" style="flex: 1; width: 25%;">
+          <img src="static/media/mv-gallery/4/edit/2.png" style="flex: 1; width: 25%;">
+        </div>
+        <p>donut</p>
+      </div>
+      <div class="card" style="flex: 1 1 calc(50% - 20px); border: 1px solid #ccc; padding: 10px;">
+        <div style="display: flex; gap: 5px; margin-bottom: 5px;">
+          <img src="static/media/mv-gallery/5/src/prompt.png" style="flex: 1; width: 25%;">
+          <img src="static/media/mv-gallery/5/src/0.png" style="flex: 1; width: 25%;">
+          <img src="static/media/mv-gallery/5/src/1.png" style="flex: 1; width: 25%;">
+          <img src="static/media/mv-gallery/5/src/2.png" style="flex: 1; width: 25%;">
+        </div>
+        <div style="display: flex; gap: 5px;">
+          <img src="static/media/mv-gallery/5/edit/prompt.png" style="flex: 1; width: 25%;">
+          <img src="static/media/mv-gallery/5/edit/0.png" style="flex: 1; width: 25%;">
+          <img src="static/media/mv-gallery/5/edit/1.png" style="flex: 1; width: 25%;">
+          <img src="static/media/mv-gallery/5/edit/2.png" style="flex: 1; width: 25%;">
+        </div>
+        <p>donut</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card" style="flex: 1 1 calc(50% - 20px); border: 1px solid #ccc; padding: 10px;">
+        <div style="display: flex; gap: 5px; margin-bottom: 5px;">
+          <img src="static/images/img13.jpg" style="flex: 1; width: 100%;">
+          <img src="static/images/img14.jpg" style="flex: 1; width: 100%;">
+          <img src="static/images/img15.jpg" style="flex: 1; width: 100%;">
+        </div>
+        <div style="display: flex; gap: 5px;">
+          <img src="static/images/img16.jpg" style="flex: 1; width: 100%;">
+          <img src="static/images/img17.jpg" style="flex: 1; width: 100%;">
+          <img src="static/images/img18.jpg" style="flex: 1; width: 100%;">
         </div>
       </div>
+
+
+
     </div>
-  </div>
-</section>
-<!-- End video carousel -->
+  </section>
+
+  <!-- Image carousel -->
+  <!-- End image carousel -->
 
 
 
 
-
-
-<!-- Paper poster -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
+  <section class="hero is-small is-light">
+    <div class="hero-body">
+      <div class="container">
+        <img src="static/media/method/method_fig2.png" alt="Description of image"
+          style="max-width: 100%; height: auto;">
       </div>
     </div>
   </section>
-<!--End paper poster -->
 
 
-<!--BibTex citation -->
+
+
+  <section class="hero is-small is-light">
+    <div class="hero-body">
+      <div class="columns is-multiline">
+  
+        <div class="column is-one-quarter">
+          <div class="container">
+            <model-viewer src="static/media/recon/1/src.glb" alt="Subfolder 1 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/1/ours-conv.glb" alt="Subfolder 1 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/1/ours-conv-neutral.glb" alt="Subfolder 1 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <p class="has-text-centered">Subfolder 1</p>
+        </div>
+      
+        <div class="column is-one-quarter">
+          <div class="container">
+            <model-viewer src="static/media/recon/2/src.glb" alt="Subfolder 2 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/2/ours-conv.glb" alt="Subfolder 2 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/2/ours-conv-neutral.glb" alt="Subfolder 2 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <p class="has-text-centered">Subfolder 2</p>
+        </div>
+      
+        <div class="column is-one-quarter">
+          <div class="container">
+            <model-viewer src="static/media/recon/3/src.glb" alt="Subfolder 3 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/3/ours-conv.glb" alt="Subfolder 3 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/3/ours-conv-neutral.glb" alt="Subfolder 3 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <p class="has-text-centered">Subfolder 3</p>
+        </div>
+      
+        <div class="column is-one-quarter">
+          <div class="container">
+            <model-viewer src="static/media/recon/4/src.glb" alt="Subfolder 4 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/4/ours-conv.glb" alt="Subfolder 4 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/4/ours-conv-neutral.glb" alt="Subfolder 4 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <p class="has-text-centered">Subfolder 4</p>
+        </div>
+      
+        <div class="column is-one-quarter">
+          <div class="container">
+            <model-viewer src="static/media/recon/5/src.glb" alt="Subfolder 5 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/5/ours-conv.glb" alt="Subfolder 5 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/5/ours-conv-neutral.glb" alt="Subfolder 5 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <p class="has-text-centered">Subfolder 5</p>
+        </div>
+      
+        <div class="column is-one-quarter">
+          <div class="container">
+            <model-viewer src="static/media/recon/6/src.glb" alt="Subfolder 6 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/6/ours-conv.glb" alt="Subfolder 6 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/6/ours-conv-neutral.glb" alt="Subfolder 6 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <p class="has-text-centered">Subfolder 6</p>
+        </div>
+      
+        <div class="column is-one-quarter">
+          <div class="container">
+            <model-viewer src="static/media/recon/7/src.glb" alt="Subfolder 7 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/7/ours-conv.glb" alt="Subfolder 7 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/7/ours-conv-neutral.glb" alt="Subfolder 7 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <p class="has-text-centered">Subfolder 7</p>
+        </div>
+      
+        <div class="column is-one-quarter">
+          <div class="container">
+            <model-viewer src="static/media/recon/8/src.glb" alt="Subfolder 8 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/8/ours-conv.glb" alt="Subfolder 8 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/8/ours-conv-neutral.glb" alt="Subfolder 8 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <p class="has-text-centered">Subfolder 8</p>
+        </div>
+      
+        <div class="column is-one-quarter">
+          <div class="container">
+            <model-viewer src="static/media/recon/9/src.glb" alt="Subfolder 9 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/9/ours-conv.glb" alt="Subfolder 9 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/9/ours-conv-neutral.glb" alt="Subfolder 9 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <p class="has-text-centered">Subfolder 9</p>
+        </div>
+      
+        <div class="column is-one-quarter">
+          <div class="container">
+            <model-viewer src="static/media/recon/10/src.glb" alt="Subfolder 10 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/10/ours-conv.glb" alt="Subfolder 10 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/10/ours-conv-neutral.glb" alt="Subfolder 10 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <p class="has-text-centered">Subfolder 10</p>
+        </div>
+      
+        <div class="column is-one-quarter">
+          <div class="container">
+            <model-viewer src="static/media/recon/11/src.glb" alt="Subfolder 11 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/11/ours-conv.glb" alt="Subfolder 11 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/11/ours-conv-neutral.glb" alt="Subfolder 11 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <p class="has-text-centered">Subfolder 11</p>
+        </div>
+      
+        <div class="column is-one-quarter">
+          <div class="container">
+            <model-viewer src="static/media/recon/12/src.glb" alt="Subfolder 12 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/12/ours-conv.glb" alt="Subfolder 12 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/12/ours-conv-neutral.glb" alt="Subfolder 12 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <p class="has-text-centered">Subfolder 12</p>
+        </div>
+      
+        <div class="column is-one-quarter">
+          <div class="container">
+            <model-viewer src="static/media/recon/13/src.glb" alt="Subfolder 13 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/13/ours-conv.glb" alt="Subfolder 13 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/13/ours-conv-neutral.glb" alt="Subfolder 13 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <p class="has-text-centered">Subfolder 13</p>
+        </div>
+      
+        <div class="column is-one-quarter">
+          <div class="container">
+            <model-viewer src="static/media/recon/14/src.glb" alt="Subfolder 14 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/14/ours-conv.glb" alt="Subfolder 14 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/14/ours-conv-neutral.glb" alt="Subfolder 14 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <p class="has-text-centered">Subfolder 14</p>
+        </div>
+      
+        <div class="column is-one-quarter">
+          <div class="container">
+            <model-viewer src="static/media/recon/15/src.glb" alt="Subfolder 15 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/15/ours-conv.glb" alt="Subfolder 15 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/15/ours-conv-neutral.glb" alt="Subfolder 15 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <p class="has-text-centered">Subfolder 15</p>
+        </div>
+      
+        <div class="column is-one-quarter">
+          <div class="container">
+            <model-viewer src="static/media/recon/16/src.glb" alt="Subfolder 16 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/16/ours-conv.glb" alt="Subfolder 16 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/16/ours-conv-neutral.glb" alt="Subfolder 16 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <p class="has-text-centered">Subfolder 16</p>
+        </div>
+      
+        <div class="column is-one-quarter">
+          <div class="container">
+            <model-viewer src="static/media/recon/17/src.glb" alt="Subfolder 17 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/17/ours-conv.glb" alt="Subfolder 17 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/17/ours-conv-neutral.glb" alt="Subfolder 17 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <p class="has-text-centered">Subfolder 17</p>
+        </div>
+      
+        <div class="column is-one-quarter">
+          <div class="container">
+            <model-viewer src="static/media/recon/18/src.glb" alt="Subfolder 18 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/18/ours-conv.glb" alt="Subfolder 18 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/18/ours-conv-neutral.glb" alt="Subfolder 18 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <p class="has-text-centered">Subfolder 18</p>
+        </div>
+      
+        <div class="column is-one-quarter">
+          <div class="container">
+            <model-viewer src="static/media/recon/19/src.glb" alt="Subfolder 19 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/19/ours-conv.glb" alt="Subfolder 19 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/19/ours-conv-neutral.glb" alt="Subfolder 19 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <p class="has-text-centered">Subfolder 19</p>
+        </div>
+      
+        <div class="column is-one-quarter">
+          <div class="container">
+            <model-viewer src="static/media/recon/20/src.glb" alt="Subfolder 20 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/20/ours-conv.glb" alt="Subfolder 20 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/20/ours-conv-neutral.glb" alt="Subfolder 20 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <p class="has-text-centered">Subfolder 20</p>
+        </div>
+      
+        <div class="column is-one-quarter">
+          <div class="container">
+            <model-viewer src="static/media/recon/21/src.glb" alt="Subfolder 21 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/21/ours-conv.glb" alt="Subfolder 21 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/21/ours-conv-neutral.glb" alt="Subfolder 21 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <p class="has-text-centered">Subfolder 21</p>
+        </div>
+      
+        <div class="column is-one-quarter">
+          <div class="container">
+            <model-viewer src="static/media/recon/22/src.glb" alt="Subfolder 22 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/22/ours-conv.glb" alt="Subfolder 22 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/22/ours-conv-neutral.glb" alt="Subfolder 22 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <p class="has-text-centered">Subfolder 22</p>
+        </div>
+      
+        <div class="column is-one-quarter">
+          <div class="container">
+            <model-viewer src="static/media/recon/23/src.glb" alt="Subfolder 23 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/23/ours-conv.glb" alt="Subfolder 23 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <div class="container">
+            <model-viewer src="static/media/recon/23/ours-conv-neutral.glb" alt="Subfolder 23 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+          </div>
+          <p class="has-text-centered">Subfolder 23</p>
+        </div>
+      
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <!--BibTex citation -->
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
       <pre><code>BibTex Code Here</code></pre>
     </div>
-</section>
-<!--End BibTex citation -->
+  </section>
+  <!--End BibTex citation -->
 
 
   <footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+                target="_blank">Academic Project Page Template</a> which was adopted from the <a
+                href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+              You are free to borrow the source code of this website, we just ask that you link back to this page in the
+              footer. <br> This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
 
-          <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+</body>
 
-    <!-- End of Statcounter Code -->
-
-  </body>
-  </html>
+</html>
