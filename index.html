@@ -56,8 +56,7 @@
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title">EditP23</h1>
-            <h2 class="title is-2 publication-title">Mask-Free 3D Editing via Propagation of Image Prompts to
-              Multi-View</h2>
+            <h2 class="title is-2 publication-title">M3D Editing via Propagation of Image Prompts to Multi-View</h2>
 
 
             <!-- <div class="is-size-5 publication-authors"> -->
@@ -127,55 +126,166 @@
       </div>
     </div>
   </section>
-  <section class="hero is-small">
-    <div class="hero-body">
-      <div class="container">
-        <div id="results-carousel" class="carousel results-carousel">
 
-          <div class="item item-video1">
-            <div style="display: flex; gap: 10px; align-items: flex-start;">
+<!-- ────────── Hero / results-carousel ────────── -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
 
-              <div style="display: flex; flex-direction: column; gap: 5px; flex: 1; max-width: 150px;">
-                <img src="static/media/hero/slide1/src.png" alt="Image 1A" style="width: 100%;">
-                <img src="static/media/hero/slide1/edited.png" alt="Image 1B" style="width: 100%;">
-              </div>
+      <div id="results-carousel" class="carousel results-carousel"
+           data-autoplay="true" data-delay="8000">
 
-              <video poster="" id="video1" autoplay controls muted loop
-                style="flex: 2; max-height: 400px; width: 100%;">
-                <source src="static/media/hero/slide1/ours.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
+        <!-- ── Slide 1 ── -->
+        <div class="carousel-item is-active">
+          <div class="columns is-vcentered is-gapless">
 
-          <div class="item item-video2">
-            <div style="display: flex; gap: 10px; align-items: flex-start;">
+            <!-- prompt + edited thumbnails -->
+            <div class="column is-narrow prompt-stack">
+              <figure class="image mb-1">
+                <img src="static/media/hero/slide1/src.png"
+                     alt="Source prompt view">
+              </figure>
+              <p class="has-text-centered is-size-7 mb-3">Source&nbsp;view</p>
 
-              <div style="display: flex; flex-direction: column; gap: 5px; flex: 1; max-width: 150px;">
-                <img src="static/media/hero/slide2/src.png" alt="Image 1A" style="width: 100%;">
-                <img src="static/media/hero/slide2/edited.png" alt="Image 1B" style="width: 100%;">
-              </div>
-
-              <video poster="" id="video2" autoplay controls muted loop
-                style="flex: 2; max-height: 400px; width: 100%;">
-                <source src="static/media/hero/slide2/ours.mp4" type="video/mp4">
-              </video>
+              <figure class="image mb-1">
+                <img src="static/media/hero/slide1/edited.png"
+                     alt="Edited prompt view">
+              </figure>
+              <p class="has-text-centered is-size-7">Edited&nbsp;view</p>
             </div>
 
+            <!-- autoplay video of the result -->
+            <div class="column">
+              <div class="video-wrapper">
+                <video autoplay loop muted playsinline>
+                  <source src="static/media/hero/slide1/ours.mp4"
+                          type="video/mp4">
+                </video>
+              </div>
+            </div>
           </div>
-
         </div>
-        <h2 class="subtitle has-text-centered">
-          Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat
-          pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus.
-        </h2>
 
-      </div>
+        <!-- ── Slide 2 (change paths only) ── -->
+        <div class="carousel-item is-active">
+          <div class="columns is-vcentered is-gapless">
+            <div class="column is-narrow prompt-stack">
+              <figure class="image mb-1">
+                <img src="static/media/hero/slide2/src.png" alt="Source view">
+              </figure>
+              <p class="has-text-centered is-size-7 mb-3">Source&nbsp;view</p>
+
+              <figure class="image mb-1">
+                <img src="static/media/hero/slide2/edited.png" alt="Edited view">
+              </figure>
+              <p class="has-text-centered is-size-7">Edited&nbsp;view</p>
+            </div>
+
+            <div class="column">
+              <div class="video-wrapper">
+                <video autoplay loop muted playsinline>
+                  <source src="static/media/hero/slide2/ours.mp4"
+                          type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item is-active">
+          <div class="columns is-vcentered is-gapless">
+
+            <!-- prompt + edited thumbnails -->
+            <div class="column is-narrow prompt-stack">
+              <figure class="image mb-1">
+                <img src="static/media/hero/slide3/src.png"
+                     alt="Source prompt view">
+              </figure>
+              <p class="has-text-centered is-size-7 mb-3">Source&nbsp;view</p>
+
+              <figure class="image mb-1">
+                <img src="static/media/hero/slide3/edited.png"
+                     alt="Edited prompt view">
+              </figure>
+              <p class="has-text-centered is-size-7">Edited&nbsp;view</p>
+            </div>
+
+            <!-- autoplay video of the result -->
+            <div class="column">
+              <div class="video-wrapper">
+                <video autoplay loop muted playsinline>
+                  <source src="static/media/hero/slide3/ours.mp4"
+                          type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="carousel-item is-active">
+          <div class="columns is-vcentered is-gapless">
+
+            <!-- prompt + edited thumbnails -->
+            <div class="column is-narrow prompt-stack">
+              <figure class="image mb-1">
+                <img src="static/media/hero/slide4/src.png"
+                     alt="Source prompt view">
+              </figure>
+              <p class="has-text-centered is-size-7 mb-3">Source&nbsp;view</p>
+
+              <figure class="image mb-1">
+                <img src="static/media/hero/slide4/edited.png"
+                     alt="Edited prompt view">
+              </figure>
+              <p class="has-text-centered is-size-7">Edited&nbsp;view</p>
+            </div>
+
+            <!-- autoplay video of the result -->
+            <div class="column">
+              <div class="video-wrapper">
+                <video autoplay loop muted playsinline>
+                  <source src="static/media/hero/slide4/ours.mp4"
+                          type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item is-active">
+          <div class="columns is-vcentered is-gapless">
+
+            <!-- prompt + edited thumbnails -->
+            <div class="column is-narrow prompt-stack">
+              <figure class="image mb-1">
+                <img src="static/media/hero/slide5/src.png"
+                     alt="Source prompt view">
+              </figure>
+              <p class="has-text-centered is-size-7 mb-3">Source&nbsp;view</p>
+
+              <figure class="image mb-1">
+                <img src="static/media/hero/slide5/edited.png"
+                     alt="Edited prompt view">
+              </figure>
+              <p class="has-text-centered is-size-7">Edited&nbsp;view</p>
+            </div>
+
+            <!-- autoplay video of the result -->
+            <div class="column">
+              <div class="video-wrapper">
+                <video autoplay loop muted playsinline>
+                  <source src="static/media/hero/slide5/ours.mp4"
+                          type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- /results-carousel -->
 
     </div>
+  </div>
+</section>
 
-  </section>
-
-
+          
 
 
   <!-- Paper abstract -->
@@ -204,9 +314,17 @@
   <!-- End paper abstract -->
 
   <section class="gallery-section">
-    <h2 class="gallery-title">Object Editing Results</h2>
-    <div class="grid-container">
+    <h2 class="gallery-title">Multi-View Edit Gallery</h2>
+    <p class="subtitle is-6 has-text-centered" style="max-width: 60rem; margin: 0 auto 1.5rem;">
+      Results of our method across diverse object categories. Each block compares a source object (top)
+      with its edited versions (below). The leftmost column shows the conditioning views (source and target)
+      used to prompt the edit, while the remaining columns present novel viewpoints of the result. Our
+      approach consistently applies the desired edit while preserving the object’s structure and identity
+      across all viewpoints.
+    </p>
 
+    <div class="grid-container">
+  
       <div class="card">
         <h4 class="card-title">Deer – Pixar style & Wings</h4>
         <div class="card-header">
