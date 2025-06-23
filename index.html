@@ -27,8 +27,7 @@
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
 
-  <title>EditP23: Mask-Free 3D Editing via Propagation of Image Prompts to
-    Multi-View</title>
+  <title>EditP23: 3D Editing via Propagation of Image Prompts to Multi-View</title>
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
@@ -50,83 +49,41 @@
 <body>
 
 
-  <section class="hero">
+  <section class="hero is-small has-background-white-bis">
     <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">EditP23</h1>
-            <h2 class="title is-2 publication-title">M3D Editing via Propagation of Image Prompts to Multi-View</h2>
-
-
-            <!-- <div class="is-size-5 publication-authors"> -->
-            <!-- Paper authors -->
-            <!-- <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
-                <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
-                  <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
-                  </span>
-                  </div>
-
-                  <div class="is-size-5 publication-authors">
-                    <span class="author-block">Institution Name<br>Conferance name and year</span>
-                  </div> -->
-
-            <div class="column has-text-centered">
-              <div class="publication-links">
-                <!-- Paper PDF link -->
-                <!-- <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
-                    </span> -->
-
-                <!-- Supplementary PDF link -->
-                <!-- <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span> -->
-
-                <!-- Github link -->
-                <span class="link-block">
-                  <a href="https://github.com/YOUR REPO HERE" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
-
-                <!-- ArXiv abstract Link -->
-                <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                    </span>
-                    <span>arXiv</span>
-                  </a>
-                </span>
-              </div>
-            </div>
-          </div>
+      <div class="container is-max-desktop has-text-centered">
+  
+        <!-- Title & subtitle -->
+        <h1 class="title is-1 mb-2">EditP23</h1>
+        <h2 class="title is-3 mb-4">
+          3D Editing via Propagation of Image Prompts to Multi-View
+        </h2>
+  
+        <!-- Button row -->
+        <div class="buttons is-centered">
+          <a class="button is-dark is-rounded"
+             href="https://github.com/YOUR-REPO-HERE" target="_blank">
+            <span class="icon"><i class="fab fa-github"></i></span>
+            <span>Code</span>
+          </a>
+  
+          <a class="button is-dark is-rounded"
+             href="https://arxiv.org/abs/ARXIV-PAPER-ID" target="_blank">
+            <span class="icon"><i class="ai ai-arxiv"></i></span>
+            <span>arXiv</span>
+          </a>
         </div>
+  
+        <!-- Optional meta line (uncomment if/when ready) -->
+        <!--
+        <p class="is-size-6 mt-3">
+          <em>First&nbsp;Author*</em>, <em>Second&nbsp;Author*</em>, …   ·   Institution   ·   SIGGRAPH Asia&nbsp;2025
+        </p>
+        -->
       </div>
     </div>
   </section>
-
+  
 <!-- ────────── Hero / results-carousel ────────── -->
 <section class="hero is-small">
   <div class="hero-body">
@@ -288,30 +245,30 @@
           
 
 
-  <!-- Paper abstract -->
-  <section class="section hero is-light">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Abstract</h2>
-          <div class="content has-text-justified">
-            <p>
-              We present EditP23, a method for mask-free 3D editing that propagates 2D image edits to multi-view
-              representations in a 3D-consistent manner. In contrast to traditional approaches that rely on text-based
-              prompting or explicit spatial masks, EditP23 enables intuitive edits by conditioning on a pair of images:
-              an original view and its user-edited counterpart. These image prompts are used to guide an edit-aware flow
-              in the latent space of a pre-trained multi-view diffusion model, allowing the edit to be coherently
-              propagated across views. Our method operates in a feed-forward manner, without optimization, and preserves
-              the identity of the original object, in both structure and appearance. We demonstrate its effectiveness
-              across a range of object categories and editing scenarios, achieving high fidelity to the source while
-              requiring no manual masks.
-            </p>
-          </div>
-        </div>
+<!-- ────────── Abstract ────────── -->
+<section class="section has-background-light">
+  <div class="container is-max-desktop">
+
+    <div class="box abstract-box">
+      <h2 class="title is-3 has-text-centered mb-4">Abstract</h2>
+
+      <div class="content is-size-5 has-text-justified">
+        <p>
+          We present <strong>EditP23</strong>, a method for mask-free 3D editing that propagates 2D image edits
+          to multi-view representations in a 3D-consistent manner. In contrast to traditional approaches that rely on
+          text-based prompting or explicit spatial masks, EditP23 enables intuitive edits by conditioning on a pair of
+          images&mdash;an original view and its user-edited counterpart. These prompts guide an edit-aware flow in the
+          latent space of a pre-trained multi-view diffusion model, coherently propagating the edit across views.
+          Operating in a feed-forward manner (no optimisation), our method preserves the object’s identity in both
+          structure and appearance. We demonstrate effectiveness across diverse categories and edits, achieving
+          high fidelity to the source without manual masks.
+        </p>
       </div>
     </div>
-  </section>
-  <!-- End paper abstract -->
+
+  </div>
+</section>
+<!-- ────────── /Abstract ────────── -->
 
   <section class="gallery-section">
     <h2 class="gallery-title">Multi-View Edit Gallery</h2>
@@ -485,324 +442,659 @@
 
 
 
-  <section class="hero is-small is-light">
-    <div class="hero-body">
-      <div class="container">
-        <img src="static/media/method/method_fig2.png" alt="Description of image"
-          style="max-width: 100%; height: auto;">
-      </div>
+<!-- ────────── Method overview ────────── -->
+<section class="section has-background-light">
+  <div class="container is-max-desktop">
+
+    <div class="box method-box">
+      <h2 class="title is-3 has-text-centered mb-5" id="method">Method Overview</h2>
+
+      <figure class="image">
+        <img src="static/media/method/method_fig2.png"
+             alt="Edit-guided denoising at one timestep">
+        <figcaption class="method-caption mt-4">
+          <strong>Overview.</strong>
+          At a single diffusion timestep, the <em>source branch</em> (top) feeds the
+          original noisy grid and its source view into the multi-view diffusion model,
+          predicting the velocity towards the source. The <em>edit branch</em> (bottom)
+          feeds the current edited grid conditioned on the target view, predicting the
+          velocity towards the target. Subtracting the two predicts&nbsp;<span style="font-style:italic;">v<sub>Δ</sub></span>,
+          an edit-only delta that guides the next update of the edited grid.
+        </figcaption>
+      </figure>
     </div>
-  </section>
 
+  </div>
+</section>
+<section class="section">
+  <div class="container is-max-desktop">
 
+    <div class="columns is-multiline is-variable is-4">
 
+<div class="column is-one-quarter-desktop is-half-tablet">
+  <div class="card model-card">
+    <div class="model-grid">
 
-  <section class="hero is-small is-light">
-    <div class="hero-body">
-      <div class="columns is-multiline">
-  
-        <div class="column is-one-quarter">
-          <div class="container">
-            <model-viewer src="static/media/recon/1/src.glb" alt="Subfolder 1 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/1/ours-conv.glb" alt="Subfolder 1 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/1/ours-conv-neutral.glb" alt="Subfolder 1 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <p class="has-text-centered">Subfolder 1</p>
-        </div>
-      
-        <div class="column is-one-quarter">
-          <div class="container">
-            <model-viewer src="static/media/recon/2/src.glb" alt="Subfolder 2 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/2/ours-conv.glb" alt="Subfolder 2 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/2/ours-conv-neutral.glb" alt="Subfolder 2 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <p class="has-text-centered">Subfolder 2</p>
-        </div>
-      
-        <div class="column is-one-quarter">
-          <div class="container">
-            <model-viewer src="static/media/recon/3/src.glb" alt="Subfolder 3 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/3/ours-conv.glb" alt="Subfolder 3 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/3/ours-conv-neutral.glb" alt="Subfolder 3 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <p class="has-text-centered">Subfolder 3</p>
-        </div>
-      
-        <div class="column is-one-quarter">
-          <div class="container">
-            <model-viewer src="static/media/recon/4/src.glb" alt="Subfolder 4 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/4/ours-conv.glb" alt="Subfolder 4 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/4/ours-conv-neutral.glb" alt="Subfolder 4 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <p class="has-text-centered">Subfolder 4</p>
-        </div>
-      
-        <div class="column is-one-quarter">
-          <div class="container">
-            <model-viewer src="static/media/recon/5/src.glb" alt="Subfolder 5 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/5/ours-conv.glb" alt="Subfolder 5 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/5/ours-conv-neutral.glb" alt="Subfolder 5 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <p class="has-text-centered">Subfolder 5</p>
-        </div>
-      
-        <div class="column is-one-quarter">
-          <div class="container">
-            <model-viewer src="static/media/recon/6/src.glb" alt="Subfolder 6 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/6/ours-conv.glb" alt="Subfolder 6 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/6/ours-conv-neutral.glb" alt="Subfolder 6 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <p class="has-text-centered">Subfolder 6</p>
-        </div>
-      
-        <div class="column is-one-quarter">
-          <div class="container">
-            <model-viewer src="static/media/recon/7/src.glb" alt="Subfolder 7 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/7/ours-conv.glb" alt="Subfolder 7 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/7/ours-conv-neutral.glb" alt="Subfolder 7 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <p class="has-text-centered">Subfolder 7</p>
-        </div>
-      
-        <div class="column is-one-quarter">
-          <div class="container">
-            <model-viewer src="static/media/recon/8/src.glb" alt="Subfolder 8 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/8/ours-conv.glb" alt="Subfolder 8 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/8/ours-conv-neutral.glb" alt="Subfolder 8 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <p class="has-text-centered">Subfolder 8</p>
-        </div>
-      
-        <div class="column is-one-quarter">
-          <div class="container">
-            <model-viewer src="static/media/recon/9/src.glb" alt="Subfolder 9 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/9/ours-conv.glb" alt="Subfolder 9 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/9/ours-conv-neutral.glb" alt="Subfolder 9 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <p class="has-text-centered">Subfolder 9</p>
-        </div>
-      
-        <div class="column is-one-quarter">
-          <div class="container">
-            <model-viewer src="static/media/recon/10/src.glb" alt="Subfolder 10 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/10/ours-conv.glb" alt="Subfolder 10 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/10/ours-conv-neutral.glb" alt="Subfolder 10 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <p class="has-text-centered">Subfolder 10</p>
-        </div>
-      
-        <div class="column is-one-quarter">
-          <div class="container">
-            <model-viewer src="static/media/recon/11/src.glb" alt="Subfolder 11 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/11/ours-conv.glb" alt="Subfolder 11 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/11/ours-conv-neutral.glb" alt="Subfolder 11 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <p class="has-text-centered">Subfolder 11</p>
-        </div>
-      
-        <div class="column is-one-quarter">
-          <div class="container">
-            <model-viewer src="static/media/recon/12/src.glb" alt="Subfolder 12 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/12/ours-conv.glb" alt="Subfolder 12 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/12/ours-conv-neutral.glb" alt="Subfolder 12 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <p class="has-text-centered">Subfolder 12</p>
-        </div>
-      
-        <div class="column is-one-quarter">
-          <div class="container">
-            <model-viewer src="static/media/recon/13/src.glb" alt="Subfolder 13 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/13/ours-conv.glb" alt="Subfolder 13 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/13/ours-conv-neutral.glb" alt="Subfolder 13 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <p class="has-text-centered">Subfolder 13</p>
-        </div>
-      
-        <div class="column is-one-quarter">
-          <div class="container">
-            <model-viewer src="static/media/recon/14/src.glb" alt="Subfolder 14 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/14/ours-conv.glb" alt="Subfolder 14 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/14/ours-conv-neutral.glb" alt="Subfolder 14 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <p class="has-text-centered">Subfolder 14</p>
-        </div>
-      
-        <div class="column is-one-quarter">
-          <div class="container">
-            <model-viewer src="static/media/recon/15/src.glb" alt="Subfolder 15 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/15/ours-conv.glb" alt="Subfolder 15 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/15/ours-conv-neutral.glb" alt="Subfolder 15 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <p class="has-text-centered">Subfolder 15</p>
-        </div>
-      
-        <div class="column is-one-quarter">
-          <div class="container">
-            <model-viewer src="static/media/recon/16/src.glb" alt="Subfolder 16 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/16/ours-conv.glb" alt="Subfolder 16 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/16/ours-conv-neutral.glb" alt="Subfolder 16 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <p class="has-text-centered">Subfolder 16</p>
-        </div>
-      
-        <div class="column is-one-quarter">
-          <div class="container">
-            <model-viewer src="static/media/recon/17/src.glb" alt="Subfolder 17 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/17/ours-conv.glb" alt="Subfolder 17 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/17/ours-conv-neutral.glb" alt="Subfolder 17 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <p class="has-text-centered">Subfolder 17</p>
-        </div>
-      
-        <div class="column is-one-quarter">
-          <div class="container">
-            <model-viewer src="static/media/recon/18/src.glb" alt="Subfolder 18 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/18/ours-conv.glb" alt="Subfolder 18 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/18/ours-conv-neutral.glb" alt="Subfolder 18 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <p class="has-text-centered">Subfolder 18</p>
-        </div>
-      
-        <div class="column is-one-quarter">
-          <div class="container">
-            <model-viewer src="static/media/recon/19/src.glb" alt="Subfolder 19 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/19/ours-conv.glb" alt="Subfolder 19 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/19/ours-conv-neutral.glb" alt="Subfolder 19 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <p class="has-text-centered">Subfolder 19</p>
-        </div>
-      
-        <div class="column is-one-quarter">
-          <div class="container">
-            <model-viewer src="static/media/recon/20/src.glb" alt="Subfolder 20 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/20/ours-conv.glb" alt="Subfolder 20 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/20/ours-conv-neutral.glb" alt="Subfolder 20 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <p class="has-text-centered">Subfolder 20</p>
-        </div>
-      
-        <div class="column is-one-quarter">
-          <div class="container">
-            <model-viewer src="static/media/recon/21/src.glb" alt="Subfolder 21 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/21/ours-conv.glb" alt="Subfolder 21 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/21/ours-conv-neutral.glb" alt="Subfolder 21 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <p class="has-text-centered">Subfolder 21</p>
-        </div>
-      
-        <div class="column is-one-quarter">
-          <div class="container">
-            <model-viewer src="static/media/recon/22/src.glb" alt="Subfolder 22 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/22/ours-conv.glb" alt="Subfolder 22 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/22/ours-conv-neutral.glb" alt="Subfolder 22 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <p class="has-text-centered">Subfolder 22</p>
-        </div>
-      
-        <div class="column is-one-quarter">
-          <div class="container">
-            <model-viewer src="static/media/recon/23/src.glb" alt="Subfolder 23 - src" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/23/ours-conv.glb" alt="Subfolder 23 - conv" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <div class="container">
-            <model-viewer src="static/media/recon/23/ours-conv-neutral.glb" alt="Subfolder 23 - neutral" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
-          </div>
-          <p class="has-text-centered">Subfolder 23</p>
-        </div>
-      
-      </div>
+      <figure class="image">
+        <model-viewer src="static/media/recon/1/src.glb"
+                      alt="Original mesh 1"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
+      </figure>
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/1/ours-conv.glb"
+                      alt="Edited mesh 1"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
+      </figure>
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/1/ours-conv-neutral.glb"
+                      alt="Un-textured edit 1"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
+      </figure>
+
     </div>
-  </section>
+    <p class="has-text-centered is-size-6 mt-3">Subfolder&nbsp;1</p>
+  </div>
+</div>
+
+<div class="column is-one-quarter-desktop is-half-tablet">
+  <div class="card model-card">
+    <div class="model-grid">
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/2/src.glb"
+                      alt="Original mesh 2"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
+      </figure>
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/2/ours-conv.glb"
+                      alt="Edited mesh 2"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
+      </figure>
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/2/ours-conv-neutral.glb"
+                      alt="Un-textured edit 2"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
+      </figure>
+
+    </div>
+    <p class="has-text-centered is-size-6 mt-3">Subfolder&nbsp;2</p>
+  </div>
+</div>
+
+<div class="column is-one-quarter-desktop is-half-tablet">
+  <div class="card model-card">
+    <div class="model-grid">
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/3/src.glb"
+                      alt="Original mesh 3"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
+      </figure>
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/3/ours-conv.glb"
+                      alt="Edited mesh 3"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
+      </figure>
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/3/ours-conv-neutral.glb"
+                      alt="Un-textured edit 3"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
+      </figure>
+
+    </div>
+    <p class="has-text-centered is-size-6 mt-3">Subfolder&nbsp;3</p>
+  </div>
+</div>
+
+<div class="column is-one-quarter-desktop is-half-tablet">
+  <div class="card model-card">
+    <div class="model-grid">
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/4/src.glb"
+                      alt="Original mesh 4"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
+      </figure>
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/4/ours-conv.glb"
+                      alt="Edited mesh 4"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
+      </figure>
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/4/ours-conv-neutral.glb"
+                      alt="Un-textured edit 4"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
+      </figure>
+
+    </div>
+    <p class="has-text-centered is-size-6 mt-3">Subfolder&nbsp;4</p>
+  </div>
+</div>
+
+<div class="column is-one-quarter-desktop is-half-tablet">
+  <div class="card model-card">
+    <div class="model-grid">
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/5/src.glb"
+                      alt="Original mesh 5"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
+      </figure>
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/5/ours-conv.glb"
+                      alt="Edited mesh 5"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
+      </figure>
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/5/ours-conv-neutral.glb"
+                      alt="Un-textured edit 5"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
+      </figure>
+
+    </div>
+    <p class="has-text-centered is-size-6 mt-3">Subfolder&nbsp;5</p>
+  </div>
+</div>
+
+<div class="column is-one-quarter-desktop is-half-tablet">
+  <div class="card model-card">
+    <div class="model-grid">
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/6/src.glb"
+                      alt="Original mesh 6"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
+      </figure>
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/6/ours-conv.glb"
+                      alt="Edited mesh 6"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
+      </figure>
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/6/ours-conv-neutral.glb"
+                      alt="Un-textured edit 6"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
+      </figure>
+
+    </div>
+    <p class="has-text-centered is-size-6 mt-3">Subfolder&nbsp;6</p>
+  </div>
+</div>
+
+<div class="column is-one-quarter-desktop is-half-tablet">
+  <div class="card model-card">
+    <div class="model-grid">
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/7/src.glb"
+                      alt="Original mesh 7"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
+      </figure>
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/7/ours-conv.glb"
+                      alt="Edited mesh 7"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
+      </figure>
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/7/ours-conv-neutral.glb"
+                      alt="Un-textured edit 7"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
+      </figure>
+
+    </div>
+    <p class="has-text-centered is-size-6 mt-3">Subfolder&nbsp;7</p>
+  </div>
+</div>
+
+<div class="column is-one-quarter-desktop is-half-tablet">
+  <div class="card model-card">
+    <div class="model-grid">
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/8/src.glb"
+                      alt="Original mesh 8"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
+      </figure>
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/8/ours-conv.glb"
+                      alt="Edited mesh 8"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
+      </figure>
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/8/ours-conv-neutral.glb"
+                      alt="Un-textured edit 8"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
+      </figure>
+
+    </div>
+    <p class="has-text-centered is-size-6 mt-3">Subfolder&nbsp;8</p>
+  </div>
+</div>
+
+<div class="column is-one-quarter-desktop is-half-tablet">
+  <div class="card model-card">
+    <div class="model-grid">
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/9/src.glb"
+                      alt="Original mesh 9"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
+      </figure>
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/9/ours-conv.glb"
+                      alt="Edited mesh 9"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
+      </figure>
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/9/ours-conv-neutral.glb"
+                      alt="Un-textured edit 9"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
+      </figure>
+
+    </div>
+    <p class="has-text-centered is-size-6 mt-3">Subfolder&nbsp;9</p>
+  </div>
+</div>
+
+<div class="column is-one-quarter-desktop is-half-tablet">
+  <div class="card model-card">
+    <div class="model-grid">
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/10/src.glb"
+                      alt="Original mesh 10"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
+      </figure>
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/10/ours-conv.glb"
+                      alt="Edited mesh 10"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
+      </figure>
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/10/ours-conv-neutral.glb"
+                      alt="Un-textured edit 10"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
+      </figure>
+
+    </div>
+    <p class="has-text-centered is-size-6 mt-3">Subfolder&nbsp;10</p>
+  </div>
+</div>
+
+<div class="column is-one-quarter-desktop is-half-tablet">
+  <div class="card model-card">
+    <div class="model-grid">
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/11/src.glb"
+                      alt="Original mesh 11"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
+      </figure>
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/11/ours-conv.glb"
+                      alt="Edited mesh 11"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
+      </figure>
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/11/ours-conv-neutral.glb"
+                      alt="Un-textured edit 11"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
+      </figure>
+
+    </div>
+    <p class="has-text-centered is-size-6 mt-3">Subfolder&nbsp;11</p>
+  </div>
+</div>
+<div class="column is-one-quarter-desktop is-half-tablet">
+  <div class="card model-card">
+    <div class="model-grid">
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/12/src.glb"
+                      alt="Original mesh 11"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
+      </figure>
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/12/ours-conv.glb"
+                      alt="Edited mesh 11"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
+      </figure>
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/12/ours-conv-neutral.glb"
+                      alt="Un-textured edit 12"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
+      </figure>
+
+    </div>
+    <p class="has-text-centered is-size-6 mt-3">Subfolder&nbsp;11</p>
+  </div>
+</div>
+<div class="column is-one-quarter-desktop is-half-tablet">
+  <div class="card model-card">
+    <div class="model-grid">
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/13/src.glb"
+                      alt="Original mesh 11"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
+      </figure>
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/13/ours-conv.glb"
+                      alt="Edited mesh 11"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
+      </figure>
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/13/ours-conv-neutral.glb"
+                      alt="Un-textured edit 13"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
+      </figure>
+
+    </div>
+    <p class="has-text-centered is-size-6 mt-3">Subfolder&nbsp;11</p>
+  </div>
+</div>
+<div class="column is-one-quarter-desktop is-half-tablet">
+  <div class="card model-card">
+    <div class="model-grid">
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/14/src.glb"
+                      alt="Original mesh 11"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
+      </figure>
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/14/ours-conv.glb"
+                      alt="Edited mesh 11"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
+      </figure>
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/14/ours-conv-neutral.glb"
+                      alt="Un-textured edit 11"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
+      </figure>
+
+    </div>
+    <p class="has-text-centered is-size-6 mt-3">Subfolder&nbsp;11</p>
+  </div>
+</div>
+
+<div class="column is-one-quarter-desktop is-half-tablet">
+  <div class="card model-card">
+    <div class="model-grid">
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/15/src.glb"
+                      alt="Original mesh 11"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
+      </figure>
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/15/ours-conv.glb"
+                      alt="Edited mesh 11"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
+      </figure>
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/15/ours-conv-neutral.glb"
+                      alt="Un-textured edit 11"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
+      </figure>
+
+    </div>
+    <p class="has-text-centered is-size-6 mt-3">Subfolder&nbsp;11</p>
+    
+  </div>
+</div>
+<div class="column is-one-quarter-desktop is-half-tablet">
+  <div class="card model-card">
+    <div class="model-grid">
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/16/src.glb"
+                      alt="Original mesh 11"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
+      </figure>
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/16/ours-conv.glb"
+                      alt="Edited mesh 11"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
+      </figure>
+
+      <figure class="image">
+        <model-viewer src="static/media/recon/16/ours-conv-neutral.glb"
+                      alt="Un-textured edit 11"
+                      camera-controls auto-rotate
+                      camera-orbit="-45deg 90deg auto" shadow-intensity="1"
+                      style="height:220px">
+        </model-viewer>
+        <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
+      </figure>
+
+    </div>
+    <p class="has-text-centered is-size-6 mt-3">Subfolder&nbsp;11</p>
+    
+  </div>
+</div>
+    </div>
+  </div>
+</section>
 
 
 

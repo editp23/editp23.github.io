@@ -263,3 +263,72 @@ body {
   opacity: 0;
   pointer-events: none;
 }
+
+
+/* subtle grey background band for the hero */
+.has-background-white-bis { background-color: #fafafa; }
+
+/* tighten vertical rhythm */
+.hero.is-small .hero-body { padding-top: 2rem; padding-bottom: 2rem; }
+
+
+/* Abstract card */
+.abstract-box {
+  border-radius: 8px;
+  padding: 2rem 2.25rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,.04);
+  background: #ffffff;
+}
+
+/* Make sure the “light” band doesn’t feel cramped */
+section.has-background-light {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+
+/* ---- unified typography ---- */
+.section h2.title {                 /* any <h2 class="title"> inside a .section */
+  font-weight: 700;
+  font-size: 1.75rem;               /* matches Bulma is-3 */
+  letter-spacing: -0.01em;
+  margin-bottom: 1.25rem;
+}
+
+.section .content {                 /* body copy inside cards / boxes */
+  font-size: 1.125rem;              /* ~ Bulma is-5 */
+  line-height: 1.55;
+}
+
+
+/* ── Method card look & feel ───────────────────── */
+.method-box{
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.05);
+  padding: 2rem 2.25rem;
+  background:#fff;
+}
+
+.method-caption{
+  font-size: 1rem;          /* smaller than main body text */
+  line-height: 1.45;
+  text-align: justify;
+  color:#4a4a4a;
+}
+
+
+/* ── 3-D section tweaks ────────────────────────── */
+.model-card{ padding:1rem 1rem 0; border:none; box-shadow:none; }
+
+.model-grid{
+  display:grid;
+  row-gap:1rem;
+}
+
+/* keep all model-viewer panes at the same height */
+.model-grid model-viewer{
+  width:100%;
+  height:220px;          /* tweak to taste */
+  background:#fafafa;    /* soft backdrop while loading */
+  border-radius:6px;
+}
