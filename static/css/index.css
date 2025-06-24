@@ -1,94 +1,66 @@
 /* ===================================================================
    Global Styles & Typography
    =================================================================== */
-/* --- Add this to your Global Styles section --- */
 
-:root {
-  --theme-color: #007bff; /* A nice, modern blue. Change as you like. */
-  --text-color: #333333;
-  --text-color-light: #777777;
-  --border-color: #dddddd;
-  --background-light: #f8f9fa;
-}
-
-body {
-  font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  color: var(--text-color);
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Google Sans', sans-serif;
-}
-
-/* Apply the theme color to links */
-a {
-  color: var(--theme-color);
-}
-a:hover {
-  color: #0056b3; /* A darker shade for hover */
-}
-
-/* Update section background color to use our variable */
-section.has-background-light {
-  background-color: var(--background-light) !important;
-}
-   body {
-    /* Use a modern, system-agnostic font stack. Bulma provides a similar base. */
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+   :root {
+    --theme-color: #007bff;
+    --text-color: #333333;
+    --text-color-light: #777777;
+    --border-color: #dddddd;
+    --background-light: #f8f9fa;
   }
   
-  /* Unified styling for all section titles for consistency */
+  body {
+    font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: var(--text-color);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Google Sans', sans-serif;
+  }
+  
+  a {
+    color: var(--theme-color);
+  }
+  a:hover {
+    color: #0056b3;
+  }
+  
+  section {
+    /* Add padding to all sections for consistent vertical spacing */
+    padding: 3rem 1.5rem;
+  }
+  
+  section.has-background-light {
+    background-color: var(--background-light) !important;
+  }
+  
   .section h2.title {
     font-weight: 700;
-    font-size: 1.75rem; /* ~Bulma's .is-3 */
-    letter-spacing: -0.01em;
+    font-size: 1.75rem;
     margin-bottom: 1.25rem;
   }
   
-  /* Unified styling for main content text */
   .section .content {
-    font-size: 1.125rem; /* ~Bulma's .is-5 */
+    font-size: 1.125rem;
     line-height: 1.55;
   }
   
-  
   /* ===================================================================
-     Hero Section
-     =================================================================== */
-  
-  /* Subtle grey background band for the hero header */
-  .hero.is-small.has-background-white-bis {
-    background-color: #fafafa;
-  }
-  
-  /* Tighten vertical rhythm in the hero header */
-  .hero.is-small .hero-body {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
-  
-  
-  /* ===================================================================
-     Results Carousel Section
+     Hero & Results Carousel Section
      =================================================================== */
   
   .results-carousel {
     overflow: hidden;
   }
   
-  /* Styling for the stacked prompt thumbnails on the left */
   .prompt-stack {
     max-width: 250px;
   }
-  .prompt-stack img {
-    width: 100%;
-    height: auto;
-  }
   
-  /* Responsive video wrapper to maintain aspect ratio */
   .video-wrapper {
     position: relative;
-    padding-bottom: 52%; /* Approximates a 1.9:1 aspect ratio */
+    padding-bottom: 52%; /* Desktop aspect ratio */
     height: 0;
   }
   
@@ -102,18 +74,10 @@ section.has-background-light {
     box-shadow: 0 2px 6px rgba(0,0,0,.12);
   }
   
-  
   /* ===================================================================
      Abstract & Method Sections
      =================================================================== */
   
-  /* General padding for sections with a light background */
-  section.has-background-light {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-  }
-  
-  /* Styling for the abstract and method boxes */
   .abstract-box,
   .method-box {
     border-radius: 8px;
@@ -127,6 +91,10 @@ section.has-background-light {
     color: #555;
   }
   
+  .abstract-box .content strong {
+    color: var(--theme-color);
+    font-weight: 700;
+  }
   
   /* ===================================================================
      Multi-View Edit Gallery (Grid Layout)
@@ -134,14 +102,17 @@ section.has-background-light {
   
   .grid-container {
     display: grid;
-    /* Create responsive columns that are at least 600px wide */
-    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
     gap: 30px;
-    max-width: 1800px;
-    margin: 0 auto;
+    grid-template-columns: 1fr; /* Mobile First: 1 column */
   }
   
-  /* Individual card styling for the gallery */
+  /* On desktop, switch to a two-column layout */
+  @media screen and (min-width: 1024px) {
+    .grid-container {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
   .grid-container .card {
     background-color: #fff;
     border: 1px solid #ddd;
@@ -150,12 +121,6 @@ section.has-background-light {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    transition: box-shadow 0.3s ease;
-  }
-  
-  .grid-container .card:hover {
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   }
   
   .grid-container .card-title {
@@ -166,35 +131,26 @@ section.has-background-light {
     border-bottom: 1px solid #eee;
   }
   
-  /* Header row for titles like "Cond. View", "View 1", etc. */
-  .grid-container .card-header {
+  .grid-container .card-header,
+  .grid-container .image-row {
     display: grid;
-    grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr; /* 1st column for row title space */
+    grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr;
     gap: 10px;
+    align-items: center;
     text-align: center;
+  }
+  .grid-container .card-header{
     font-weight: bold;
     color: #555;
   }
-  
-  /* A row of images */
-  .grid-container .image-row {
-    display: grid;
-    grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr; /* Matches header grid */
-    gap: 10px;
-    align-items: center;
-  }
-  
   .grid-container .image-row img {
     width: 100%;
     border-radius: 4px;
   }
-  
-  /* Vertical titles like "Original", "Pixar style" */
   .grid-container .row-title {
     writing-mode: vertical-rl;
     text-orientation: mixed;
     transform: rotate(180deg);
-    text-align: center;
     font-weight: 600;
     color: #555;
     justify-self: center;
@@ -202,85 +158,68 @@ section.has-background-light {
     white-space: nowrap;
   }
   
-  
   /* ===================================================================
      Interactive 3D Model Gallery
      =================================================================== */
-  
-  .model-card {
-    /* This class is used on the card wrapper in the 3D gallery */
-  }
   
   .model-card figure.image {
     margin: 0 0 1rem;
   }
   
-  /* This is the key rule for responsive, square model viewers */
   .model-card model-viewer {
     width: 100%;
-    aspect-ratio: 1 / 1; /* This makes the height equal to the width */
-    height: auto !important; /* IMPORTANT: Overrides the inline style="height:220px" in the HTML */
+    aspect-ratio: 1 / 1;
+    height: auto !important;
   }
-  
   
   /* ===================================================================
      BibTeX Section
      =================================================================== */
   
-  .bib-box {
-    border-radius: 8px;
-    background: #ffffff;
-  }
-  
   .bib-box .textarea {
     font-size: 0.9rem;
   }
-  
   .copy-btn {
     height: 100%;
   }
-
-  .abstract-box .content strong {
-    color: var(--theme-color);
-    font-weight: 700; /* Ensures it remains bold */
-  }
   
-
+  
   /* ===================================================================
-   MOBILE RESPONSIVE FIXES
-   =================================================================== */
+     MOBILE RESPONSIVE STYLES
+     =================================================================== */
+  
+     @media screen and (max-width: 768px) {
 
-/* This block only applies to screens 768px wide or smaller (phones) */
-@media screen and (max-width: 768px) {
-
-  /* 1. Stack the carousel columns vertically */
-  .results-carousel .columns {
-    /* This overrides the side-by-side desktop layout */
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* 2. Fix the "Source/Edited" images as you suggested */
-  .prompt-stack {
-    /* Arrange the two figures side-by-side */
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 1rem;
+      /* This handles the main layout for the two-column hero */
+      .section > .container > .columns {
+        flex-direction: column;
+      }
+      
+      /* This handles the layout inside the carousel slides */
+      #results-carousel .columns {
+        flex-direction: column;
+      }
     
-    /* Override desktop size constraints */
-    max-width: 100%; 
-    margin-bottom: 1.5rem; /* Add space between the images and the video below */
-  }
-
-  /* 3. Make each prompt image take up half the width */
-  .prompt-stack figure {
-    flex-basis: 50%;
-  }
-
-  /* 4. (Optional) Make the video a standard 16:9 aspect ratio on mobile */
-  .video-wrapper {
-    padding-bottom: 56.25%;
-  }
-
-}
+      /* Style the container for the two prompt images */
+      .prompt-stack {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
+        max-width: 100%;
+        margin-bottom: 1.5rem;
+      }
+    
+      /* Style each individual prompt block (image + caption) */
+      .prompt-item {
+        flex: 1;
+        min-width: 0;
+      }
+      
+      /* Adjust video to a 16:9 aspect ratio on mobile */
+      .video-wrapper {
+        padding-bottom: 56.25%;
+      }
+    
+    }
+    
