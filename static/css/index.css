@@ -190,55 +190,57 @@
      @media screen and (max-width: 768px) {
 
       /* --- General Layout --- */
-      
-      /* Stack the main hero/carousel columns vertically */
       .section > .container > .columns {
         flex-direction: column;
       }
-      
-      /* Reduce padding on boxes for more space */
       .abstract-box,
       .method-box,
       .grid-container .card {
         padding: 1.5rem;
       }
     
-      /* --- Carousel Fixes --- */
-    
-      /* This handles the layout inside each carousel slide */
+      /* --- Carousel Layout on Mobile --- */
       #results-carousel .columns {
         flex-direction: column;
       }
-      
-      /* Ensure the video's column takes up full width and doesn't collapse */
       #results-carousel .columns > .column {
         width: 100%;
       }
     
-      /* Style the container for the two prompt blocks */
+      /* --- Prompt Images Layout on Mobile --- */
       .prompt-stack {
         display: flex;
         flex-direction: row;
         justify-content: center;
         gap: 1rem;
         max-width: 100%;
-        margin-bottom: 1.5rem; /* Space between prompts and video */
+        margin-bottom: 1.5rem;
       }
-    
-      /* THIS IS THE CRITICAL FIX for the prompt layout */
       .prompt-item {
-        flex: 1; /* Each item takes up half the width */
+        flex: 1;
         min-width: 0;
-        /* ADDED to stack the image and caption correctly */
         display: flex;
         flex-direction: column;
         align-items: center;
       }
     
-      /* Adjust video to a 16:9 aspect ratio on mobile */
+      /* ======================================================= */
+      /* ===          THE DEFINITIVE VIDEO FIX               === */
+      /* ======================================================= */
+    
+      /* 1. Reset the video's wrapper on mobile */
       .video-wrapper {
-        padding-bottom: 56.25%;
+        padding-bottom: 0;  /* Remove the padding-based sizing */
+        height: auto;       /* Let height be natural */
+        background-color: #f5f5f5; /* A light background to see the container */
       }
-      
+    
+      /* 2. Style the video element directly */
+      .video-wrapper video {
+        position: static;   /* CRITICAL: Remove absolute positioning */
+        height: auto;       /* Let height be determined by aspect ratio */
+        border-radius: 6px;
+        box-shadow: 0 2px 6px rgba(0,0,0,.12);
+      }
     }
     
