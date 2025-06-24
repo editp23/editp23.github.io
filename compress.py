@@ -73,49 +73,50 @@ def resize_image(input_path, output_path, width):
     except Exception as e:
         print(f"  Error processing image {input_path}: {e}")
 
-        
 def compress_video(input_path, output_path, height, crf):
-    """Compresses and resizes a video using FFmpeg."""
+    """
+    Compresses and resizes a video using FFmpeg.
+    This version is adapted for FFmpeg builds that use libopenh264 instead of libx264.
+    """
     try:
-        print(f"  Compressing video (target height: {height}p, CRF: {crf})...")
-        
-        # Ensure output directory exists
+        # We use the 'height' parameter to set a bitrate. A simple heuristic:
+        bitrate = "2M" if height >= 720 else "1M"
+        print(f"  Compressing video (target height: {height}p, bitrate: {bitrate})...")
+
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
         
-        # FFmpeg command
-        # -vf "scale=-2:{height}": Resizes to the target height, width is auto-scaled to maintain aspect. '-2' ensures width is even.
-        # -c:v libx264: The video codec.
-        # -crf {crf}: Constant Rate Factor for quality/size balance.
-        # -preset slow: A good balance of encoding time and compression efficiency.
-        # -c:a aac -b:a 128k: Re-encodes audio to AAC at 128kbps.
-        # -movflags +faststart: Optimizes for web streaming.
-        # -y: Overwrite output file if it exists.
+        # --- COMMAND MODIFIED FOR LIBOPENH264 ---
+        # We replace '-c:v libx264', '-crf', and '-preset'
+        # with '-c:v libopenh264' and '-b:v' (video bitrate).
         command = [
-            'ffmpeg',
-            '-i', input_path,
+            'ffmpeg', '-i', input_path,
             '-vf', f'scale=-2:{height}',
-            '-c:v', 'libx264',
-            '-crf', str(crf),
-            '-preset', 'slow',
+            '-c:v', 'libopenh264',   # Use the encoder you have
+            '-b:v', bitrate,        # Set a target bitrate instead of CRF
             '-c:a', 'aac',
             '-b:a', '128k',
             '-movflags', '+faststart',
-            '-y',
-            output_path
+            '-y', output_path
         ]
         
-        # Use DEVNULL for stdout/stderr to keep the console clean
-        subprocess.run(command, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        # Run FFmpeg and capture its output for better error reporting
+        result = subprocess.run(command, capture_output=True, text=True)
+
+        # Check if FFmpeg returned an error code
+        if result.returncode != 0:
+            print(f"  [ERROR] FFmpeg failed to process {input_path}.")
+            print(f"  ----- FFmpeg Error Output -----\n{result.stderr}")
+            print(f"  -------------------------------")
+        else:
+            print(f"  Successfully compressed {output_path}")
 
     except FileNotFoundError:
         print("\n[ERROR] FFmpeg not found. Please ensure it is installed and in your system's PATH.")
         sys.exit(1)
-    except subprocess.CalledProcessError:
-        print(f"  Error compressing video {input_path}. FFmpeg command failed.")
     except Exception as e:
         print(f"  An unexpected error occurred with video {input_path}: {e}")
 
-
+        
 def process_files():
     """Walks through the media directory and applies processing rules."""
     print(f"Starting media processing...")
