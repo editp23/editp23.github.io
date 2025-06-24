@@ -215,7 +215,7 @@ section.has-background-light {
   
     /* This rule now reverses the order, putting the video on top */
     #results-carousel .columns {
-      flex-direction: column-reverse;
+      flex-direction: column-reverse !important; /* Add !important */
     }
     
     #results-carousel .columns > .column {
