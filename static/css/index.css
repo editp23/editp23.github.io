@@ -187,39 +187,58 @@
   /* ===================================================================
      MOBILE RESPONSIVE STYLES
      =================================================================== */
-  
      @media screen and (max-width: 768px) {
 
-      /* This handles the main layout for the two-column hero */
+      /* --- General Layout --- */
+      
+      /* Stack the main hero/carousel columns vertically */
       .section > .container > .columns {
         flex-direction: column;
       }
       
-      /* This handles the layout inside the carousel slides */
+      /* Reduce padding on boxes for more space */
+      .abstract-box,
+      .method-box,
+      .grid-container .card {
+        padding: 1.5rem;
+      }
+    
+      /* --- Carousel Fixes --- */
+    
+      /* This handles the layout inside each carousel slide */
       #results-carousel .columns {
         flex-direction: column;
       }
+      
+      /* Ensure the video's column takes up full width and doesn't collapse */
+      #results-carousel .columns > .column {
+        width: 100%;
+      }
     
-      /* Style the container for the two prompt images */
+      /* Style the container for the two prompt blocks */
       .prompt-stack {
         display: flex;
         flex-direction: row;
         justify-content: center;
         gap: 1rem;
         max-width: 100%;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1.5rem; /* Space between prompts and video */
       }
     
-      /* Style each individual prompt block (image + caption) */
+      /* THIS IS THE CRITICAL FIX for the prompt layout */
       .prompt-item {
-        flex: 1;
+        flex: 1; /* Each item takes up half the width */
         min-width: 0;
+        /* ADDED to stack the image and caption correctly */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
-      
+    
       /* Adjust video to a 16:9 aspect ratio on mobile */
       .video-wrapper {
         padding-bottom: 56.25%;
       }
-    
+      
     }
     
