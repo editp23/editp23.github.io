@@ -1,315 +1,230 @@
-body {
+/* ===================================================================
+   Global Styles & Typography
+   =================================================================== */
+
+   body {
+    /* Use a modern, system-agnostic font stack. Bulma provides a similar base. */
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    margin: 0;
-    color: #333;
-}
-
-
-.footer .icon-link {
-    font-size: 25px;
-    color: #000;
-}
-
-.link-block a {
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-.dnerf {
-  font-variant: small-caps;
-}
-
-
-.teaser .hero-body {
-  padding-top: 0;
-  padding-bottom: 3rem;
-}
-
-.teaser {
-  font-family: 'Google Sans', sans-serif;
-}
-
-
-.publication-title {
-}
-
-.publication-banner {
-  max-height: parent;
-
-}
-
-.publication-banner video {
-  position: relative;
-  left: auto;
-  top: auto;
-  transform: none;
-  object-fit: fit;
-}
-
-.publication-header .hero-body {
-}
-
-.publication-title {
-    font-family: 'Google Sans', sans-serif;
-}
-
-.publication-authors {
-    font-family: 'Google Sans', sans-serif;
-}
-
-.publication-venue {
-    color: #555;
-    width: fit-content;
-    font-weight: bold;
-}
-
-.publication-awards {
-    color: #ff3860;
-    width: fit-content;
-    font-weight: bolder;
-}
-
-.publication-authors {
-}
-
-.publication-authors a {
-   color: hsl(204, 86%, 53%) !important;
-}
-
-.publication-authors a:hover {
-    text-decoration: underline;
-}
-
-.author-block {
-  display: inline-block;
-}
-
-.publication-banner img {
-}
-
-.publication-authors {
-  /*color: #4286f4;*/
-}
-
-.publication-video {
-    position: relative;
-    width: 100%;
-    height: 0;
-    padding-bottom: 56.25%;
-
+  }
+  
+  /* Unified styling for all section titles for consistency */
+  .section h2.title {
+    font-weight: 700;
+    font-size: 1.75rem; /* ~Bulma's .is-3 */
+    letter-spacing: -0.01em;
+    margin-bottom: 1.25rem;
+  }
+  
+  /* Unified styling for main content text */
+  .section .content {
+    font-size: 1.125rem; /* ~Bulma's .is-5 */
+    line-height: 1.55;
+  }
+  
+  
+  /* ===================================================================
+     Hero Section
+     =================================================================== */
+  
+  /* Subtle grey background band for the hero header */
+  .hero.is-small.has-background-white-bis {
+    background-color: #fafafa;
+  }
+  
+  /* Tighten vertical rhythm in the hero header */
+  .hero.is-small .hero-body {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  
+  /* ===================================================================
+     Results Carousel Section
+     =================================================================== */
+  
+  .results-carousel {
     overflow: hidden;
-    border-radius: 10px !important;
-}
-
-.publication-video iframe {
+  }
+  
+  /* Styling for the stacked prompt thumbnails on the left */
+  .prompt-stack {
+    max-width: 250px;
+  }
+  .prompt-stack img {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Responsive video wrapper to maintain aspect ratio */
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 52%; /* Approximates a 1.9:1 aspect ratio */
+    height: 0;
+  }
+  
+  .video-wrapper video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-}
-
-.publication-body img {
-}
-
-.results-carousel {
-  overflow: hidden;
-}
-
-.results-carousel .item {
-  margin: 5px;
-  overflow: hidden;
-  padding: 20px;
-  font-size: 0;
-}
-
-.results-carousel video {
-  margin: 0;
-}
-
-.slider-pagination .slider-page {
-  background: #000000;
-}
-
-.eql-cntrb { 
-  font-size: smaller;
-}
-
-
-
-/* Section styling */
-.gallery-section {
-  padding: 40px 20px;
-  background-color: #f9f9f9;
-}
-
-.gallery-title {
-  text-align: center;
-  font-size: 2.5em;
-  margin-top: 0;
-  margin-bottom: 40px;
-  color: #333;
-}
-
-/* Grid container for the cards */
-.grid-container {
-  display: grid;
-  /* Create responsive columns that are at least 600px wide */
-  grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
-  gap: 30px;
-  max-width: 1800px;
-  margin: 0 auto;
-}
-
-/* Card styling */
-.card {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  transition: box-shadow 0.3s ease;
-}
-
-.card:hover {
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* Title for each card */
-.card-title {
-  font-size: 1.5em;
-  font-weight: 600;
-  margin: 0 0 10px 0;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #eee;
-}
-
-/* Header for each card (View 1, View 2, etc.) */
-.card-header {
-  display: grid;
-  /* 1st for vertical title space, then 4 for images */
-  grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr;
-  gap: 10px;
-  text-align: center;
-  font-weight: bold;
-  color: #555;
-}
-
-/* Row containing title and images */
-.image-row {
-  display: grid;
-  /* 1st for vertical title, then 4 for images */
-  grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr;
-  gap: 10px;
-  align-items: center;
-}
-
-.image-row img {
-  width: 100%;
-  border-radius: 4px;
-  background-color: #fff; /* Placeholder color for unloaded images */
-}
-
-/* Vertical row titles (Original, Edited) */
-.row-title {
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  transform: rotate(180deg);
-  text-align: center;
-  font-weight: 600;
-  color: #555;
-  justify-self: center;
-  margin: 0;
-  white-space: nowrap; /* Prevents title from wrapping */
-}
-
-
-
-
-/* ────────── Hero slider ────────── */
-
-/* size & look of the two thumbnails */
-.prompt-stack       { max-width: 250px; }
-.prompt-stack img   { width: 100%; height: auto; }
-
-/* hide videos on non-active slides to prevent “bleed” */
-#results-carousel .carousel-item video           { opacity: 0; pointer-events: none; }
-#results-carousel .carousel-item.is-active video { opacity: 1; pointer-events: auto; transition: opacity .2s; }
-
-/* responsive 52 % (≈ 1.9:1) video frame */
-.video-wrapper      { position: relative; padding-bottom: 52%; height: 0; }
-.video-wrapper video{
-  position: absolute; top: 0; left: 0;
-  width: 100%; height: 100%;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,.12);
-}
-
-/* tighten vertical padding inside each slide */
-#results-carousel .columns{ padding: 0.5rem 0; }
-
-/* aesthetic nav buttons */
-.results-carousel .carousel-nav-left,
-.results-carousel .carousel-nav-right{
-  background: rgba(255,255,255,.9);
-  border-radius: 9999px;
-  box-shadow: 0 2px 4px rgba(0,0,0,.15);
-}
-/* show videos everywhere except the invisible clones bulma-carousel inserts */
-#results-carousel .carousel-item[data-clone="true"] video {
-  opacity: 0;
-  pointer-events: none;
-}
-
-
-/* subtle grey background band for the hero */
-.has-background-white-bis { background-color: #fafafa; }
-
-/* tighten vertical rhythm */
-.hero.is-small .hero-body { padding-top: 2rem; padding-bottom: 2rem; }
-
-
-/* Abstract card */
-.abstract-box {
-  border-radius: 8px;
-  padding: 2rem 2.25rem;
-  box-shadow: 0 4px 16px rgba(0,0,0,.04);
-  background: #ffffff;
-}
-
-/* Make sure the “light” band doesn’t feel cramped */
-section.has-background-light {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
-
-
-/* ---- unified typography ---- */
-.section h2.title {                 /* any <h2 class="title"> inside a .section */
-  font-weight: 700;
-  font-size: 1.75rem;               /* matches Bulma is-3 */
-  letter-spacing: -0.01em;
-  margin-bottom: 1.25rem;
-}
-
-.section .content {                 /* body copy inside cards / boxes */
-  font-size: 1.125rem;              /* ~ Bulma is-5 */
-  line-height: 1.55;
-}
-
-
-/* 1 : 1 square viewport that adapts to column width */
-.model-card model-viewer {
-  width: 100%;
-  aspect-ratio: 1 / 1;      /* becomes the height automatically */
-  height: auto;             /* don’t lock it to 220 px */
-  object-fit: contain;      /* keeps three-js canvas inside (in Safari) */
-}
-
-/* optional – give the figure some breathing room */
-.model-card figure.image {
-  margin: 0 0 1rem;
-}
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,.12);
+  }
+  
+  /* Hide videos on non-active slides to prevent "bleed" and improve performance */
+  #results-carousel .carousel-item video {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  #results-carousel .carousel-item.is-active video {
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity .2s;
+  }
+  
+  /* Hide video on the cloned slides created by bulma-carousel.js */
+  #results-carousel .carousel-item[data-clone="true"] video {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  
+  /* ===================================================================
+     Abstract & Method Sections
+     =================================================================== */
+  
+  /* General padding for sections with a light background */
+  section.has-background-light {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  /* Styling for the abstract and method boxes */
+  .abstract-box,
+  .method-box {
+    border-radius: 8px;
+    padding: 2rem 2.25rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,.04);
+    background: #ffffff;
+  }
+  
+  .method-caption {
+    font-style: italic;
+    color: #555;
+  }
+  
+  
+  /* ===================================================================
+     Multi-View Edit Gallery (Grid Layout)
+     =================================================================== */
+  
+  /* Container for the custom grid cards */
+  .grid-container {
+    display: grid;
+    /* Create responsive columns that are at least 600px wide */
+    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+    gap: 30px;
+    max-width: 1800px;
+    margin: 0 auto;
+  }
+  
+  /* Individual card styling for the gallery */
+  .grid-container .card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .grid-container .card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .grid-container .card-title {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  /* Header row for titles like "Cond. View", "View 1", etc. */
+  .grid-container .card-header {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr; /* 1st column for row title space */
+    gap: 10px;
+    text-align: center;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  /* A row of images */
+  .grid-container .image-row {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr; /* Matches header grid */
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .grid-container .image-row img {
+    width: 100%;
+    border-radius: 4px;
+  }
+  
+  /* Vertical titles like "Original", "Pixar style" */
+  .grid-container .row-title {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    text-align: center;
+    font-weight: 600;
+    color: #555;
+    justify-self: center;
+    margin: 0;
+    white-space: nowrap;
+  }
+  
+  
+  /* ===================================================================
+     Interactive 3D Model Gallery
+     =================================================================== */
+  
+  .model-card {
+    /* This class is used on the card wrapper in the 3D gallery */
+  }
+  
+  .model-card figure.image {
+    margin: 0 0 1rem;
+  }
+  
+  /* This is the key rule for responsive, square model viewers */
+  .model-card model-viewer {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* This makes the height equal to the width */
+    height: auto !important; /* IMPORTANT: Overrides the inline style="height:220px" in the HTML */
+  }
+  
+  
+  /* ===================================================================
+     BibTeX Section
+     =================================================================== */
+  
+  .bib-box {
+    border-radius: 8px;
+    background: #ffffff;
+  }
+  
+  .bib-box .textarea {
+    font-size: 0.9rem;
+  }
+  
+  .copy-btn {
+    height: 100%;
+  }
