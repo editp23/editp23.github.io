@@ -47,7 +47,116 @@
 </head>
 
 <body>
-
+  <section class="section">
+    <div class="container">
+      <div class="columns is-vcentered">
+  
+        <div class="column is-5">
+          
+          <h1 class="title is-2">
+            EditP23
+          </h1>
+          <h2 class="subtitle is-4 has-text-grey-dark">
+            3D Editing via Propagation of Image Prompts to Multi-View
+          </h2>
+  
+          <p class="is-size-5 has-text-grey-dark" style="line-height: 1.6;">
+            We propagate user-provided, single-view 2D edits to the multi-view representation of a 3D asset. This enables fast, mask-free, high-fidelity, and consistent 3D editing with intuitive control.
+          </p>
+  
+          <div class="buttons mt-5">
+            <a class="button is-link is-rounded" href="https://github.com/YOUR-REPO-HERE" target="_blank">
+              <span class="icon"><i class="fab fa-github"></i></span>
+              <span>Code</span>
+            </a>
+            <a class="button is-link is-light is-rounded" href="https://arxiv.org/abs/ARXIV-PAPER-ID" target="_blank">
+              <span class="icon"><i class="ai ai-arxiv"></i></span>
+              <span>arXiv</span>
+            </a>
+          </div>
+        </div>
+  
+        <div class="column is-7">
+          <div class="box p-4">
+            <div id="results-carousel" class="carousel results-carousel" data-autoplay="true" data-delay="8000">
+              
+              <div class="carousel-item is-active">
+                <div class="columns is-vcentered is-gapless">
+                  <div class="column is-narrow prompt-stack">
+                    <figure class="image mb-1"><img src="static/media/hero/slide1/src.png" alt="Source prompt view"></figure>
+                    <p class="has-text-centered is-size-7 mb-3">Source&nbsp;view</p>
+                    <figure class="image mb-1"><img src="static/media/hero/slide1/edited.png" alt="Edited prompt view"></figure>
+                    <p class="has-text-centered is-size-7">Edited&nbsp;view</p>
+                  </div>
+                  <div class="column">
+                    <div class="video-wrapper"><video autoplay loop muted playsinline><source src="static/media/hero/slide1/ours.mp4" type="video/mp4"></video></div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="carousel-item">
+                <div class="columns is-vcentered is-gapless">
+                  <div class="column is-narrow prompt-stack">
+                    <figure class="image mb-1"><img src="static/media/hero/slide2/src.png" alt="Source view"></figure>
+                    <p class="has-text-centered is-size-7 mb-3">Source&nbsp;view</p>
+                    <figure class="image mb-1"><img src="static/media/hero/slide2/edited.png" alt="Edited view"></figure>
+                    <p class="has-text-centered is-size-7">Edited&nbsp;view</p>
+                  </div>
+                  <div class="column">
+                    <div class="video-wrapper"><video autoplay loop muted playsinline><source src="static/media/hero/slide2/ours.mp4" type="video/mp4"></video></div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="carousel-item">
+                <div class="columns is-vcentered is-gapless">
+                  <div class="column is-narrow prompt-stack">
+                    <figure class="image mb-1"><img src="static/media/hero/slide3/src.png" alt="Source prompt view"></figure>
+                    <p class="has-text-centered is-size-7 mb-3">Source&nbsp;view</p>
+                    <figure class="image mb-1"><img src="static/media/hero/slide3/edited.png" alt="Edited prompt view"></figure>
+                    <p class="has-text-centered is-size-7">Edited&nbsp;view</p>
+                  </div>
+                  <div class="column">
+                    <div class="video-wrapper"><video autoplay loop muted playsinline><source src="static/media/hero/slide3/ours.mp4" type="video/mp4"></video></div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="carousel-item">
+                <div class="columns is-vcentered is-gapless">
+                  <div class="column is-narrow prompt-stack">
+                    <figure class="image mb-1"><img src="static/media/hero/slide4/src.png" alt="Source prompt view"></figure>
+                    <p class="has-text-centered is-size-7 mb-3">Source&nbsp;view</p>
+                    <figure class="image mb-1"><img src="static/media/hero/slide4/edited.png" alt="Edited prompt view"></figure>
+                    <p class="has-text-centered is-size-7">Edited&nbsp;view</p>
+                  </div>
+                  <div class="column">
+                    <div class="video-wrapper"><video autoplay loop muted playsinline><source src="static/media/hero/slide4/ours.mp4" type="video/mp4"></video></div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="carousel-item">
+                <div class="columns is-vcentered is-gapless">
+                  <div class="column is-narrow prompt-stack">
+                    <figure class="image mb-1"><img src="static/media/hero/slide5/src.png" alt="Source prompt view"></figure>
+                    <p class="has-text-centered is-size-7 mb-3">Source&nbsp;view</p>
+                    <figure class="image mb-1"><img src="static/media/hero/slide5/edited.png" alt="Edited prompt view"></figure>
+                    <p class="has-text-centered is-size-7">Edited&nbsp;view</p>
+                  </div>
+                  <div class="column">
+                    <div class="video-wrapper"><video autoplay loop muted playsinline><source src="static/media/hero/slide5/ours.mp4" type="video/mp4"></video></div>
+                  </div>
+                </div>
+              </div>
+  
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>
 
   <section class="hero is-small has-background-white-bis">
     <div class="hero-body">
@@ -61,18 +170,15 @@
   
         <!-- Button row -->
         <div class="buttons is-centered">
-          <a class="button is-dark is-rounded"
-             href="https://github.com/YOUR-REPO-HERE" target="_blank">
+          <a class="button is-link is-rounded" href="..." target="_blank">
             <span class="icon"><i class="fab fa-github"></i></span>
             <span>Code</span>
           </a>
-  
-          <a class="button is-dark is-rounded"
-             href="https://arxiv.org/abs/ARXIV-PAPER-ID" target="_blank">
+          <a class="button is-link is-light is-rounded" href="..." target="_blank">
             <span class="icon"><i class="ai ai-arxiv"></i></span>
             <span>arXiv</span>
           </a>
-        </div>
+                  </div>
   
         <!-- Optional meta line (uncomment if/when ready) -->
         <!--
@@ -83,164 +189,7 @@
       </div>
     </div>
   </section>
-  
-<!-- ────────── Hero / results-carousel ────────── -->
-<section class="section">
-    <div class="container">
-
-      <div id="results-carousel" class="carousel results-carousel"
-           data-autoplay="true" data-delay="8000">
-
-        <!-- ── Slide 1 ── -->
-        <div class="carousel-item is-active">
-          <div class="columns is-vcentered is-gapless">
-
-            <!-- prompt + edited thumbnails -->
-            <div class="column is-narrow prompt-stack">
-              <figure class="image mb-1">
-                <img src="static/media/hero/slide1/src.png"
-                     alt="Source prompt view">
-              </figure>
-              <p class="has-text-centered is-size-7 mb-3">Source&nbsp;view</p>
-
-              <figure class="image mb-1">
-                <img src="static/media/hero/slide1/edited.png"
-                     alt="Edited prompt view">
-              </figure>
-              <p class="has-text-centered is-size-7">Edited&nbsp;view</p>
-            </div>
-
-            <!-- autoplay video of the result -->
-            <div class="column">
-              <div class="video-wrapper">
-                <video autoplay loop muted playsinline>
-                  <source src="static/media/hero/slide1/ours.mp4"
-                          type="video/mp4">
-                </video>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- ── Slide 2 (change paths only) ── -->
-        <div class="carousel-item is-active">
-          <div class="columns is-vcentered is-gapless">
-            <div class="column is-narrow prompt-stack">
-              <figure class="image mb-1">
-                <img src="static/media/hero/slide2/src.png" alt="Source view">
-              </figure>
-              <p class="has-text-centered is-size-7 mb-3">Source&nbsp;view</p>
-
-              <figure class="image mb-1">
-                <img src="static/media/hero/slide2/edited.png" alt="Edited view">
-              </figure>
-              <p class="has-text-centered is-size-7">Edited&nbsp;view</p>
-            </div>
-
-            <div class="column">
-              <div class="video-wrapper">
-                <video autoplay loop muted playsinline>
-                  <source src="static/media/hero/slide2/ours.mp4"
-                          type="video/mp4">
-                </video>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item is-active">
-          <div class="columns is-vcentered is-gapless">
-
-            <!-- prompt + edited thumbnails -->
-            <div class="column is-narrow prompt-stack">
-              <figure class="image mb-1">
-                <img src="static/media/hero/slide3/src.png"
-                     alt="Source prompt view">
-              </figure>
-              <p class="has-text-centered is-size-7 mb-3">Source&nbsp;view</p>
-
-              <figure class="image mb-1">
-                <img src="static/media/hero/slide3/edited.png"
-                     alt="Edited prompt view">
-              </figure>
-              <p class="has-text-centered is-size-7">Edited&nbsp;view</p>
-            </div>
-
-            <!-- autoplay video of the result -->
-            <div class="column">
-              <div class="video-wrapper">
-                <video autoplay loop muted playsinline>
-                  <source src="static/media/hero/slide3/ours.mp4"
-                          type="video/mp4">
-                </video>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="carousel-item is-active">
-          <div class="columns is-vcentered is-gapless">
-
-            <!-- prompt + edited thumbnails -->
-            <div class="column is-narrow prompt-stack">
-              <figure class="image mb-1">
-                <img src="static/media/hero/slide4/src.png"
-                     alt="Source prompt view">
-              </figure>
-              <p class="has-text-centered is-size-7 mb-3">Source&nbsp;view</p>
-
-              <figure class="image mb-1">
-                <img src="static/media/hero/slide4/edited.png"
-                     alt="Edited prompt view">
-              </figure>
-              <p class="has-text-centered is-size-7">Edited&nbsp;view</p>
-            </div>
-
-            <!-- autoplay video of the result -->
-            <div class="column">
-              <div class="video-wrapper">
-                <video autoplay loop muted playsinline>
-                  <source src="static/media/hero/slide4/ours.mp4"
-                          type="video/mp4">
-                </video>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item is-active">
-          <div class="columns is-vcentered is-gapless">
-
-            <!-- prompt + edited thumbnails -->
-            <div class="column is-narrow prompt-stack">
-              <figure class="image mb-1">
-                <img src="static/media/hero/slide5/src.png"
-                     alt="Source prompt view">
-              </figure>
-              <p class="has-text-centered is-size-7 mb-3">Source&nbsp;view</p>
-
-              <figure class="image mb-1">
-                <img src="static/media/hero/slide5/edited.png"
-                     alt="Edited prompt view">
-              </figure>
-              <p class="has-text-centered is-size-7">Edited&nbsp;view</p>
-            </div>
-
-            <!-- autoplay video of the result -->
-            <div class="column">
-              <div class="video-wrapper">
-                <video autoplay loop muted playsinline>
-                  <source src="static/media/hero/slide5/ours.mp4"
-                          type="video/mp4">
-                </video>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div><!-- /results-carousel -->
-
-  </div>
-</section>
-
-          
+            
 
 
 <!-- ────────── Abstract ────────── -->
@@ -250,7 +199,7 @@
     <div class="box abstract-box">
       <h2 class="title is-4 mb-3">
         Abstract</h2>
-      <div class="content is-size-5 has-text-justified">
+<div class="content is-size-5">
         <p>
           We present <strong>EditP23</strong>, a method for mask-free 3D editing that propagates 2D image edits
           to multi-view representations in a 3D-consistent manner. In contrast to traditional approaches that rely on
@@ -483,8 +432,7 @@
                       alt="Original mesh 1"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
       </figure>
 
@@ -493,8 +441,7 @@
                       alt="Edited mesh 1"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
       </figure>
 
@@ -503,8 +450,7 @@
                       alt="Un-textured edit 1"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
       </figure>
 
@@ -522,8 +468,7 @@
                       alt="Original mesh 2"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
       </figure>
 
@@ -532,8 +477,7 @@
                       alt="Edited mesh 2"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
       </figure>
 
@@ -542,8 +486,7 @@
                       alt="Un-textured edit 2"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
       </figure>
 
@@ -561,8 +504,7 @@
                       alt="Original mesh 3"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
       </figure>
 
@@ -571,8 +513,7 @@
                       alt="Edited mesh 3"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
       </figure>
 
@@ -581,8 +522,7 @@
                       alt="Un-textured edit 3"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
       </figure>
 
@@ -600,8 +540,7 @@
                       alt="Original mesh 4"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
       </figure>
 
@@ -610,8 +549,7 @@
                       alt="Edited mesh 4"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
       </figure>
 
@@ -620,8 +558,7 @@
                       alt="Un-textured edit 4"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
       </figure>
 
@@ -639,8 +576,7 @@
                       alt="Original mesh 5"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
       </figure>
 
@@ -649,8 +585,7 @@
                       alt="Edited mesh 5"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
       </figure>
 
@@ -659,8 +594,7 @@
                       alt="Un-textured edit 5"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
       </figure>
 
@@ -678,8 +612,7 @@
                       alt="Original mesh 6"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
       </figure>
 
@@ -688,8 +621,7 @@
                       alt="Edited mesh 6"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
       </figure>
 
@@ -698,8 +630,7 @@
                       alt="Un-textured edit 6"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
       </figure>
 
@@ -717,8 +648,7 @@
                       alt="Original mesh 7"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
       </figure>
 
@@ -727,8 +657,7 @@
                       alt="Edited mesh 7"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
       </figure>
 
@@ -737,8 +666,7 @@
                       alt="Un-textured edit 7"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
       </figure>
 
@@ -756,8 +684,7 @@
                       alt="Original mesh 8"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
       </figure>
 
@@ -766,8 +693,7 @@
                       alt="Edited mesh 8"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
       </figure>
 
@@ -776,8 +702,7 @@
                       alt="Un-textured edit 8"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
       </figure>
 
@@ -795,8 +720,7 @@
                       alt="Original mesh 9"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
       </figure>
 
@@ -805,8 +729,7 @@
                       alt="Edited mesh 9"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
       </figure>
 
@@ -815,8 +738,7 @@
                       alt="Un-textured edit 9"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
       </figure>
 
@@ -834,8 +756,7 @@
                       alt="Original mesh 10"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
       </figure>
 
@@ -844,8 +765,7 @@
                       alt="Edited mesh 10"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
       </figure>
 
@@ -854,8 +774,7 @@
                       alt="Un-textured edit 10"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
       </figure>
 
@@ -873,8 +792,7 @@
                       alt="Original mesh 11"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
       </figure>
 
@@ -883,8 +801,7 @@
                       alt="Edited mesh 11"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
       </figure>
 
@@ -893,8 +810,7 @@
                       alt="Un-textured edit 11"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
       </figure>
 
@@ -911,8 +827,7 @@
                       alt="Original mesh 11"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
       </figure>
 
@@ -921,8 +836,7 @@
                       alt="Edited mesh 11"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
       </figure>
 
@@ -931,8 +845,7 @@
                       alt="Un-textured edit 12"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
       </figure>
 
@@ -949,8 +862,7 @@
                       alt="Original mesh 11"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
       </figure>
 
@@ -959,8 +871,7 @@
                       alt="Edited mesh 11"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
       </figure>
 
@@ -969,8 +880,7 @@
                       alt="Un-textured edit 13"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
       </figure>
 
@@ -987,8 +897,7 @@
                       alt="Original mesh 11"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
       </figure>
 
@@ -997,8 +906,7 @@
                       alt="Edited mesh 11"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
       </figure>
 
@@ -1007,8 +915,7 @@
                       alt="Un-textured edit 11"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
       </figure>
 
@@ -1026,8 +933,7 @@
                       alt="Original mesh 11"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
       </figure>
 
@@ -1036,8 +942,7 @@
                       alt="Edited mesh 11"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
       </figure>
 
@@ -1046,8 +951,7 @@
                       alt="Un-textured edit 11"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
       </figure>
 
@@ -1065,8 +969,7 @@
                       alt="Original mesh 11"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
       </figure>
 
@@ -1075,8 +978,7 @@
                       alt="Edited mesh 11"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
       </figure>
 
@@ -1085,8 +987,7 @@
                       alt="Un-textured edit 11"
                       camera-controls auto-rotate
                       camera-orbit="-45deg 90deg auto" shadow-intensity="1"
-                      style="height:220px">
-        </model-viewer>
+        >        </model-viewer>
         <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
       </figure>
 
@@ -1114,7 +1015,7 @@
                     readonly rows="6">{% raw %}BibTeX code here{% endraw %}</textarea>
         </p>
         <p class="control">
-          <button class="button is-dark copy-btn" onclick="copyBibtex()">
+          <button class="button is-link copy-btn" onclick="copyBibtex()">
             <span class="icon"><i class="fas fa-copy"></i></span>
           </button>
         </p>

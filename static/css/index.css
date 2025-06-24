@@ -1,7 +1,37 @@
 /* ===================================================================
    Global Styles & Typography
    =================================================================== */
+/* --- Add this to your Global Styles section --- */
 
+:root {
+  --theme-color: #007bff; /* A nice, modern blue. Change as you like. */
+  --text-color: #333333;
+  --text-color-light: #777777;
+  --border-color: #dddddd;
+  --background-light: #f8f9fa;
+}
+
+body {
+  font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: var(--text-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Google Sans', sans-serif;
+}
+
+/* Apply the theme color to links */
+a {
+  color: var(--theme-color);
+}
+a:hover {
+  color: #0056b3; /* A darker shade for hover */
+}
+
+/* Update section background color to use our variable */
+section.has-background-light {
+  background-color: var(--background-light) !important;
+}
    body {
     /* Use a modern, system-agnostic font stack. Bulma provides a similar base. */
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -72,24 +102,6 @@
     box-shadow: 0 2px 6px rgba(0,0,0,.12);
   }
   
-  /* Hide videos on non-active slides to prevent "bleed" and improve performance */
-  #results-carousel .carousel-item video {
-    opacity: 0;
-    pointer-events: none;
-  }
-  
-  #results-carousel .carousel-item.is-active video {
-    opacity: 1;
-    pointer-events: auto;
-    transition: opacity .2s;
-  }
-  
-  /* Hide video on the cloned slides created by bulma-carousel.js */
-  #results-carousel .carousel-item[data-clone="true"] video {
-    opacity: 0;
-    pointer-events: none;
-  }
-  
   
   /* ===================================================================
      Abstract & Method Sections
@@ -120,7 +132,6 @@
      Multi-View Edit Gallery (Grid Layout)
      =================================================================== */
   
-  /* Container for the custom grid cards */
   .grid-container {
     display: grid;
     /* Create responsive columns that are at least 600px wide */
@@ -228,3 +239,9 @@
   .copy-btn {
     height: 100%;
   }
+
+  .abstract-box .content strong {
+    color: var(--theme-color);
+    font-weight: 700; /* Ensures it remains bold */
+  }
+  
