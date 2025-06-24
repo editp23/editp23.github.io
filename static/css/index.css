@@ -2,245 +2,265 @@
    Global Styles & Typography
    =================================================================== */
 
-   :root {
-    --theme-color: #007bff;
-    --text-color: #333333;
-    --text-color-light: #777777;
-    --border-color: #dddddd;
-    --background-light: #f8f9fa;
-  }
-  
-  body {
-    font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    color: var(--text-color);
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Google Sans', sans-serif;
-  }
-  
-  a {
-    color: var(--theme-color);
-  }
-  a:hover {
-    color: #0056b3;
-  }
-  
-  section {
-    /* Add padding to all sections for consistent vertical spacing */
-    padding: 3rem 1.5rem;
-  }
-  
-  section.has-background-light {
-    background-color: var(--background-light) !important;
-  }
-  
-  .section h2.title {
-    font-weight: 700;
-    font-size: 1.75rem;
-    margin-bottom: 1.25rem;
-  }
-  
-  .section .content {
-    font-size: 1.125rem;
-    line-height: 1.55;
-  }
-  
-  /* ===================================================================
+:root {
+  --theme-color: #007bff;
+  --text-color: #333333;
+  --text-color-light: #777777;
+  --border-color: #dddddd;
+  --background-light: #f8f9fa;
+}
+
+body {
+  font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: var(--text-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Google Sans', sans-serif;
+}
+
+a {
+  color: var(--theme-color);
+}
+
+a:hover {
+  color: #0056b3;
+}
+
+section {
+  /* Add padding to all sections for consistent vertical spacing */
+  padding: 3rem 1.5rem;
+}
+
+section.has-background-light {
+  background-color: var(--background-light) !important;
+}
+
+.section h2.title {
+  font-weight: 700;
+  font-size: 1.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.section .content {
+  font-size: 1.125rem;
+  line-height: 1.55;
+}
+
+/* ===================================================================
      Hero & Results Carousel Section
      =================================================================== */
-  
-  .results-carousel {
-    overflow: hidden;
-  }
-  
-  .prompt-stack {
-    max-width: 250px;
-  }
-  
-  .video-wrapper {
-    position: relative;
-    padding-bottom: 52%; /* Desktop aspect ratio */
-    height: 0;
-  }
-  
-  .video-wrapper video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 6px;
-    box-shadow: 0 2px 6px rgba(0,0,0,.12);
-  }
-  
-  /* ===================================================================
+
+.results-carousel {
+  overflow: hidden;
+}
+
+.prompt-stack {
+  max-width: 250px;
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 52%;
+  /* Desktop aspect ratio */
+  height: 0;
+}
+
+.video-wrapper video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .12);
+}
+
+/* ===================================================================
      Abstract & Method Sections
      =================================================================== */
-  
-  .abstract-box,
-  .method-box {
-    border-radius: 8px;
-    padding: 2rem 2.25rem;
-    box-shadow: 0 4px 16px rgba(0,0,0,.04);
-    background: #ffffff;
-  }
-  
-  .method-caption {
-    font-style: italic;
-    color: #555;
-  }
-  
-  .abstract-box .content strong {
-    color: var(--theme-color);
-    font-weight: 700;
-  }
-  
-  /* ===================================================================
+
+.abstract-box,
+.method-box {
+  border-radius: 8px;
+  padding: 2rem 2.25rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .04);
+  background: #ffffff;
+}
+
+.method-caption {
+  font-style: italic;
+  color: #555;
+}
+
+.abstract-box .content strong {
+  color: var(--theme-color);
+  font-weight: 700;
+}
+
+/* ===================================================================
      Multi-View Edit Gallery (Grid Layout)
      =================================================================== */
-  
+
+.grid-container {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: 1fr;
+  /* Mobile First: 1 column */
+}
+
+/* On desktop, switch to a two-column layout */
+@media screen and (min-width: 1024px) {
   .grid-container {
-    display: grid;
-    gap: 30px;
-    grid-template-columns: 1fr; /* Mobile First: 1 column */
+    grid-template-columns: 1fr 1fr;
   }
-  
-  /* On desktop, switch to a two-column layout */
-  @media screen and (min-width: 1024px) {
-    .grid-container {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-  
-  .grid-container .card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .grid-container .card-title {
-    font-size: 1.5em;
-    font-weight: 600;
-    margin: 0 0 10px 0;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #eee;
-  }
-  
-  .grid-container .card-header,
-  .grid-container .image-row {
-    display: grid;
-    grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr;
-    gap: 10px;
-    align-items: center;
-    text-align: center;
-  }
-  .grid-container .card-header{
-    font-weight: bold;
-    color: #555;
-  }
-  .grid-container .image-row img {
-    width: 100%;
-    border-radius: 4px;
-  }
-  .grid-container .row-title {
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    transform: rotate(180deg);
-    font-weight: 600;
-    color: #555;
-    justify-self: center;
-    margin: 0;
-    white-space: nowrap;
-  }
-  
-  /* ===================================================================
+}
+
+.grid-container .card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.grid-container .card-title {
+  font-size: 1.5em;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.grid-container .card-header,
+.grid-container .image-row {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  align-items: center;
+  text-align: center;
+}
+
+.grid-container .card-header {
+  font-weight: bold;
+  color: #555;
+}
+
+.grid-container .image-row img {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.grid-container .row-title {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  font-weight: 600;
+  color: #555;
+  justify-self: center;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* ===================================================================
      Interactive 3D Model Gallery
      =================================================================== */
-  
-  .model-card figure.image {
-    margin: 0 0 1rem;
-  }
-  
-  .model-card model-viewer {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    height: auto !important;
-  }
-  
-  /* ===================================================================
+
+.model-card figure.image {
+  margin: 0 0 1rem;
+}
+
+.model-card model-viewer {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  height: auto !important;
+}
+
+/* ===================================================================
      BibTeX Section
      =================================================================== */
-  
-  .bib-box .textarea {
-    font-size: 0.9rem;
-  }
-  .copy-btn {
-    height: 100%;
-  }
-  
-  
-  /* ===================================================================
+
+.bib-box .textarea {
+  font-size: 0.9rem;
+}
+
+.copy-btn {
+  height: 100%;
+}
+
+
+/* ===================================================================
      MOBILE RESPONSIVE STYLES
      =================================================================== */
-     @media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
 
-      /* --- General Layout --- */
-      .section > .container > .columns {
-        flex-direction: column;
-      }
-      .abstract-box,
-      .method-box,
-      .grid-container .card {
-        padding: 1.5rem;
-      }
-    
-      /* --- Carousel Layout on Mobile --- */
-      #results-carousel .columns {
-        flex-direction: column;
-      }
-      #results-carousel .columns > .column {
-        width: 100%;
-      }
-    
-      /* --- Prompt Images Layout on Mobile --- */
-      .prompt-stack {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        gap: 1rem;
-        max-width: 100%;
-        margin-bottom: 1.5rem;
-      }
-      .prompt-item {
-        flex: 1;
-        min-width: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-    
-      /* ======================================================= */
-      /* ===          THE DEFINITIVE VIDEO FIX               === */
-      /* ======================================================= */
-    
-      /* 1. Reset the video's wrapper on mobile */
-      .video-wrapper {
-        padding-bottom: 0;  /* Remove the padding-based sizing */
-        height: auto;       /* Let height be natural */
-        background-color: #f5f5f5; /* A light background to see the container */
-      }
-    
-      /* 2. Style the video element directly */
-      .video-wrapper video {
-        position: static;   /* CRITICAL: Remove absolute positioning */
-        height: auto;       /* Let height be determined by aspect ratio */
-        border-radius: 6px;
-        box-shadow: 0 2px 6px rgba(0,0,0,.12);
-      }
-    }
-    
+  /* --- General Layout --- */
+  #results-carousel .columns {
+    flex-direction: column-reverse;
+    /* This is the only change needed */
+  }
+
+  .abstract-box,
+  .method-box,
+  .grid-container .card {
+    padding: 1.5rem;
+  }
+
+  /* --- Carousel Layout on Mobile --- */
+  #results-carousel .columns {
+    flex-direction: column;
+  }
+
+  #results-carousel .columns>.column {
+    width: 100%;
+  }
+
+  /* --- Prompt Images Layout on Mobile --- */
+  .prompt-stack {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  .prompt-item {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* ======================================================= */
+  /* ===          THE DEFINITIVE VIDEO FIX               === */
+  /* ======================================================= */
+
+  /* 1. Reset the video's wrapper on mobile */
+  .video-wrapper {
+    padding-bottom: 0;
+    /* Remove the padding-based sizing */
+    height: auto;
+    /* Let height be natural */
+    background-color: #f5f5f5;
+    /* A light background to see the container */
+  }
+
+  /* 2. Style the video element directly */
+  .video-wrapper video {
+    position: static;
+    /* CRITICAL: Remove absolute positioning */
+    height: auto;
+    /* Let height be determined by aspect ratio */
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .12);
+  }
+}
