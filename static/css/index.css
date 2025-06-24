@@ -197,70 +197,58 @@ section.has-background-light {
 
 
 /* ===================================================================
-     MOBILE RESPONSIVE STYLES
-     =================================================================== */
-@media screen and (max-width: 768px) {
+   MOBILE RESPONSIVE STYLES (Video First)
+   =================================================================== */
+   @media screen and (max-width: 768px) {
 
-  /* --- General Layout --- */
-  #results-carousel .columns {
-    flex-direction: column-reverse;
-    /* This is the only change needed */
+    /* --- General Layout --- */
+    .section > .container > .columns {
+      flex-direction: column;
+    }
+    .abstract-box,
+    .method-box,
+    .grid-container .card {
+      padding: 1.5rem;
+    }
+  
+    /* --- Carousel Fixes --- */
+  
+    /* This rule now reverses the order, putting the video on top */
+    #results-carousel .columns {
+      flex-direction: column-reverse;
+    }
+    
+    #results-carousel .columns > .column {
+      width: 100%;
+    }
+  
+    /* --- Prompt Images Layout on Mobile --- */
+    .prompt-stack {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 1rem;
+      max-width: 100%;
+      margin-top: 1.5rem; /* This now creates space *above* the prompts */
+    }
+    .prompt-item {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    /* --- Video Fix --- */
+    .video-wrapper {
+      padding-bottom: 0;
+      height: auto;
+      background-color: #f5f5f5;
+    }
+    .video-wrapper video {
+      position: static;
+      height: auto;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,.12);
+    }
   }
-
-  .abstract-box,
-  .method-box,
-  .grid-container .card {
-    padding: 1.5rem;
-  }
-
-  /* --- Carousel Layout on Mobile --- */
-  #results-carousel .columns {
-    flex-direction: column;
-  }
-
-  #results-carousel .columns>.column {
-    width: 100%;
-  }
-
-  /* --- Prompt Images Layout on Mobile --- */
-  .prompt-stack {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 1rem;
-    max-width: 100%;
-    margin-bottom: 1.5rem;
-  }
-
-  .prompt-item {
-    flex: 1;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  /* ======================================================= */
-  /* ===          THE DEFINITIVE VIDEO FIX               === */
-  /* ======================================================= */
-
-  /* 1. Reset the video's wrapper on mobile */
-  .video-wrapper {
-    padding-bottom: 0;
-    /* Remove the padding-based sizing */
-    height: auto;
-    /* Let height be natural */
-    background-color: #f5f5f5;
-    /* A light background to see the container */
-  }
-
-  /* 2. Style the video element directly */
-  .video-wrapper video {
-    position: static;
-    /* CRITICAL: Remove absolute positioning */
-    height: auto;
-    /* Let height be determined by aspect ratio */
-    border-radius: 6px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, .12);
-  }
-}
