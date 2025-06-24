@@ -204,175 +204,168 @@
   </section>
   <!-- ────────── /Abstract ────────── -->
 
-  <section class="section" id="recon-gallery">
-    <h2 class="title is-3 has-text-centered mb-5">
-      Multi-View Edit Gallery</h2>
-    <p class="subtitle has-text-centered" style="max-width: 60rem; margin: 0 auto 1.5rem;">
-      Results of our method across diverse object categories. Each block compares a source object (top)
-      with its edited versions (below). The leftmost column shows the conditioning views (source and target)
-      used to prompt the edit, while the remaining columns present novel viewpoints of the result. Our
-      approach consistently applies the desired edit while preserving the object’s structure and identity
-      across all viewpoints.
-    </p>
-
-    <div class="grid-container">
-
-      <div class="card">
-        <h4 class="card-title">Deer – Pixar style & Wings</h4>
-        <div class="card-header">
-          <span></span> <span>Cond. View</span>
-          <span>View 1</span>
-          <span>View 2</span>
-          <span>View 3</span>
+  <section class="section" id="mv-gallery">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered mb-5">
+        Multi-View Edit Gallery
+      </h2>
+      <p class="subtitle has-text-centered" style="max-width: 60rem; margin: 0 auto 1.5rem;">
+        Results of our method across diverse object categories. Each block compares a source object (top)
+        with its edited versions (below). The leftmost column shows the conditioning views (source and target)
+        used to prompt the edit, while the remaining columns present novel viewpoints of the result. Our
+        approach consistently applies the desired edit while preserving the object’s structure and identity
+        across all viewpoints.
+      </p>
+  
+      <div id="mv-gallery-container" class="grid-container">
+  
+        <div class="card">
+          <h4 class="card-title">Deer – Pixar style & Wings</h4>
+          <div class="card-header">
+            <span></span> <span>Cond. View</span> <span>View 1</span> <span>View 2</span> <span>View 3</span>
+          </div>
+          <div class="image-row">
+            <p class="row-title">Original</p>
+            <img src="static/media/mv-gallery/1/src/prompt.png" alt="Original Deer Conditional View">
+            <img src="static/media/mv-gallery/1/src/0.png" alt="Original Deer View 1">
+            <img src="static/media/mv-gallery/1/src/1.png" alt="Original Deer View 2">
+            <img src="static/media/mv-gallery/1/src/2.png" alt="Original Deer View 3">
+          </div>
+          <div class="image-row">
+            <p class="row-title">Pixar style</p>
+            <img src="static/media/mv-gallery/1/edit/prompt.png" alt="Pixar Style Deer Conditional View">
+            <img src="static/media/mv-gallery/1/edit/0.png" alt="Pixar Style Deer View 1">
+            <img src="static/media/mv-gallery/1/edit/1.png" alt="Pixar Style Deer View 2">
+            <img src="static/media/mv-gallery/1/edit/2.png" alt="Pixar Style Deer View 3">
+          </div>
+          <div class="image-row">
+            <p class="row-title">Wings</p>
+            <img src="static/media/mv-gallery/1/edit2/prompt.png" alt="Winged Deer Conditional View">
+            <img src="static/media/mv-gallery/1/edit2/0.png" alt="Winged Deer View 1">
+            <img src="static/media/mv-gallery/1/edit2/1.png" alt="Winged Deer View 2">
+            <img src="static/media/mv-gallery/1/edit2/2.png" alt="Winged Deer View 3">
+          </div>
         </div>
-        <div class="image-row">
-          <p class="row-title">Original</p>
-          <img src="static/media/mv-gallery/1/src/prompt.png" alt="Original Deer Conditional View">
-          <img src="static/media/mv-gallery/1/src/0.png" alt="Original Deer View 1">
-          <img src="static/media/mv-gallery/1/src/1.png" alt="Original Deer View 2">
-          <img src="static/media/mv-gallery/1/src/2.png" alt="Original Deer View 3">
+  
+        <div class="card">
+          <h4 class="card-title">Person – Old & Zombie</h4>
+          <div class="card-header">
+            <span></span> <span>Cond. View</span> <span>View 1</span> <span>View 2</span> <span>View 3</span>
+          </div>
+          <div class="image-row">
+            <p class="row-title">Original</p>
+            <img src="static/media/mv-gallery/2/src/prompt.png" alt="Original Person Conditional View">
+            <img src="static/media/mv-gallery/2/src/0.png" alt="Original Person View 1">
+            <img src="static/media/mv-gallery/2/src/1.png" alt="Original Person View 2">
+            <img src="static/media/mv-gallery/2/src/2.png" alt="Original Person View 3">
+          </div>
+          <div class="image-row">
+            <p class="row-title">Old</p>
+            <img src="static/media/mv-gallery/2/edit/prompt.png" alt="Old Person Conditional View">
+            <img src="static/media/mv-gallery/2/edit/0.png" alt="Old Person View 1">
+            <img src="static/media/mv-gallery/2/edit/1.png" alt="Old Person View 2">
+            <img src="static/media/mv-gallery/2/edit/2.png" alt="Old Person View 3">
+          </div>
+          <div class="image-row">
+            <p class="row-title">Zombie</p>
+            <img src="static/media/mv-gallery/2/edit2/prompt.png" alt="Zombie Person Conditional View">
+            <img src="static/media/mv-gallery/2/edit2/0.png" alt="Zombie Person View 1">
+            <img src="static/media/mv-gallery/2/edit2/1.png" alt="Zombie Person View 2">
+            <img src="static/media/mv-gallery/2/edit2/2.png" alt="Zombie Person View 3">
+          </div>
         </div>
-        <div class="image-row">
-          <p class="row-title">Pixar style</p>
-          <img src="static/media/mv-gallery/1/edit/prompt.png" alt="Pixar Style Deer Conditional View">
-          <img src="static/media/mv-gallery/1/edit/0.png" alt="Pixar Style Deer View 1">
-          <img src="static/media/mv-gallery/1/edit/1.png" alt="Pixar Style Deer View 2">
-          <img src="static/media/mv-gallery/1/edit/2.png" alt="Pixar Style Deer View 3">
+  
+        <div class="card">
+          <h4 class="card-title">Ship – Fantasy</h4>
+          <div class="card-header">
+            <span></span> <span>Cond. View</span> <span>View 1</span> <span>View 2</span> <span>View 3</span>
+          </div>
+          <div class="image-row">
+            <p class="row-title">Original</p>
+            <img src="static/media/mv-gallery/3/src/prompt.png" alt="Original Ship Conditional View">
+            <img src="static/media/mv-gallery/3/src/0.png" alt="Original Ship View 1">
+            <img src="static/media/mv-gallery/3/src/1.png" alt="Original Ship View 2">
+            <img src="static/media/mv-gallery/3/src/2.png" alt="Original Ship View 3">
+          </div>
+          <div class="image-row">
+            <p class="row-title">Fantasy</p>
+            <img src="static/media/mv-gallery/3/edit/prompt.png" alt="Fantasy Ship Conditional View">
+            <img src="static/media/mv-gallery/3/edit/0.png" alt="Fantasy Ship View 1">
+            <img src="static/media/mv-gallery/3/edit/1.png" alt="Fantasy Ship View 2">
+            <img src="static/media/mv-gallery/3/edit/2.png" alt="Fantasy Ship View 3">
+          </div>
         </div>
-        <div class="image-row">
-          <p class="row-title">Wings</p>
-          <img src="static/media/mv-gallery/1/edit2/prompt.png" alt="Winged Deer Conditional View">
-          <img src="static/media/mv-gallery/1/edit2/0.png" alt="Winged Deer View 1">
-          <img src="static/media/mv-gallery/1/edit2/1.png" alt="Winged Deer View 2">
-          <img src="static/media/mv-gallery/1/edit2/2.png" alt="Winged Deer View 3">
+  
+        <div class="card">
+          <h4 class="card-title">Object – Donut</h4>
+          <div class="card-header">
+            <span></span> <span>Cond. View</span> <span>View 1</span> <span>View 2</span> <span>View 3</span>
+          </div>
+          <div class="image-row">
+            <p class="row-title">Original</p>
+            <img src="static/media/mv-gallery/4/src/prompt.png" alt="Original Object Conditional View">
+            <img src="static/media/mv-gallery/4/src/0.png" alt="Original Object View 1">
+            <img src="static/media/mv-gallery/4/src/1.png" alt="Original Object View 2">
+            <img src="static/media/mv-gallery/4/src/2.png" alt="Original Object View 3">
+          </div>
+          <div class="image-row">
+            <p class="row-title">Donut</p>
+            <img src="static/media/mv-gallery/4/edit/prompt.png" alt="Donut Object Conditional View">
+            <img src="static/media/mv-gallery/4/edit/0.png" alt="Donut Object View 1">
+            <img src="static/media/mv-gallery/4/edit/1.png" alt="Donut Object View 2">
+            <img src="static/media/mv-gallery/4/edit/2.png" alt="Donut Object View 3">
+          </div>
         </div>
+  
+        <div class="card is-hidden">
+          <h4 class="card-title">Object – Donut Style</h4>
+          <div class="card-header">
+            <span></span> <span>Cond. View</span> <span>View 1</span> <span>View 2</span> <span>View 3</span>
+          </div>
+          <div class="image-row">
+            <p class="row-title">Original</p>
+            <img src="static/media/mv-gallery/5/src/prompt.png" alt="Original Item Conditional View">
+            <img src="static/media/mv-gallery/5/src/0.png" alt="Original Item View 1">
+            <img src="static/media/mv-gallery/5/src/1.png" alt="Original Item View 2">
+            <img src="static/media/mv-gallery/5/src/2.png" alt="Original Item View 3">
+          </div>
+          <div class="image-row">
+            <p class="row-title">Donut</p>
+            <img src="static/media/mv-gallery/5/edit/prompt.png" alt="Donut Item Conditional View">
+            <img src="static/media/mv-gallery/5/edit/0.png" alt="Donut Item View 1">
+            <img src="static/media/mv-gallery/5/edit/1.png" alt="Donut Item View 2">
+            <img src="static/media/mv-gallery/5/edit/2.png" alt="Donut Item View 3">
+          </div>
+        </div>
+  
+        <div class="card is-hidden">
+          <h4 class="card-title">Object – Donut Style</h4>
+          <div class="card-header">
+            <span></span> <span>Cond. View</span> <span>View 1</span> <span>View 2</span> <span>View 3</span>
+          </div>
+          <div class="image-row">
+            <p class="row-title">Original</p>
+            <img src="static/media/mv-gallery/6/src/prompt.png" alt="Original Item Conditional View">
+            <img src="static/media/mv-gallery/6/src/0.png" alt="Original Item View 1">
+            <img src="static/media/mv-gallery/6/src/1.png" alt="Original Item View 2">
+            <img src="static/media/mv-gallery/6/src/2.png" alt="Original Item View 3">
+          </div>
+          <div class="image-row">
+            <p class="row-title">Donut</p>
+            <img src="static/media/mv-gallery/6/edit/prompt.png" alt="Donut Item Conditional View">
+            <img src="static/media/mv-gallery/6/edit/0.png" alt="Donut Item View 1">
+            <img src="static/media/mv-gallery/6/edit/1.png" alt="Donut Item View 2">
+            <img src="static/media/mv-gallery/6/edit/2.png" alt="Donut Item View 3">
+          </div>
+        </div>
+  
       </div>
-
-      <div class="card">
-        <h4 class="card-title">Person – Old & Zombie</h4>
-        <div class="card-header">
-          <span></span> <span>Cond. View</span>
-          <span>View 1</span>
-          <span>View 2</span>
-          <span>View 3</span>
-        </div>
-        <div class="image-row">
-          <p class="row-title">Original</p>
-          <img src="static/media/mv-gallery/2/src/prompt.png" alt="Original Person Conditional View">
-          <img src="static/media/mv-gallery/2/src/0.png" alt="Original Person View 1">
-          <img src="static/media/mv-gallery/2/src/1.png" alt="Original Person View 2">
-          <img src="static/media/mv-gallery/2/src/2.png" alt="Original Person View 3">
-        </div>
-        <div class="image-row">
-          <p class="row-title">Old</p>
-          <img src="static/media/mv-gallery/2/edit/prompt.png" alt="Old Person Conditional View">
-          <img src="static/media/mv-gallery/2/edit/0.png" alt="Old Person View 1">
-          <img src="static/media/mv-gallery/2/edit/1.png" alt="Old Person View 2">
-          <img src="static/media/mv-gallery/2/edit/2.png" alt="Old Person View 3">
-        </div>
-        <div class="image-row">
-          <p class="row-title">Zombie</p>
-          <img src="static/media/mv-gallery/2/edit2/prompt.png" alt="Zombie Person Conditional View">
-          <img src="static/media/mv-gallery/2/edit2/0.png" alt="Zombie Person View 1">
-          <img src="static/media/mv-gallery/2/edit2/1.png" alt="Zombie Person View 2">
-          <img src="static/media/mv-gallery/2/edit2/2.png" alt="Zombie Person View 3">
-        </div>
+  
+      <div id="load-more-mv-container" class="has-text-centered mt-5">
+        <button id="load-more-mv-btn" class="button is-link is-medium">Load More</button>
       </div>
-      <div class="card">
-        <h4 class="card-title">Ship – Fantasy</h4>
-        <div class="card-header">
-          <span></span> <span>Cond. View</span>
-          <span>View 1</span>
-          <span>View 2</span>
-          <span>View 3</span>
-        </div>
-        <div class="image-row">
-          <p class="row-title">Original</p>
-          <img src="static/media/mv-gallery/3/src/prompt.png" alt="Original Ship Conditional View">
-          <img src="static/media/mv-gallery/3/src/0.png" alt="Original Ship View 1">
-          <img src="static/media/mv-gallery/3/src/1.png" alt="Original Ship View 2">
-          <img src="static/media/mv-gallery/3/src/2.png" alt="Original Ship View 3">
-        </div>
-        <div class="image-row">
-          <p class="row-title">Fantasy</p>
-          <img src="static/media/mv-gallery/3/edit/prompt.png" alt="Fantasy Ship Conditional View">
-          <img src="static/media/mv-gallery/3/edit/0.png" alt="Fantasy Ship View 1">
-          <img src="static/media/mv-gallery/3/edit/1.png" alt="Fantasy Ship View 2">
-          <img src="static/media/mv-gallery/3/edit/2.png" alt="Fantasy Ship View 3">
-        </div>
-      </div>
-
-      <div class="card">
-        <h4 class="card-title">Object – Donut</h4>
-        <div class="card-header">
-          <span></span> <span>Cond. View</span>
-          <span>View 1</span>
-          <span>View 2</span>
-          <span>View 3</span>
-        </div>
-        <div class="image-row">
-          <p class="row-title">Original</p>
-          <img src="static/media/mv-gallery/4/src/prompt.png" alt="Original Object Conditional View">
-          <img src="static/media/mv-gallery/4/src/0.png" alt="Original Object View 1">
-          <img src="static/media/mv-gallery/4/src/1.png" alt="Original Object View 2">
-          <img src="static/media/mv-gallery/4/src/2.png" alt="Original Object View 3">
-        </div>
-        <div class="image-row">
-          <p class="row-title">Donut</p>
-          <img src="static/media/mv-gallery/4/edit/prompt.png" alt="Donut Object Conditional View">
-          <img src="static/media/mv-gallery/4/edit/0.png" alt="Donut Object View 1">
-          <img src="static/media/mv-gallery/4/edit/1.png" alt="Donut Object View 2">
-          <img src="static/media/mv-gallery/4/edit/2.png" alt="Donut Object View 3">
-        </div>
-      </div>
-
-      <div class="card">
-        <h4 class="card-title">Object – Donut Style</h4>
-        <div class="card-header">
-          <span></span> <span>Cond. View</span>
-          <span>View 1</span>
-          <span>View 2</span>
-          <span>View 3</span>
-        </div>
-        <div class="image-row">
-          <p class="row-title">Original</p>
-          <img src="static/media/mv-gallery/5/src/prompt.png" alt="Original Item Conditional View">
-          <img src="static/media/mv-gallery/5/src/0.png" alt="Original Item View 1">
-          <img src="static/media/mv-gallery/5/src/1.png" alt="Original Item View 2">
-          <img src="static/media/mv-gallery/5/src/2.png" alt="Original Item View 3">
-        </div>
-        <div class="image-row">
-          <p class="row-title">Donut</p>
-          <img src="static/media/mv-gallery/5/edit/prompt.png" alt="Donut Item Conditional View">
-          <img src="static/media/mv-gallery/5/edit/0.png" alt="Donut Item View 1">
-          <img src="static/media/mv-gallery/5/edit/1.png" alt="Donut Item View 2">
-          <img src="static/media/mv-gallery/5/edit/2.png" alt="Donut Item View 3">
-        </div>
-      </div>
-
-      <div class="card">
-        <h4 class="card-title">Object – Donut Style</h4>
-        <div class="card-header">
-          <span></span> <span>Cond. View</span>
-          <span>View 1</span>
-          <span>View 2</span>
-          <span>View 3</span>
-        </div>
-        <div class="image-row">
-          <p class="row-title">Original</p>
-          <img src="static/media/mv-gallery/6/src/prompt.png" alt="Original Item Conditional View">
-          <img src="static/media/mv-gallery/6/src/0.png" alt="Original Item View 1">
-          <img src="static/media/mv-gallery/6/src/1.png" alt="Original Item View 2">
-          <img src="static/media/mv-gallery/6/src/2.png" alt="Original Item View 3">
-        </div>
-        <div class="image-row">
-          <p class="row-title">Donut</p>
-          <img src="static/media/mv-gallery/6/edit/prompt.png" alt="Donut Item Conditional View">
-          <img src="static/media/mv-gallery/6/edit/0.png" alt="Donut Item View 1">
-          <img src="static/media/mv-gallery/6/edit/1.png" alt="Donut Item View 2">
-          <img src="static/media/mv-gallery/6/edit/2.png" alt="Donut Item View 3">
-        </div>
-      </div>
+  
+    </div>
   </section>
 
 
@@ -864,7 +857,54 @@
       });
     });
   </script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
 
+    /**
+     * A reusable function to set up a "Load More" button for a gallery.
+     * @param {string} buttonId The ID of the "Load More" button.
+     * @param {string} containerId The ID of the container holding the gallery items.
+     */
+    const setupLoadMore = (buttonId, containerId) => {
+      const loadMoreBtn = document.getElementById(buttonId);
+      const galleryContainer = document.getElementById(containerId);
+
+      // If the button or gallery doesn't exist, stop.
+      if (!loadMoreBtn || !galleryContainer) {
+        return;
+      }
+
+      const loadMoreContainer = loadMoreBtn.parentElement;
+      const hiddenItems = galleryContainer.querySelectorAll('.is-hidden');
+
+      // If there are no hidden items, hide the button and stop.
+      if (hiddenItems.length === 0) {
+        if (loadMoreContainer) {
+          loadMoreContainer.style.display = 'none';
+        }
+        return;
+      }
+
+      // When the button is clicked...
+      loadMoreBtn.addEventListener('click', () => {
+        // Show each hidden item.
+        hiddenItems.forEach(item => {
+          item.classList.remove('is-hidden');
+        });
+
+        // Hide the "Load More" button itself.
+        if (loadMoreContainer) {
+          loadMoreContainer.style.display = 'none';
+        }
+      });
+    };
+
+    // --- Initialize all galleries on the page ---
+    setupLoadMore('load-more-mv-btn', 'mv-gallery-container');
+    setupLoadMore('load-more-btn', 'model-gallery-container');
+
+  });
+</script>
 </body>
 
 </html>
