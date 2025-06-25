@@ -36,9 +36,10 @@ def create_card_html(folder_name):
     model_ours = f"static/media/recon/{folder_name}/ours-conv.glb"
     model_neutral = f"static/media/recon/{folder_name}/ours-conv-neutral.glb"
 
-    # The 'gallery-item' class is used by the new JavaScript
+    # The 'is-hidden-by-pagination' class is added by default.
+    # REMOVED 'is-half-mobile' to default to single-column on mobile.
     return f"""
-    <div class="column is-one-quarter-desktop is-half-tablet gallery-item">
+    <div class="column is-one-quarter-desktop is-half-tablet gallery-item is-hidden-by-pagination">
       <div class="card model-card">
         <div class="model-grid">
           <figure class="image">
@@ -94,9 +95,17 @@ def generate_full_section():
 
 <!-- Styles and Script for the Responsive Paginated Gallery -->
 <style>
-  /* Hide all gallery items by default. JS will show the correct ones. */
-  .gallery-item {{
-    display: none;
+  /* This new class hides items. JS will toggle it. */
+  .is-hidden-by-pagination {{
+    display: none !important;
+  }}
+
+  /* Responsive styles for mobile */
+  @media screen and (max-width: 768px) {{
+    #recon-gallery.section {{
+      padding: 2rem 1rem; /* More comfortable padding for mobile scrolling */
+    }}
+    /* The single-column layout is now handled by Bulma's defaults. No extra CSS is needed. */
   }}
 </style>
 
@@ -133,11 +142,12 @@ def generate_full_section():
         const itemsToShow = [];
 
         allItems.forEach((item, index) => {{
+            // Toggle a class instead of using inline styles
             if (index >= startIndex && index < endIndex) {{
-                item.style.display = 'block';
+                item.classList.remove('is-hidden-by-pagination');
                 itemsToShow.push(item);
             }} else {{
-                item.style.display = 'none';
+                item.classList.add('is-hidden-by-pagination');
             }}
         }});
         activateModels(itemsToShow);
@@ -161,23 +171,23 @@ def generate_full_section():
                 }}
                 
                 button.addEventListener('click', () => {{
-                    // Update button styles
                     paginationContainer.querySelectorAll('.pagination-btn').forEach(btn => btn.classList.remove('is-link'));
                     button.classList.add('is-link');
-                    // Show the correct page
                     showPage(i, itemsPerPage);
                 }});
                 paginationContainer.appendChild(button);
             }}
+        }} else {{
+          // If only one page, hide the pagination container
+          paginationContainer.style.display = 'none';
         }}
         
-        // Show the first page initially
         showPage(1, itemsPerPage);
     }};
 
-    // Setup pagination on initial load and on window resize
     setupPagination();
-    window.addEventListener('resize', setupPagination);
+    // Use a resize observer for better performance than the 'resize' event
+    new ResizeObserver(setupPagination).observe(document.body);
   }});
 </script>
 """
