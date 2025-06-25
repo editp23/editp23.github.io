@@ -37,7 +37,6 @@ def create_card_html(folder_name):
     model_neutral = f"static/media/recon/{folder_name}/ours-conv-neutral.glb"
 
     # The 'is-hidden-by-pagination' class is added by default.
-    # REMOVED 'is-half-mobile' to default to single-column on mobile.
     return f"""
     <div class="column is-one-quarter-desktop is-half-tablet gallery-item is-hidden-by-pagination">
       <div class="card model-card">
@@ -105,7 +104,17 @@ def generate_full_section():
     #recon-gallery.section {{
       padding: 2rem 1rem; /* More comfortable padding for mobile scrolling */
     }}
-    /* The single-column layout is now handled by Bulma's defaults. No extra CSS is needed. */
+    
+    /* Center the column container */
+    #model-gallery-container.columns {{
+        justify-content: center;
+    }}
+
+    /* Make the single column wider */
+    #model-gallery-container > .gallery-item {{
+        flex: 0 0 85%; /* Set a fixed width for the column */
+        width: 85%;
+    }}
   }}
 </style>
 
@@ -157,6 +166,16 @@ def generate_full_section():
         const isMobile = window.innerWidth <= 768;
         const itemsPerPage = isMobile ? 4 : 8;
         const totalPages = Math.ceil(allItems.length / itemsPerPage);
+
+        // --- NEW: Disable auto-rotate on mobile for performance ---
+        const allViewers = galleryContainer.querySelectorAll('model-viewer');
+        allViewers.forEach(viewer => {{
+            if (isMobile) {{
+                viewer.removeAttribute('auto-rotate');
+            }} else {{
+                viewer.setAttribute('auto-rotate', '');
+            }}
+        }});
 
         paginationContainer.innerHTML = ''; // Clear old buttons
 
