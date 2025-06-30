@@ -252,3 +252,53 @@ section.has-background-light {
       box-shadow: 0 2px 6px rgba(0,0,0,.12);
     }
   }
+
+
+
+
+  .flow-steps {
+    position: relative;
+    padding-left: 50px; /* Space for the number and line */
+  }
+
+  /* The vertical connecting line */
+  .flow-steps::before {
+    content: '';
+    position: absolute;
+    left: 19px; /* Center the line on the number */
+    top: 20px;
+    bottom: 20px;
+    width: 2px;
+    background-color: #dbdbdb;
+  }
+
+  .flow-step {
+    position: relative;
+    margin-bottom: 2.5rem; /* Space between steps */
+  }
+  .flow-step:last-child {
+    margin-bottom: 0;
+  }
+
+  .flow-step-number {
+    position: absolute;
+    left: -31px; /* Position the number to the left of the content */
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--theme-color, #007bff);
+    color: white;
+    font-weight: bold;
+    font-family: 'Google Sans', sans-serif;
+    font-size: 1.1rem;
+    border: 3px solid white;
+    z-index: 1;
+  }
+
+  .flow-step-content {
+    padding-top: 5px; /* Align content with the middle of the number */
+  }

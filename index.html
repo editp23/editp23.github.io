@@ -387,38 +387,72 @@
     </div>
   </section>
 
-
-
-
-  <!-- ────────── Method overview ────────── -->
   <section class="section has-background-light">
     <div class="container is-max-desktop">
-
-      <div class="box method-box">
-        <h2 class="title is-3 has-text-centered mb-5">
-          Method Overview</h2>
-        <figure class="image">
-          <img src="static/media/method/method_fig2.png" alt="Edit-guided denoising at one timestep">
-          <figcaption class="method-caption mt-4">
-            <strong>Overview.</strong>
-            At a single diffusion timestep, the <em>source branch</em> (top) feeds the
-            original noisy grid and its source view into the multi-view diffusion model,
-            predicting the velocity towards the source. The <em>edit branch</em> (bottom)
-            feeds the current edited grid conditioned on the target view, predicting the
-            velocity towards the target. Subtracting the two predicts&nbsp;<span
-              style="font-style:italic;">v<sub>Δ</sub></span>,
-            an edit-only delta that guides the next update of the edited grid.
-          </figcaption>
-        </figure>
+      <div class="box">
+        <h2 class="title is-3 has-text-centered">
+          How EditP23 Works: From a 2D Edit to a 3D Model
+        </h2>
+        <p class="subtitle is-6 has-text-centered" style="margin: -1rem auto 2.5rem; max-width: 60rem;">
+          The EditP23 pipeline propagates your 2D edit into a full, 3D-consistent object modification. The process is designed to be intuitive, requiring only a single edited view to guide the entire 3D update. Here’s how it unfolds:
+        </p>
+  
+        <!-- Custom styled list to create the flow diagram effect -->
+        <div class="flow-steps">
+  
+          <!-- Step 1 -->
+          <div class="flow-step">
+            <div class="flow-step-number">1</div>
+            <div class="flow-step-content">
+              <h4 class="title is-5 mb-2">Rendering & Initial Setup</h4>
+              <p>The process begins with a 3D object, which is rendered to generate a multi-view grid (mv-grid) composed of six different viewpoints, and an additional fixed prompt view.</p>
+            </div>
+          </div>
+  
+          <!-- Step 2 -->
+          <div class="flow-step">
+            <div class="flow-step-number">2</div>
+            <div class="flow-step-content">
+              <h4 class="title is-5 mb-2">The 2D Edit</h4>
+              <p>The user can take the prompt view and modify it with any preferred 2D editing tool, such as painting or generative AI. This user-edited image becomes the <strong>target view</strong>, which guides the 3D edit.</p>
+            </div>
+          </div>
+  
+          <!-- Step 3 (The Diagram) -->
+          <div class="flow-step">
+            <div class="flow-step-number">3</div>
+            <div class="flow-step-content">
+              <h4 class="title is-5 mb-2">Edit Propagation via Multi-View Diffusion</h4>
+              <p>The core of the method is a technique called "edit-aware denoising". At each step, the system runs two parallel processes within a multi-view diffusion model:</p>
+              <ul style="list-style-type: disc; margin-left: 20px; margin-top: 10px;">
+                <li><strong>Source Branch:</strong> The original source mv-grid and source view are fed into the model to predict the velocity towards the original object.</li>
+                <li><strong>Target Branch:</strong> The current, in-progress grid is conditioned on the target view to predict the velocity towards the final, edited object.</li>
+              </ul>
+              <!-- The existing diagram is now integrated as part of the flow -->
+              <figure class="image mt-4">
+                <img src="static/media/method/method_fig2.png" alt="Edit-guided denoising at one timestep">
+                <figcaption class="method-caption mt-2">
+                  By subtracting the source prediction from the target prediction, the model calculates an "edit-only delta" (<i>v<sub>Δ</sub></i>). This delta isolates the user's intended changes, ensuring the rest of the object's structure and appearance are preserved. This delta then guides the update for the next iteration, consistently propagating the edit across all views in the grid.
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+  
+          <!-- Step 4 -->
+          <div class="flow-step">
+            <div class="flow-step-number">4</div>
+            <div class="flow-step-content">
+              <h4 class="title is-5 mb-2">Final 3D Reconstruction</h4>
+              <p>After the diffusion process completes, the final, edited multi-view grid is generated. This edited grid is then converted into a textured 3D mesh using a reconstruction module like InstantMesh. The output is a fully edited 3D object.</p>
+            </div>
+          </div>
+  
+        </div>
       </div>
-
     </div>
   </section>
-
-
-
-
-
+  
+  
   <!-- ===================================================================
      Auto-Generated Responsive Paginated Gallery
      =================================================================== -->
