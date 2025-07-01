@@ -858,98 +858,6 @@
     }
   </style>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const galleryContainer = document.getElementById('model-gallery-container');
-      const paginationContainer = document.getElementById('gallery-pagination');
-
-      if (!galleryContainer) return;
-
-      const allItems = Array.from(galleryContainer.querySelectorAll('.gallery-item'));
-      let activeModels = [];
-
-      const activateModels = (itemsToShow) => {
-        // Deactivate previously active models to save resources
-        activeModels.forEach(viewer => viewer.removeAttribute('src'));
-        activeModels = [];
-
-        // Activate models for the new set of items
-        itemsToShow.forEach(item => {
-          const viewers = item.querySelectorAll('model-viewer');
-          viewers.forEach(viewer => {
-            if (viewer.dataset.src && !viewer.getAttribute('src')) {
-              viewer.setAttribute('src', viewer.dataset.src);
-              activeModels.push(viewer);
-            }
-          });
-        });
-      };
-
-      const showPage = (pageNumber, itemsPerPage) => {
-        const startIndex = (pageNumber - 1) * itemsPerPage;
-        const endIndex = startIndex + itemsPerPage;
-        const itemsToShow = [];
-
-        allItems.forEach((item, index) => {
-          // Toggle a class instead of using inline styles
-          if (index >= startIndex && index < endIndex) {
-            item.classList.remove('is-hidden-by-pagination');
-            itemsToShow.push(item);
-          } else {
-            item.classList.add('is-hidden-by-pagination');
-          }
-        });
-        activateModels(itemsToShow);
-      };
-
-      const setupPagination = () => {
-        const isMobile = window.innerWidth <= 768;
-        const itemsPerPage = isMobile ? 2 : 8;
-        const totalPages = Math.ceil(allItems.length / itemsPerPage);
-
-        // --- NEW: Disable auto-rotate on mobile for performance ---
-        const allViewers = galleryContainer.querySelectorAll('model-viewer');
-        allViewers.forEach(viewer => {
-          if (isMobile) {
-            viewer.removeAttribute('auto-rotate');
-          } else {
-            viewer.setAttribute('auto-rotate', '');
-          }
-        });
-
-        paginationContainer.innerHTML = ''; // Clear old buttons
-
-        if (totalPages > 1) {
-          for (let i = 1; i <= totalPages; i++) {
-            const button = document.createElement('button');
-            button.className = 'button pagination-btn';
-            button.dataset.page = i;
-            button.textContent = `Page ${i}`;
-            if (i === 1) {
-              button.classList.add('is-link');
-            }
-
-            button.addEventListener('click', () => {
-              paginationContainer.querySelectorAll('.pagination-btn').forEach(btn => btn.classList.remove('is-link'));
-              button.classList.add('is-link');
-              showPage(i, itemsPerPage);
-            });
-            paginationContainer.appendChild(button);
-          }
-        } else {
-          // If only one page, hide the pagination container
-          paginationContainer.style.display = 'none';
-        }
-
-        showPage(1, itemsPerPage);
-      };
-
-      setupPagination();
-      // Use a resize observer for better performance than the 'resize' event
-      new ResizeObserver(setupPagination).observe(document.body);
-    });
-  </script>
-
 
 
 
@@ -1005,83 +913,145 @@
       </div>
     </div>
   </footer>
-
-  <!-- copy-to-clipboard helper -->
   <script>
+    // --- BibTeX copy helper ---
     function copyBibtex() {
       const ta = document.getElementById('bibtex-snippet');
-      ta.select();
-      document.execCommand('copy');
+      if (ta) {
+        ta.select();
+        document.execCommand('copy');
+      }
     }
-  </script>
-  <script>
+
+    // --- Main page logic ---
     document.addEventListener('DOMContentLoaded', () => {
 
-      /**
-       * A reusable function to set up a "Load More" button for a gallery.
-       * @param {string} buttonId The ID of the "Load More" button.
-       * @param {string} containerId The ID of the container holding the gallery items.
-       * @param {boolean} lazyLoadModels Whether to activate model-viewers inside.
-       */
-      const setupLoadMore = (buttonId, containerId, lazyLoadModels = false) => {
-        const loadMoreBtn = document.getElementById(buttonId);
-        const galleryContainer = document.getElementById(containerId);
+      // --- Logic for the Multi-View Gallery "Load More" button ---
+      const setupMvGalleryLoadMore = () => {
+        const loadMoreBtn = document.getElementById('load-more-mv-btn');
+        const galleryContainer = document.getElementById('mv-gallery-container');
+        if (!loadMoreBtn || !galleryContainer) return;
 
-        if (!galleryContainer) return;
+        const loadMoreContainer = loadMoreBtn.parentElement;
+        const hiddenItems = galleryContainer.querySelectorAll('.card.is-hidden');
 
-        const loadMoreContainer = loadMoreBtn ? loadMoreBtn.parentElement : null;
-        const galleryItems = Array.from(galleryContainer.children);
-        const hiddenItems = galleryItems.filter(item => item.classList.contains('is-hidden'));
-
-        // --- Model Activation Logic ---
-        const activateModels = (itemsToActivate) => {
-          if (!lazyLoadModels) return;
-          itemsToActivate.forEach(item => {
-            const viewers = item.querySelectorAll('model-viewer');
-            viewers.forEach(viewer => {
-              // Check if the viewer has a data-src and NOT a src yet
-              if (viewer.dataset.src && !viewer.getAttribute('src')) {
-                // Copy data-src to src to trigger loading
-                viewer.setAttribute('src', viewer.dataset.src);
-              }
-            });
-          });
-        };
-
-        // --- Initial Page Load ---
-        // Activate models that are visible from the start
-        const visibleItems = galleryItems.filter(item => !item.classList.contains('is-hidden'));
-        activateModels(visibleItems);
-
-        // If there's nothing to load, hide the button
-        if (!loadMoreBtn || hiddenItems.length === 0) {
+        if (hiddenItems.length === 0) {
           if (loadMoreContainer) loadMoreContainer.style.display = 'none';
           return;
         }
 
-        // --- Button Click Event ---
         loadMoreBtn.addEventListener('click', () => {
-          // Show the hidden items
-          hiddenItems.forEach(item => {
-            item.classList.remove('is-hidden');
-          });
-
-          // Activate the models inside the newly shown items
-          activateModels(hiddenItems);
-
-          // Hide the "Load More" button
+          hiddenItems.forEach(item => item.classList.remove('is-hidden'));
           if (loadMoreContainer) loadMoreContainer.style.display = 'none';
         });
       };
+      setupMvGalleryLoadMore();
 
-      // --- Initialize all galleries on the page ---
-      // The "true" argument enables lazy loading for this gallery
-      setupLoadMore('load-more-btn', 'model-gallery-container', true);
-      // The image gallery doesn't need lazy loading
-      setupLoadMore('load-more-mv-btn', 'mv-gallery-container', false);
+
+      // --- Logic for the Paginated 3D Model Gallery ---
+      const setupReconGalleryPagination = () => {
+        const galleryContainer = document.getElementById('model-gallery-container');
+        const paginationContainer = document.getElementById('gallery-pagination');
+        if (!galleryContainer || !paginationContainer) return;
+
+        const allItems = Array.from(galleryContainer.querySelectorAll('.gallery-item'));
+        let activeModels = [];
+        let currentPage = 1; // Keep track of the current page
+
+        const activateModels = (itemsToShow) => {
+          activeModels.forEach(viewer => viewer.removeAttribute('src'));
+          activeModels = [];
+          itemsToShow.forEach(item => {
+            const viewers = item.querySelectorAll('model-viewer');
+            viewers.forEach(viewer => {
+              if (viewer.dataset.src && !viewer.getAttribute('src')) {
+                viewer.setAttribute('src', viewer.dataset.src);
+                activeModels.push(viewer);
+              }
+            });
+          });
+        };
+        
+        const showPage = (pageNumber, itemsPerPage) => {
+            currentPage = pageNumber;
+            const startIndex = (pageNumber - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const itemsToShow = [];
+
+            allItems.forEach((item, index) => {
+                const isVisible = (index >= startIndex && index < endIndex);
+                item.classList.toggle('is-hidden-by-pagination', !isVisible);
+                if (isVisible) {
+                    itemsToShow.push(item);
+                }
+            });
+            activateModels(itemsToShow);
+        };
+
+        const setupPaginationUI = () => {
+            const isMobile = window.innerWidth <= 768;
+            const itemsPerPage = isMobile ? 4 : 8;
+            const totalPages = Math.ceil(allItems.length / itemsPerPage);
+
+            // Adjust current page if it's out of bounds after resize
+            if (currentPage > totalPages) {
+                currentPage = totalPages;
+            }
+
+            const allViewers = document.querySelectorAll('#model-gallery-container model-viewer');
+            allViewers.forEach(viewer => {
+              if (isMobile) {
+                viewer.removeAttribute('auto-rotate');
+              } else {
+                if (!viewer.hasAttribute('auto-rotate')) {
+                   viewer.setAttribute('auto-rotate', '');
+                }
+              }
+            });
+
+            paginationContainer.innerHTML = '';
+
+            if (totalPages > 1) {
+              paginationContainer.style.display = 'flex';
+              for (let i = 1; i <= totalPages; i++) {
+                  const button = document.createElement('button');
+                  button.className = 'button pagination-btn';
+                  button.dataset.page = i;
+                  button.textContent = `Page ${i}`;
+                  if (i === currentPage) {
+                      button.classList.add('is-link');
+                  }
+                  
+                  button.addEventListener('click', () => {
+                      showPage(i, itemsPerPage);
+                      // Update active button style
+                      paginationContainer.querySelectorAll('.pagination-btn').forEach(btn => btn.classList.remove('is-link'));
+                      button.classList.add('is-link');
+                  });
+                  paginationContainer.appendChild(button);
+              }
+            } else {
+              paginationContainer.style.display = 'none';
+            }
+            
+            showPage(currentPage, itemsPerPage);
+        };
+
+        // --- Debounced Resize Handler ---
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(setupPaginationUI, 150); // Wait 150ms after resize stops
+        });
+
+        // Initial setup
+        setupPaginationUI();
+      };
+      setupReconGalleryPagination();
 
     });
   </script>
+
 </body>
 
 </html>

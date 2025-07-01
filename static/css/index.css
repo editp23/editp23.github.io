@@ -2,287 +2,127 @@
    Global Styles & Typography
    =================================================================== */
 
-:root {
-  --theme-color: #007bff;
-  --text-color: #333333;
-  --text-color-light: #777777;
-  --border-color: #dddddd;
-  --background-light: #f8f9fa;
-}
-
-body {
-  font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  color: var(--text-color);
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Google Sans', sans-serif;
-}
-
-a {
-  color: var(--theme-color);
-}
-
-a:hover {
-  color: #0056b3;
-}
-
-section {
-  /* Add padding to all sections for consistent vertical spacing */
-  padding: 3rem 1.5rem;
-}
-
-section.has-background-light {
-  background-color: var(--background-light) !important;
-}
-
-.section h2.title {
-  font-weight: 700;
-  font-size: 1.75rem;
-  margin-bottom: 1.25rem;
-}
-
-.section .content {
-  font-size: 1.125rem;
-  line-height: 1.55;
-}
-
-/* ===================================================================
+   :root {
+    --theme-color: #007bff;
+    --text-color: #333333;
+    --text-color-light: #777777;
+    --border-color: #dddddd;
+    --background-light: #f8f9fa;
+  }
+  
+  body {
+    font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: var(--text-color);
+  }
+  
+  h1,h2,h3,h4,h5,h6 {
+    font-family: 'Google Sans', sans-serif;
+  }
+  
+  a {
+    color: var(--theme-color);
+  }
+  
+  a:hover {
+    color: #0056b3;
+  }
+  
+  section {
+    padding: 3rem 1.5rem;
+  }
+  
+  section.has-background-light {
+    background-color: var(--background-light) !important;
+  }
+  
+  .section h2.title {
+    font-weight: 700;
+    font-size: 1.75rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .section .content {
+    font-size: 1.125rem;
+    line-height: 1.55;
+  }
+  
+  /* ===================================================================
      Hero & Results Carousel Section
      =================================================================== */
-
-.results-carousel {
-  overflow: hidden;
-}
-
-.prompt-stack {
-  max-width: 250px;
-}
-
-.video-wrapper {
-  position: relative;
-  padding-bottom: 52%;
-  /* Desktop aspect ratio */
-  height: 0;
-}
-
-.video-wrapper video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, .12);
-}
-
-/* ===================================================================
+  
+  .results-carousel {
+    overflow: hidden;
+  }
+  
+  .prompt-stack {
+    max-width: 250px;
+  }
+  
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 52%;
+    height: 0;
+  }
+  
+  .video-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .12);
+  }
+  
+  /* ===================================================================
      Abstract & Method Sections
      =================================================================== */
-
-.abstract-box,
-.method-box {
-  border-radius: 8px;
-  padding: 2rem 2.25rem;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, .04);
-  background: #ffffff;
-}
-
-.method-caption {
-  font-style: italic;
-  color: #555;
-}
-
-.abstract-box .content strong {
-  color: var(--theme-color);
-  font-weight: 700;
-}
-
-/* ===================================================================
-     Multi-View Edit Gallery (Grid Layout)
-     =================================================================== */
-
-.grid-container {
-  display: grid;
-  gap: 30px;
-  grid-template-columns: 1fr;
-  /* Mobile First: 1 column */
-}
-
-/* On desktop, switch to a two-column layout */
-@media screen and (min-width: 1024px) {
-  .grid-container {
-    grid-template-columns: 1fr 1fr;
+  
+  .abstract-box,
+  .method-box {
+    border-radius: 8px;
+    padding: 2rem 2.25rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .04);
+    background: #ffffff;
   }
-}
-
-.grid-container .card {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.grid-container .card-title {
-  font-size: 1.5em;
-  font-weight: 600;
-  margin: 0 0 10px 0;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #eee;
-}
-
-.grid-container .card-header,
-.grid-container .image-row {
-  display: grid;
-  grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr;
-  gap: 10px;
-  align-items: center;
-  text-align: center;
-}
-
-.grid-container .card-header {
-  font-weight: bold;
-  color: #555;
-}
-
-.grid-container .image-row img {
-  width: 100%;
-  border-radius: 4px;
-}
-
-.grid-container .row-title {
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  transform: rotate(180deg);
-  font-weight: 600;
-  color: #555;
-  justify-self: center;
-  margin: 0;
-  white-space: nowrap;
-}
-
-/* ===================================================================
-     Interactive 3D Model Gallery
-     =================================================================== */
-
-.model-card figure.image {
-  margin: 0 0 1rem;
-}
-
-.model-card model-viewer {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  height: auto !important;
-}
-
-/* ===================================================================
-     BibTeX Section
-     =================================================================== */
-
-.bib-box .textarea {
-  font-size: 0.9rem;
-}
-
-.copy-btn {
-  height: 100%;
-}
-
-
-/* ===================================================================
-   MOBILE RESPONSIVE STYLES (Video First)
-   =================================================================== */
-   @media screen and (max-width: 768px) {
-
-    /* --- General Layout --- */
-    .section > .container > .columns {
-      flex-direction: column;
-    }
-    .abstract-box,
-    .method-box,
-    .grid-container .card {
-      padding: 1.5rem;
-    }
   
-    /* --- Carousel Fixes --- */
-  
-    /* This rule now reverses the order, putting the video on top */
-    #results-carousel .columns {
-      flex-direction: column-reverse !important; /* Add !important */
-    }
-    
-    #results-carousel .columns > .column {
-      width: 100%;
-    }
-  
-    /* --- Prompt Images Layout on Mobile --- */
-    .prompt-stack {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      gap: 1rem;
-      max-width: 100%;
-      margin-top: 1.5rem; /* This now creates space *above* the prompts */
-    }
-    .prompt-item {
-      flex: 1;
-      min-width: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    /* --- Video Fix --- */
-    .video-wrapper {
-      padding-bottom: 0;
-      height: auto;
-      background-color: #f5f5f5;
-    }
-    .video-wrapper video {
-      position: static;
-      height: auto;
-      border-radius: 6px;
-      box-shadow: 0 2px 6px rgba(0,0,0,.12);
-    }
+  .method-caption {
+    font-style: italic;
+    color: #555;
   }
-
-
-
-
+  
+  .abstract-box .content strong {
+    color: var(--theme-color);
+    font-weight: 700;
+  }
+  
+  /* --- Flow Diagram Styles --- */
   .flow-steps {
     position: relative;
-    padding-left: 50px; /* Space for the number and line */
+    padding-left: 30px;
   }
-
-  /* The vertical connecting line */
+  
   .flow-steps::before {
     content: '';
     position: absolute;
-    left: 19px; /* Center the line on the number */
+    left: 19px;
     top: 20px;
     bottom: 20px;
     width: 2px;
     background-color: #dbdbdb;
   }
-
+  
   .flow-step {
     position: relative;
-    margin-bottom: 2.5rem; /* Space between steps */
+    margin-bottom: 2.5rem;
   }
   .flow-step:last-child {
     margin-bottom: 0;
   }
-
+  
   .flow-step-number {
     position: absolute;
-    left: -31px; /* Position the number to the left of the content */
+    left: -21px;
     top: 0;
     display: flex;
     align-items: center;
@@ -295,10 +135,170 @@ section.has-background-light {
     font-weight: bold;
     font-family: 'Google Sans', sans-serif;
     font-size: 1.1rem;
-    border: 3px solid white;
+    border: 3px solid var(--background-light);
     z-index: 1;
   }
-
+  
   .flow-step-content {
-    padding-top: 5px; /* Align content with the middle of the number */
+    padding-top: 0;
+    margin-left: 20px;
+    min-height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
+  .flow-step-content .title {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* ===================================================================
+     Multi-View Edit Gallery (Grid Layout)
+     =================================================================== */
+  
+  .grid-container {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 1fr;
+  }
+  
+  @media screen and (min-width: 1024px) {
+    .grid-container {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  .grid-container .card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .grid-container .card-title {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .grid-container .card-header,
+  .grid-container .image-row {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .grid-container .card-header {
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .grid-container .image-row img {
+    width: 100%;
+    border-radius: 4px;
+  }
+  
+  .grid-container .row-title {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    font-weight: 600;
+    color: #555;
+    justify-self: center;
+    margin: 0;
+    white-space: nowrap;
+  }
+  
+  /* ===================================================================
+     Interactive 3D Model Gallery
+     =================================================================== */
+  
+  .model-card figure.image {
+    margin: 0 0 1rem;
+  }
+  
+  .model-card model-viewer {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    height: auto !important;
+  }
+  
+  /* ===================================================================
+     BibTeX Section
+     =================================================================== */
+  
+  .bib-box .textarea {
+    font-size: 0.9rem;
+  }
+  
+  .copy-btn {
+    height: 100%;
+  }
+  
+  /* ===================================================================
+     MOBILE RESPONSIVE STYLES
+     =================================================================== */
+  @media screen and (max-width: 768px) {
+  
+    .section > .container > .columns {
+      flex-direction: column;
+    }
+    .abstract-box,
+    .method-box,
+    .grid-container .card {
+      padding: 1.5rem;
+    }
+    
+    #results-carousel .columns {
+      flex-direction: column-reverse;
+    }
+    
+    #results-carousel .columns > .column {
+      width: 100%;
+    }
+    
+    .prompt-stack {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 1rem;
+      max-width: 100%;
+      margin-top: 1.5rem;
+    }
+    .prompt-item {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .video-wrapper {
+      padding-bottom: 0;
+      height: auto;
+    }
+    .video-wrapper video {
+      position: static;
+      height: auto;
+    }
+  
+    #recon-gallery.section {
+      padding: 2rem 1rem;
+    }
+  
+    #model-gallery-container.columns {
+      justify-content: center;
+    }
+  
+    #model-gallery-container > .gallery-item {
+        flex: 0 0 85%;
+        width: 85%;
+    }
+  }
+  
