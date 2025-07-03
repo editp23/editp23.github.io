@@ -99,7 +99,7 @@
   /* --- Flow Diagram Styles --- */
   .flow-steps {
     position: relative;
-    padding-left: 30px;
+    padding-left: 20px; /* Space for the line */
   }
   
   .flow-steps::before {
@@ -114,6 +114,8 @@
   
   .flow-step {
     position: relative;
+    display: flex; /* Use flexbox for alignment */
+    align-items: flex-start; /* Align items to the top */
     margin-bottom: 2.5rem;
   }
   .flow-step:last-child {
@@ -121,9 +123,8 @@
   }
   
   .flow-step-number {
-    position: absolute;
-    left: -21px;
-    top: 0;
+    /* The number circle no longer needs absolute positioning */
+    flex-shrink: 0; /* Prevent the circle from shrinking */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -135,20 +136,13 @@
     font-weight: bold;
     font-family: 'Google Sans', sans-serif;
     font-size: 1.1rem;
-    border: 3px solid var(--background-light);
+    border: 3px solid white;
     z-index: 1;
   }
   
   .flow-step-content {
-    padding-top: 0;
-    margin-left: 20px;
-    min-height: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .flow-step-content .title {
-    margin-bottom: 0.5rem;
+    padding-left: 20px; /* Space between number and text */
+    padding-top: 5px;   /* Fine-tune vertical alignment */
   }
   
   /* ===================================================================

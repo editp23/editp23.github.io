@@ -36,21 +36,21 @@ def create_card_html(folder_name):
     model_ours = f"static/media/recon/{folder_name}/ours-conv.glb"
     model_neutral = f"static/media/recon/{folder_name}/ours-conv-neutral.glb"
 
-    # The 'is-hidden-by-pagination' class is added by default.
+    # UPDATED: Removed 'auto-rotate' from the model-viewer tags by default.
     return f"""
     <div class="column is-one-quarter-desktop is-half-tablet gallery-item is-hidden-by-pagination">
       <div class="card model-card">
         <div class="model-grid">
           <figure class="image">
-            <model-viewer data-src="{model_src}" alt="Original {title}" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+            <model-viewer data-src="{model_src}" alt="Original {title}" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
             <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
           </figure>
           <figure class="image">
-            <model-viewer data-src="{model_ours}" alt="Edited {title}" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+            <model-viewer data-src="{model_ours}" alt="Edited {title}" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
             <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
           </figure>
           <figure class="image">
-            <model-viewer data-src="{model_neutral}" alt="Un-textured {title}" camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+            <model-viewer data-src="{model_neutral}" alt="Un-textured {title}" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
             <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
           </figure>
         </div>
@@ -69,10 +69,8 @@ def generate_full_section():
         print(f"Error: Could not find or sort numbered subfolders in '{INPUT_MODEL_DIR}'.")
         return
 
-    # Generate the HTML for all cards
     all_cards_html = "".join([create_card_html(folder) for folder in subfolders])
 
-    # Assemble the final, self-contained section HTML
     full_section_html = f"""
 <!-- ===================================================================
      Auto-Generated Responsive Paginated Gallery
@@ -87,128 +85,28 @@ def generate_full_section():
       {all_cards_html.strip()}
     </div>
     
-    <!-- This div will be populated with pagination buttons by the script -->
     <div id="gallery-pagination" class="buttons is-centered mt-5"></div>
   </div>
 </section>
 
 <!-- Styles and Script for the Responsive Paginated Gallery -->
 <style>
-  /* This new class hides items. JS will toggle it. */
   .is-hidden-by-pagination {{
     display: none !important;
   }}
-
-  /* Responsive styles for mobile */
   @media screen and (max-width: 768px) {{
     #recon-gallery.section {{
-      padding: 2rem 1rem; /* More comfortable padding for mobile scrolling */
+      padding: 2rem 1rem;
     }}
-    
-    /* Center the column container */
     #model-gallery-container.columns {{
         justify-content: center;
     }}
-
-    /* Make the single column wider */
     #model-gallery-container > .gallery-item {{
-        flex: 0 0 85%; /* Set a fixed width for the column */
+        flex: 0 0 85%;
         width: 85%;
     }}
   }}
 </style>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {{
-    const galleryContainer = document.getElementById('model-gallery-container');
-    const paginationContainer = document.getElementById('gallery-pagination');
-    
-    if (!galleryContainer) return;
-
-    const allItems = Array.from(galleryContainer.querySelectorAll('.gallery-item'));
-    let activeModels = [];
-
-    const activateModels = (itemsToShow) => {{
-      // Deactivate previously active models to save resources
-      activeModels.forEach(viewer => viewer.removeAttribute('src'));
-      activeModels = [];
-
-      // Activate models for the new set of items
-      itemsToShow.forEach(item => {{
-        const viewers = item.querySelectorAll('model-viewer');
-        viewers.forEach(viewer => {{
-          if (viewer.dataset.src && !viewer.getAttribute('src')) {{
-            viewer.setAttribute('src', viewer.dataset.src);
-            activeModels.push(viewer);
-          }}
-        }});
-      }});
-    }};
-    
-    const showPage = (pageNumber, itemsPerPage) => {{
-        const startIndex = (pageNumber - 1) * itemsPerPage;
-        const endIndex = startIndex + itemsPerPage;
-        const itemsToShow = [];
-
-        allItems.forEach((item, index) => {{
-            // Toggle a class instead of using inline styles
-            if (index >= startIndex && index < endIndex) {{
-                item.classList.remove('is-hidden-by-pagination');
-                itemsToShow.push(item);
-            }} else {{
-                item.classList.add('is-hidden-by-pagination');
-            }}
-        }});
-        activateModels(itemsToShow);
-    }};
-
-    const setupPagination = () => {{
-        const isMobile = window.innerWidth <= 768;
-        const itemsPerPage = isMobile ? 4 : 8;
-        const totalPages = Math.ceil(allItems.length / itemsPerPage);
-
-        // --- NEW: Disable auto-rotate on mobile for performance ---
-        const allViewers = galleryContainer.querySelectorAll('model-viewer');
-        allViewers.forEach(viewer => {{
-            if (isMobile) {{
-                viewer.removeAttribute('auto-rotate');
-            }} else {{
-                viewer.setAttribute('auto-rotate', '');
-            }}
-        }});
-
-        paginationContainer.innerHTML = ''; // Clear old buttons
-
-        if (totalPages > 1) {{
-            for (let i = 1; i <= totalPages; i++) {{
-                const button = document.createElement('button');
-                button.className = 'button pagination-btn';
-                button.dataset.page = i;
-                button.textContent = `Page ${{i}}`;
-                if (i === 1) {{
-                    button.classList.add('is-link');
-                }}
-                
-                button.addEventListener('click', () => {{
-                    paginationContainer.querySelectorAll('.pagination-btn').forEach(btn => btn.classList.remove('is-link'));
-                    button.classList.add('is-link');
-                    showPage(i, itemsPerPage);
-                }});
-                paginationContainer.appendChild(button);
-            }}
-        }} else {{
-          // If only one page, hide the pagination container
-          paginationContainer.style.display = 'none';
-        }}
-        
-        showPage(1, itemsPerPage);
-    }};
-
-    setupPagination();
-    // Use a resize observer for better performance than the 'resize' event
-    new ResizeObserver(setupPagination).observe(document.body);
-  }});
-</script>
 """
     print(full_section_html)
 

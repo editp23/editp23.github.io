@@ -387,98 +387,251 @@
     </div>
   </section>
 
-  <section class="section has-background-light">
-    <div class="container is-max-desktop">
-      <div class="box">
-        <h2 class="title is-3 has-text-centered">
-          How EditP23 Works: From a 2D Edit to a 3D Model
-        </h2>
-        <p class="subtitle is-6 has-text-centered" style="margin: -1rem auto 2.5rem; max-width: 60rem;">
-          The EditP23 pipeline propagates your 2D edit into a full, 3D-consistent object modification. The process is designed to be intuitive, requiring only a single edited view to guide the entire 3D update. Here’s how it unfolds:
-        </p>
-  
-        <!-- Custom styled list to create the flow diagram effect -->
-        <div class="flow-steps">
-  
-          <!-- Step 1 -->
-          <div class="flow-step">
-            <div class="flow-step-number">1</div>
-            <div class="flow-step-content">
-              <h4 class="title is-5 mb-2">Rendering & Initial Setup</h4>
-              <p>The process begins with a 3D object, which is rendered to generate a multi-view grid (mv-grid) composed of six different viewpoints, and an additional fixed prompt view.</p>
+<!-- ===================================================================
+     NEW Interactive Method Section
+     =================================================================== -->
+     <section class="section has-background-light">
+      <div class="container is-max-desktop">
+        <div class="box">
+          <h2 class="title is-3 has-text-centered">
+            How EditP23 Works: From a 2D Edit to a 3D Model
+          </h2>
+          <p class="subtitle is-6 has-text-centered" style="margin: -1rem auto 2.5rem; max-width: 60rem;">
+            The EditP23 pipeline propagates your 2D edit into a full, 3D-consistent object modification. The process is designed to be intuitive, requiring only a single edited view to guide the entire 3D update. Here’s how it unfolds:
+          </p>
+    
+          <!-- Accordion Container -->
+          <div class="accordion-container">
+    
+            <!-- Accordion Item 1 -->
+            <div class="accordion-item">
+              <div class="accordion-trigger">
+                <div class="flow-step-number">1</div>
+                <h4 class="title is-5">Rendering & Initial Setup</h4>
+                <span class="accordion-icon"><i class="fas fa-plus"></i></span>
+              </div>
+              <div class="accordion-content">
+                <p>The process begins with a 3D object, which is rendered to generate a multi-view grid (mv-grid) composed of six different viewpoints, and an additional fixed prompt view.</p>
+              </div>
             </div>
-          </div>
-  
-          <!-- Step 2 -->
-          <div class="flow-step">
-            <div class="flow-step-number">2</div>
-            <div class="flow-step-content">
-              <h4 class="title is-5 mb-2">The 2D Edit</h4>
-              <p>The user can take the prompt view and modify it with any preferred 2D editing tool, such as painting or generative AI. This user-edited image becomes the <strong>target view</strong>, which guides the 3D edit.</p>
+    
+            <!-- Accordion Item 2 -->
+            <div class="accordion-item">
+              <div class="accordion-trigger">
+                <div class="flow-step-number">2</div>
+                <h4 class="title is-5">The 2D Edit</h4>
+                <span class="accordion-icon"><i class="fas fa-plus"></i></span>
+              </div>
+              <div class="accordion-content">
+                <p>The user can take the prompt view and modify it with any preferred 2D editing tool, such as painting or generative AI. This user-edited image becomes the <strong>target view</strong>, which guides the 3D edit.</p>
+              </div>
             </div>
-          </div>
-  
-          <!-- Step 3 (The Diagram) -->
-          <div class="flow-step">
-            <div class="flow-step-number">3</div>
-            <div class="flow-step-content">
-              <h4 class="title is-5 mb-2">Edit Propagation via Multi-View Diffusion</h4>
-              <p>The core of the method is a technique called "edit-aware denoising". At each step, the system runs two parallel processes within a multi-view diffusion model:</p>
-              <ul style="list-style-type: disc; margin-left: 20px; margin-top: 10px;">
-                <li><strong>Source Branch:</strong> The original source mv-grid and source view are fed into the model to predict the velocity towards the original object.</li>
-                <li><strong>Target Branch:</strong> The current, in-progress grid is conditioned on the target view to predict the velocity towards the final, edited object.</li>
-              </ul>
-              <!-- The existing diagram is now integrated as part of the flow -->
-              <figure class="image mt-4">
-                <img src="static/media/method/method_fig2.png" alt="Edit-guided denoising at one timestep">
+    
+            <!-- Accordion Item 3 (with Diagram) - NOW ACTIVE BY DEFAULT -->
+            <div class="accordion-item is-active">
+              <div class="accordion-trigger">
+                <div class="flow-step-number">3</div>
+                <h4 class="title is-5">Edit Propagation via Multi-View Diffusion</h4>
+                <span class="accordion-icon"><i class="fas fa-plus"></i></span>
+              </div>
+              <div class="accordion-content">
+                <p>The core of the method is a technique called "edit-aware denoising". At each step, the system runs two parallel processes within a multi-view diffusion model:</p>
+                <ul style="list-style-type: disc; margin-left: 20px; margin-top: 10px; margin-bottom: 20px;">
+                  <li><strong>Source Branch:</strong> The original source mv-grid and source view are fed into the model to predict the velocity towards the original object.</li>
+                  <li><strong>Target Branch:</strong> The current, in-progress grid is conditioned on the target view to predict the velocity towards the final, edited object.</li>
+                </ul>
+                <!-- UPDATED: Image is now wrapped in a link to trigger the lightbox -->
+                <a href="static/media/method/method_fig2.png" class="lightbox-trigger">
+                  <figure class="image">
+                    <img src="static/media/method/method_fig2.png" alt="Edit-guided denoising at one timestep" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                  </figure>
+                </a>
                 <figcaption class="method-caption mt-2">
                   By subtracting the source prediction from the target prediction, the model calculates an "edit-only delta" (<i>v<sub>Δ</sub></i>). This delta isolates the user's intended changes, ensuring the rest of the object's structure and appearance are preserved. This delta then guides the update for the next iteration, consistently propagating the edit across all views in the grid.
                 </figcaption>
-              </figure>
+              </div>
             </div>
-          </div>
-  
-          <!-- Step 4 -->
-          <div class="flow-step">
-            <div class="flow-step-number">4</div>
-            <div class="flow-step-content">
-              <h4 class="title is-5 mb-2">Final 3D Reconstruction</h4>
-              <p>After the diffusion process completes, the final, edited multi-view grid is generated. This edited grid is then converted into a textured 3D mesh using a reconstruction module like InstantMesh. The output is a fully edited 3D object.</p>
+    
+            <!-- Accordion Item 4 -->
+            <div class="accordion-item">
+              <div class="accordion-trigger">
+                <div class="flow-step-number">4</div>
+                <h4 class="title is-5">Final 3D Reconstruction</h4>
+                <span class="accordion-icon"><i class="fas fa-plus"></i></span>
+              </div>
+              <div class="accordion-content">
+                <p>After the diffusion process completes, the final, edited multi-view grid is generated. This edited grid is then converted into a textured 3D mesh using a reconstruction module like InstantMesh. The output is a fully edited 3D object.</p>
+              </div>
             </div>
+    
           </div>
-  
         </div>
       </div>
+    </section>
+    
+    <!-- NEW: The Modal (Lightbox) structure for the expandable image -->
+    <div id="image-lightbox" class="modal">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <p class="image">
+          <img src="" alt="Expanded method diagram">
+        </p>
+      </div>
+      <button class="modal-close is-large" aria-label="close"></button>
     </div>
-  </section>
-  
-  
+    
+    
+    <!-- Styles and Script for the Accordion and Lightbox -->
+    <style>
+      .accordion-container {
+        border: 1px solid #dbdbdb;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .accordion-item {
+        border-bottom: 1px solid #dbdbdb;
+      }
+      .accordion-item:last-child {
+        border-bottom: none;
+      }
+      .accordion-trigger {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 1.5rem;
+        cursor: pointer;
+        background-color: #fff;
+        transition: background-color 0.2s ease;
+      }
+      .accordion-trigger:hover {
+        background-color: #fafafa;
+      }
+      .accordion-trigger .title {
+        margin-bottom: 0;
+        flex-grow: 1;
+      }
+      .accordion-icon {
+        transition: transform 0.3s ease;
+        color: var(--theme-color, #007bff);
+      }
+      .accordion-item.is-active .accordion-icon {
+        transform: rotate(45deg);
+      }
+      .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease, padding 0.4s ease;
+        padding: 0 1.5rem;
+        background-color: #fdfdfd;
+      }
+      .accordion-item.is-active .accordion-content {
+        max-height: 2000px; /* A large value to allow content to expand */
+        padding: 1.5rem;
+      }
+      .flow-step-number {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: var(--theme-color, #007bff);
+        color: white;
+        font-weight: bold;
+        font-family: 'Google Sans', sans-serif;
+        font-size: 1.1rem;
+      }
+      .lightbox-trigger {
+        cursor: zoom-in;
+      }
+      
+      /* NEW: Responsive styles for the diagram image on mobile */
+      @media screen and (max-width: 768px) {
+        .accordion-content .image {
+          /* Make the image break out of the container's padding */
+          width: calc(100% + 3rem); /* 1.5rem padding on each side */
+          margin-left: -1.5rem;
+          margin-right: -1.5rem;
+          max-width: none; /* Override any max-width constraints */
+        }
+        .accordion-content .image img {
+          border-radius: 0; /* Remove border-radius for full-bleed effect */
+        }
+      }
+    </style>
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // --- Accordion Logic ---
+        const accordionItems = document.querySelectorAll('.accordion-item');
+        accordionItems.forEach(item => {
+          const trigger = item.querySelector('.accordion-trigger');
+          trigger.addEventListener('click', () => {
+            const wasActive = item.classList.contains('is-active');
+            accordionItems.forEach(otherItem => {
+              otherItem.classList.remove('is-active');
+            });
+            if (!wasActive) {
+              item.classList.add('is-active');
+            }
+          });
+        });
+    
+        // --- Lightbox Logic ---
+        const lightbox = document.getElementById('image-lightbox');
+        const lightboxTriggers = document.querySelectorAll('.lightbox-trigger');
+        
+        if (lightbox) {
+          const closeElements = lightbox.querySelectorAll('.modal-background, .modal-close');
+          
+          lightboxTriggers.forEach(trigger => {
+            trigger.addEventListener('click', event => {
+              event.preventDefault(); // Prevent link from navigating
+              const imageUrl = trigger.getAttribute('href');
+              lightbox.querySelector('img').setAttribute('src', imageUrl);
+              document.documentElement.classList.add('is-clipped'); // Prevent background scrolling
+              lightbox.classList.add('is-active');
+            });
+          });
+    
+          closeElements.forEach(el => {
+            el.addEventListener('click', () => {
+              document.documentElement.classList.remove('is-clipped');
+              lightbox.classList.remove('is-active');
+            });
+          });
+        }
+      });
+    </script>
+      
   <!-- ===================================================================
      Auto-Generated Responsive Paginated Gallery
      =================================================================== -->
-  <section class="section" id="recon-gallery">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 has-text-centered mb-5">
-        Interactive 3D Reconstruction Gallery
-      </h2>
 
-      <div id="model-gallery-container" class="columns is-multiline is-variable is-4">
-        <div class="column is-one-quarter-desktop is-half-tablet gallery-item is-hidden-by-pagination">
+<!-- ===================================================================
+     Auto-Generated Responsive Paginated Gallery
+     =================================================================== -->
+     <section class="section" id="recon-gallery">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered mb-5">
+          Interactive 3D Reconstruction Gallery
+        </h2>
+      
+        <div id="model-gallery-container" class="columns is-multiline is-variable is-4">
+          <div class="column is-one-quarter-desktop is-half-tablet gallery-item is-hidden-by-pagination">
           <div class="card model-card">
             <div class="model-grid">
               <figure class="image">
-                <model-viewer data-src="static/media/recon/1/src.glb" alt="Original Cartoonish car" camera-controls
-                  auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/1/src.glb" alt="Original Cartoonish car" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
               </figure>
               <figure class="image">
-                <model-viewer data-src="static/media/recon/1/ours-conv.glb" alt="Edited Cartoonish car" camera-controls
-                  auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/1/ours-conv.glb" alt="Edited Cartoonish car" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
               </figure>
               <figure class="image">
-                <model-viewer data-src="static/media/recon/1/ours-conv-neutral.glb" alt="Un-textured Cartoonish car"
-                  camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/1/ours-conv-neutral.glb" alt="Un-textured Cartoonish car" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
               </figure>
             </div>
@@ -489,18 +642,15 @@
           <div class="card model-card">
             <div class="model-grid">
               <figure class="image">
-                <model-viewer data-src="static/media/recon/2/src.glb" alt="Original Car with wings" camera-controls
-                  auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/2/src.glb" alt="Original Car with wings" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
               </figure>
               <figure class="image">
-                <model-viewer data-src="static/media/recon/2/ours-conv.glb" alt="Edited Car with wings" camera-controls
-                  auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/2/ours-conv.glb" alt="Edited Car with wings" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
               </figure>
               <figure class="image">
-                <model-viewer data-src="static/media/recon/2/ours-conv-neutral.glb" alt="Un-textured Car with wings"
-                  camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/2/ours-conv-neutral.glb" alt="Un-textured Car with wings" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
               </figure>
             </div>
@@ -511,18 +661,15 @@
           <div class="card model-card">
             <div class="model-grid">
               <figure class="image">
-                <model-viewer data-src="static/media/recon/3/src.glb" alt="Original Fox with open eyes" camera-controls
-                  auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/3/src.glb" alt="Original Fox with open eyes" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
               </figure>
               <figure class="image">
-                <model-viewer data-src="static/media/recon/3/ours-conv.glb" alt="Edited Fox with open eyes"
-                  camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/3/ours-conv.glb" alt="Edited Fox with open eyes" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
               </figure>
               <figure class="image">
-                <model-viewer data-src="static/media/recon/3/ours-conv-neutral.glb" alt="Un-textured Fox with open eyes"
-                  camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/3/ours-conv-neutral.glb" alt="Un-textured Fox with open eyes" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
               </figure>
             </div>
@@ -533,18 +680,15 @@
           <div class="card model-card">
             <div class="model-grid">
               <figure class="image">
-                <model-viewer data-src="static/media/recon/4/src.glb" alt="Original Golden R2D2" camera-controls
-                  auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/4/src.glb" alt="Original Golden R2D2" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
               </figure>
               <figure class="image">
-                <model-viewer data-src="static/media/recon/4/ours-conv.glb" alt="Edited Golden R2D2" camera-controls
-                  auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/4/ours-conv.glb" alt="Edited Golden R2D2" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
               </figure>
               <figure class="image">
-                <model-viewer data-src="static/media/recon/4/ours-conv-neutral.glb" alt="Un-textured Golden R2D2"
-                  camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/4/ours-conv-neutral.glb" alt="Un-textured Golden R2D2" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
               </figure>
             </div>
@@ -555,19 +699,15 @@
           <div class="card model-card">
             <div class="model-grid">
               <figure class="image">
-                <model-viewer data-src="static/media/recon/5/src.glb" alt="Original Robot with sunglasses"
-                  camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/5/src.glb" alt="Original Robot with sunglasses" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
               </figure>
               <figure class="image">
-                <model-viewer data-src="static/media/recon/5/ours-conv.glb" alt="Edited Robot with sunglasses"
-                  camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/5/ours-conv.glb" alt="Edited Robot with sunglasses" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
               </figure>
               <figure class="image">
-                <model-viewer data-src="static/media/recon/5/ours-conv-neutral.glb"
-                  alt="Un-textured Robot with sunglasses" camera-controls auto-rotate camera-orbit="-45deg 90deg auto"
-                  shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/5/ours-conv-neutral.glb" alt="Un-textured Robot with sunglasses" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
               </figure>
             </div>
@@ -578,19 +718,15 @@
           <div class="card model-card">
             <div class="model-grid">
               <figure class="image">
-                <model-viewer data-src="static/media/recon/6/src.glb" alt="Original Terrier with beanie" camera-controls
-                  auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/6/src.glb" alt="Original Terrier with beanie" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
               </figure>
               <figure class="image">
-                <model-viewer data-src="static/media/recon/6/ours-conv.glb" alt="Edited Terrier with beanie"
-                  camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/6/ours-conv.glb" alt="Edited Terrier with beanie" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
               </figure>
               <figure class="image">
-                <model-viewer data-src="static/media/recon/6/ours-conv-neutral.glb"
-                  alt="Un-textured Terrier with beanie" camera-controls auto-rotate camera-orbit="-45deg 90deg auto"
-                  shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/6/ours-conv-neutral.glb" alt="Un-textured Terrier with beanie" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
               </figure>
             </div>
@@ -601,19 +737,15 @@
           <div class="card model-card">
             <div class="model-grid">
               <figure class="image">
-                <model-viewer data-src="static/media/recon/7/src.glb" alt="Original Batman with backpack"
-                  camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/7/src.glb" alt="Original Batman with backpack" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
               </figure>
               <figure class="image">
-                <model-viewer data-src="static/media/recon/7/ours-conv.glb" alt="Edited Batman with backpack"
-                  camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/7/ours-conv.glb" alt="Edited Batman with backpack" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
               </figure>
               <figure class="image">
-                <model-viewer data-src="static/media/recon/7/ours-conv-neutral.glb"
-                  alt="Un-textured Batman with backpack" camera-controls auto-rotate camera-orbit="-45deg 90deg auto"
-                  shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/7/ours-conv-neutral.glb" alt="Un-textured Batman with backpack" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
               </figure>
             </div>
@@ -624,19 +756,15 @@
           <div class="card model-card">
             <div class="model-grid">
               <figure class="image">
-                <model-viewer data-src="static/media/recon/8/src.glb" alt="Original Grogu with red robe" camera-controls
-                  auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/8/src.glb" alt="Original Grogu with red robe" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
               </figure>
               <figure class="image">
-                <model-viewer data-src="static/media/recon/8/ours-conv.glb" alt="Edited Grogu with red robe"
-                  camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/8/ours-conv.glb" alt="Edited Grogu with red robe" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
               </figure>
               <figure class="image">
-                <model-viewer data-src="static/media/recon/8/ours-conv-neutral.glb"
-                  alt="Un-textured Grogu with red robe" camera-controls auto-rotate camera-orbit="-45deg 90deg auto"
-                  shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/8/ours-conv-neutral.glb" alt="Un-textured Grogu with red robe" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
               </figure>
             </div>
@@ -647,18 +775,15 @@
           <div class="card model-card">
             <div class="model-grid">
               <figure class="image">
-                <model-viewer data-src="static/media/recon/9/src.glb" alt="Original Fox with tuxedo" camera-controls
-                  auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/9/src.glb" alt="Original Fox with tuxedo" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
               </figure>
               <figure class="image">
-                <model-viewer data-src="static/media/recon/9/ours-conv.glb" alt="Edited Fox with tuxedo" camera-controls
-                  auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/9/ours-conv.glb" alt="Edited Fox with tuxedo" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
               </figure>
               <figure class="image">
-                <model-viewer data-src="static/media/recon/9/ours-conv-neutral.glb" alt="Un-textured Fox with tuxedo"
-                  camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/9/ours-conv-neutral.glb" alt="Un-textured Fox with tuxedo" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
               </figure>
             </div>
@@ -669,18 +794,15 @@
           <div class="card model-card">
             <div class="model-grid">
               <figure class="image">
-                <model-viewer data-src="static/media/recon/10/src.glb" alt="Original Gothic cathedral" camera-controls
-                  auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/10/src.glb" alt="Original Gothic cathedral" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
               </figure>
               <figure class="image">
-                <model-viewer data-src="static/media/recon/10/ours-conv.glb" alt="Edited Gothic cathedral"
-                  camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/10/ours-conv.glb" alt="Edited Gothic cathedral" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
               </figure>
               <figure class="image">
-                <model-viewer data-src="static/media/recon/10/ours-conv-neutral.glb" alt="Un-textured Gothic cathedral"
-                  camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/10/ours-conv-neutral.glb" alt="Un-textured Gothic cathedral" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
               </figure>
             </div>
@@ -691,19 +813,15 @@
           <div class="card model-card">
             <div class="model-grid">
               <figure class="image">
-                <model-viewer data-src="static/media/recon/11/src.glb" alt="Original Terrier with Paddington's hat"
-                  camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/11/src.glb" alt="Original Terrier with Paddington's hat" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
               </figure>
               <figure class="image">
-                <model-viewer data-src="static/media/recon/11/ours-conv.glb" alt="Edited Terrier with Paddington's hat"
-                  camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/11/ours-conv.glb" alt="Edited Terrier with Paddington's hat" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
               </figure>
               <figure class="image">
-                <model-viewer data-src="static/media/recon/11/ours-conv-neutral.glb"
-                  alt="Un-textured Terrier with Paddington's hat" camera-controls auto-rotate
-                  camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/11/ours-conv-neutral.glb" alt="Un-textured Terrier with Paddington's hat" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
               </figure>
             </div>
@@ -714,18 +832,15 @@
           <div class="card model-card">
             <div class="model-grid">
               <figure class="image">
-                <model-viewer data-src="static/media/recon/12/src.glb" alt="Original Vespa" camera-controls auto-rotate
-                  camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/12/src.glb" alt="Original Vespa" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
               </figure>
               <figure class="image">
-                <model-viewer data-src="static/media/recon/12/ours-conv.glb" alt="Edited Vespa" camera-controls
-                  auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/12/ours-conv.glb" alt="Edited Vespa" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
               </figure>
               <figure class="image">
-                <model-viewer data-src="static/media/recon/12/ours-conv-neutral.glb" alt="Un-textured Vespa"
-                  camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/12/ours-conv-neutral.glb" alt="Un-textured Vespa" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
               </figure>
             </div>
@@ -736,19 +851,15 @@
           <div class="card model-card">
             <div class="model-grid">
               <figure class="image">
-                <model-viewer data-src="static/media/recon/13/src.glb" alt="Original Grogu in the-force pose"
-                  camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/13/src.glb" alt="Original Grogu in the-force pose" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
               </figure>
               <figure class="image">
-                <model-viewer data-src="static/media/recon/13/ours-conv.glb" alt="Edited Grogu in the-force pose"
-                  camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/13/ours-conv.glb" alt="Edited Grogu in the-force pose" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
               </figure>
               <figure class="image">
-                <model-viewer data-src="static/media/recon/13/ours-conv-neutral.glb"
-                  alt="Un-textured Grogu in the-force pose" camera-controls auto-rotate camera-orbit="-45deg 90deg auto"
-                  shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/13/ours-conv-neutral.glb" alt="Un-textured Grogu in the-force pose" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
               </figure>
             </div>
@@ -759,19 +870,15 @@
           <div class="card model-card">
             <div class="model-grid">
               <figure class="image">
-                <model-viewer data-src="static/media/recon/14/src.glb" alt="Original Superman in Superman pose"
-                  camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/14/src.glb" alt="Original Superman in Superman pose" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
               </figure>
               <figure class="image">
-                <model-viewer data-src="static/media/recon/14/ours-conv.glb" alt="Edited Superman in Superman pose"
-                  camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/14/ours-conv.glb" alt="Edited Superman in Superman pose" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
               </figure>
               <figure class="image">
-                <model-viewer data-src="static/media/recon/14/ours-conv-neutral.glb"
-                  alt="Un-textured Superman in Superman pose" camera-controls auto-rotate
-                  camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/14/ours-conv-neutral.glb" alt="Un-textured Superman in Superman pose" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
               </figure>
             </div>
@@ -782,18 +889,15 @@
           <div class="card model-card">
             <div class="model-grid">
               <figure class="image">
-                <model-viewer data-src="static/media/recon/15/src.glb" alt="Original Batmobile" camera-controls
-                  auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/15/src.glb" alt="Original Batmobile" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
               </figure>
               <figure class="image">
-                <model-viewer data-src="static/media/recon/15/ours-conv.glb" alt="Edited Batmobile" camera-controls
-                  auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/15/ours-conv.glb" alt="Edited Batmobile" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
               </figure>
               <figure class="image">
-                <model-viewer data-src="static/media/recon/15/ours-conv-neutral.glb" alt="Un-textured Batmobile"
-                  camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/15/ours-conv-neutral.glb" alt="Un-textured Batmobile" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
               </figure>
             </div>
@@ -804,60 +908,47 @@
           <div class="card model-card">
             <div class="model-grid">
               <figure class="image">
-                <model-viewer data-src="static/media/recon/16/src.glb" alt="Original Lego figure of Grogu"
-                  camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/16/src.glb" alt="Original Lego figure of Grogu" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">Original</figcaption>
               </figure>
               <figure class="image">
-                <model-viewer data-src="static/media/recon/16/ours-conv.glb" alt="Edited Lego figure of Grogu"
-                  camera-controls auto-rotate camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/16/ours-conv.glb" alt="Edited Lego figure of Grogu" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">Edited</figcaption>
               </figure>
               <figure class="image">
-                <model-viewer data-src="static/media/recon/16/ours-conv-neutral.glb"
-                  alt="Un-textured Lego figure of Grogu" camera-controls auto-rotate camera-orbit="-45deg 90deg auto"
-                  shadow-intensity="1"></model-viewer>
+                <model-viewer data-src="static/media/recon/16/ours-conv-neutral.glb" alt="Un-textured Lego figure of Grogu" camera-controls camera-orbit="-45deg 90deg auto" shadow-intensity="1"></model-viewer>
                 <figcaption class="has-text-centered is-size-7 mt-1">No texture</figcaption>
               </figure>
             </div>
             <p class="has-text-centered is-size-6 mt-3">Lego figure of Grogu</p>
           </div>
         </div>
+        </div>
+        
+        <div id="gallery-pagination" class="buttons is-centered mt-5"></div>
       </div>
-
-      <!-- This div will be populated with pagination buttons by the script -->
-      <div id="gallery-pagination" class="buttons is-centered mt-5"></div>
-    </div>
-  </section>
-
-  <!-- Styles and Script for the Responsive Paginated Gallery -->
-  <style>
-    /* This new class hides items. JS will toggle it. */
-    .is-hidden-by-pagination {
-      display: none !important;
-    }
-
-    /* Responsive styles for mobile */
-    @media screen and (max-width: 768px) {
-      #recon-gallery.section {
-        padding: 2rem 1rem;
-        /* More comfortable padding for mobile scrolling */
+    </section>
+    
+    <!-- Styles and Script for the Responsive Paginated Gallery -->
+    <style>
+      .is-hidden-by-pagination {
+        display: none !important;
       }
-
-      /* Center the column container */
-      #model-gallery-container.columns {
-        justify-content: center;
+      @media screen and (max-width: 768px) {
+        #recon-gallery.section {
+          padding: 2rem 1rem;
+        }
+        #model-gallery-container.columns {
+            justify-content: center;
+        }
+        #model-gallery-container > .gallery-item {
+            flex: 0 0 85%;
+            width: 85%;
+        }
       }
-
-      /* Make the single column wider */
-      #model-gallery-container>.gallery-item {
-        flex: 0 0 85%;
-        /* Set a fixed width for the column */
-        width: 85%;
-      }
-    }
-  </style>
-
+    </style>
+    
+    
 
 
 
@@ -913,145 +1004,149 @@
       </div>
     </div>
   </footer>
-  <script>
-    // --- BibTeX copy helper ---
-    function copyBibtex() {
-      const ta = document.getElementById('bibtex-snippet');
-      if (ta) {
-        ta.select();
-        document.execCommand('copy');
-      }
-    }
-
-    // --- Main page logic ---
-    document.addEventListener('DOMContentLoaded', () => {
-
-      // --- Logic for the Multi-View Gallery "Load More" button ---
-      const setupMvGalleryLoadMore = () => {
-        const loadMoreBtn = document.getElementById('load-more-mv-btn');
-        const galleryContainer = document.getElementById('mv-gallery-container');
-        if (!loadMoreBtn || !galleryContainer) return;
-
-        const loadMoreContainer = loadMoreBtn.parentElement;
-        const hiddenItems = galleryContainer.querySelectorAll('.card.is-hidden');
-
-        if (hiddenItems.length === 0) {
-          if (loadMoreContainer) loadMoreContainer.style.display = 'none';
-          return;
+       <script>
+        // --- BibTeX copy helper ---
+        function copyBibtex() {
+          const ta = document.getElementById('bibtex-snippet');
+          if (ta) {
+            ta.select();
+            document.execCommand('copy');
+          }
         }
-
-        loadMoreBtn.addEventListener('click', () => {
-          hiddenItems.forEach(item => item.classList.remove('is-hidden'));
-          if (loadMoreContainer) loadMoreContainer.style.display = 'none';
-        });
-      };
-      setupMvGalleryLoadMore();
-
-
-      // --- Logic for the Paginated 3D Model Gallery ---
-      const setupReconGalleryPagination = () => {
-        const galleryContainer = document.getElementById('model-gallery-container');
-        const paginationContainer = document.getElementById('gallery-pagination');
-        if (!galleryContainer || !paginationContainer) return;
-
-        const allItems = Array.from(galleryContainer.querySelectorAll('.gallery-item'));
-        let activeModels = [];
-        let currentPage = 1; // Keep track of the current page
-
-        const activateModels = (itemsToShow) => {
-          activeModels.forEach(viewer => viewer.removeAttribute('src'));
-          activeModels = [];
-          itemsToShow.forEach(item => {
-            const viewers = item.querySelectorAll('model-viewer');
-            viewers.forEach(viewer => {
-              if (viewer.dataset.src && !viewer.getAttribute('src')) {
-                viewer.setAttribute('src', viewer.dataset.src);
-                activeModels.push(viewer);
-              }
-            });
-          });
-        };
-        
-        const showPage = (pageNumber, itemsPerPage) => {
-            currentPage = pageNumber;
-            const startIndex = (pageNumber - 1) * itemsPerPage;
-            const endIndex = startIndex + itemsPerPage;
-            const itemsToShow = [];
-
-            allItems.forEach((item, index) => {
-                const isVisible = (index >= startIndex && index < endIndex);
-                item.classList.toggle('is-hidden-by-pagination', !isVisible);
-                if (isVisible) {
-                    itemsToShow.push(item);
-                }
-            });
-            activateModels(itemsToShow);
-        };
-
-        const setupPaginationUI = () => {
-            const isMobile = window.innerWidth <= 768;
-            const itemsPerPage = isMobile ? 4 : 8;
-            const totalPages = Math.ceil(allItems.length / itemsPerPage);
-
-            // Adjust current page if it's out of bounds after resize
-            if (currentPage > totalPages) {
-                currentPage = totalPages;
+    
+        // --- Main page logic ---
+        document.addEventListener('DOMContentLoaded', () => {
+    
+          // --- Logic for the Multi-View Gallery "Load More" button ---
+          const setupMvGalleryLoadMore = () => {
+            const loadMoreBtn = document.getElementById('load-more-mv-btn');
+            const galleryContainer = document.getElementById('mv-gallery-container');
+            if (!loadMoreBtn || !galleryContainer) return;
+    
+            const loadMoreContainer = loadMoreBtn.parentElement;
+            const hiddenItems = galleryContainer.querySelectorAll('.card.is-hidden');
+    
+            if (hiddenItems.length === 0) {
+              if (loadMoreContainer) loadMoreContainer.style.display = 'none';
+              return;
             }
-
-            const allViewers = document.querySelectorAll('#model-gallery-container model-viewer');
-            allViewers.forEach(viewer => {
-              if (isMobile) {
-                viewer.removeAttribute('auto-rotate');
-              } else {
-                if (!viewer.hasAttribute('auto-rotate')) {
-                   viewer.setAttribute('auto-rotate', '');
-                }
-              }
+    
+            loadMoreBtn.addEventListener('click', () => {
+              hiddenItems.forEach(item => item.classList.remove('is-hidden'));
+              if (loadMoreContainer) loadMoreContainer.style.display = 'none';
             });
-
-            paginationContainer.innerHTML = '';
-
-            if (totalPages > 1) {
-              paginationContainer.style.display = 'flex';
-              for (let i = 1; i <= totalPages; i++) {
-                  const button = document.createElement('button');
-                  button.className = 'button pagination-btn';
-                  button.dataset.page = i;
-                  button.textContent = `Page ${i}`;
-                  if (i === currentPage) {
-                      button.classList.add('is-link');
+          };
+          setupMvGalleryLoadMore();
+    
+    
+          // --- Logic for the Paginated 3D Model Gallery ---
+          const setupReconGalleryPagination = () => {
+            const galleryContainer = document.getElementById('model-gallery-container');
+            const paginationContainer = document.getElementById('gallery-pagination');
+            if (!galleryContainer || !paginationContainer) return;
+    
+            const allItems = Array.from(galleryContainer.querySelectorAll('.gallery-item'));
+            let activeModels = [];
+            let currentPage = 1; // Keep track of the current page
+    
+            const activateModels = (itemsToShow) => {
+              activeModels.forEach(viewer => viewer.removeAttribute('src'));
+              activeModels = [];
+              itemsToShow.forEach(item => {
+                const viewers = item.querySelectorAll('model-viewer');
+                viewers.forEach(viewer => {
+                  if (viewer.dataset.src && !viewer.getAttribute('src')) {
+                    viewer.setAttribute('src', viewer.dataset.src);
+                    activeModels.push(viewer);
                   }
-                  
-                  button.addEventListener('click', () => {
-                      showPage(i, itemsPerPage);
-                      // Update active button style
-                      paginationContainer.querySelectorAll('.pagination-btn').forEach(btn => btn.classList.remove('is-link'));
-                      button.classList.add('is-link');
-                  });
-                  paginationContainer.appendChild(button);
-              }
-            } else {
-              paginationContainer.style.display = 'none';
-            }
+                });
+              });
+            };
             
-            showPage(currentPage, itemsPerPage);
-        };
-
-        // --- Debounced Resize Handler ---
-        let resizeTimeout;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(setupPaginationUI, 150); // Wait 150ms after resize stops
+            const showPage = (pageNumber, itemsPerPage) => {
+                currentPage = pageNumber;
+                const startIndex = (pageNumber - 1) * itemsPerPage;
+                const endIndex = startIndex + itemsPerPage;
+                const itemsToShow = [];
+    
+                allItems.forEach((item, index) => {
+                    const isVisible = (index >= startIndex && index < endIndex);
+                    item.classList.toggle('is-hidden-by-pagination', !isVisible);
+                    if (isVisible) {
+                        itemsToShow.push(item);
+                    }
+                });
+                activateModels(itemsToShow);
+            };
+    
+            const setupPaginationUI = () => {
+                const isMobile = window.innerWidth <= 768;
+                const itemsPerPage = isMobile ? 4 : 8;
+                const totalPages = Math.ceil(allItems.length / itemsPerPage);
+    
+                if (currentPage > totalPages) {
+                    currentPage = totalPages;
+                }
+    
+                const allViewers = document.querySelectorAll('#model-gallery-container model-viewer');
+                allViewers.forEach(viewer => {
+                  if (isMobile) {
+                    viewer.removeAttribute('auto-rotate');
+                    viewer.setAttribute('interaction-prompt', 'none');
+                  } else {
+                    if (!viewer.hasAttribute('auto-rotate')) {
+                       viewer.setAttribute('auto-rotate', '');
+                    }
+                    viewer.setAttribute('interaction-prompt', 'auto');
+                  }
+                  // THIS IS THE FIX: Explicitly re-set the camera orbit to prevent misalignment
+                  viewer.setAttribute('camera-orbit', '-45deg 90deg auto');
+                });
+    
+                paginationContainer.innerHTML = '';
+    
+                if (totalPages > 1) {
+                  paginationContainer.style.display = 'flex';
+                  for (let i = 1; i <= totalPages; i++) {
+                      const button = document.createElement('button');
+                      button.className = 'button pagination-btn';
+                      button.dataset.page = i;
+                      button.textContent = `Page ${i}`;
+                      if (i === currentPage) {
+                          button.classList.add('is-link');
+                      }
+                      
+                      button.addEventListener('click', () => {
+                          showPage(i, itemsPerPage);
+                          paginationContainer.querySelectorAll('.pagination-btn').forEach(btn => btn.classList.remove('is-link'));
+                          button.classList.add('is-link');
+                      });
+                      paginationContainer.appendChild(button);
+                  }
+                } else {
+                  paginationContainer.style.display = 'none';
+                }
+                
+                showPage(currentPage, itemsPerPage);
+            };
+    
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(setupPaginationUI, 150);
+            });
+    
+            setupPaginationUI();
+          };
+          setupReconGalleryPagination();
+    
         });
-
-        // Initial setup
-        setupPaginationUI();
-      };
-      setupReconGalleryPagination();
-
-    });
-  </script>
-
+      </script>
+    </body>
+    </html>
+        </body>
+    </html>
+    
 </body>
 
 </html>
